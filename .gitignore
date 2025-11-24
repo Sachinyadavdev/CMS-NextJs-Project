@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+build/
+*.log
+# .env.local
+# .env.*.local
+.DS_Store
+*.swp
+*.swo
+*~
+public/uploads/
+-p
+.vscode/
+replace.bat
+update_all.ps1
+update_layout.bat
+TODO.md
