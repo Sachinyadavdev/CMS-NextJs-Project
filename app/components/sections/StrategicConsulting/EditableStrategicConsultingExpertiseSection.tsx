@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { StrategicConsultingExpertiseSection } from "@/lib/db";
 import MediaUpload from "../../MediaUpload";
 import { EditableText, EditableTextarea, EditableColorPicker, EditableCheckbox } from "@/app/components/EditableInputs";
+import { strategicTheme, strategicSectionWrapper, strategicContainer, strategicPanel } from "./StrategicConsultingTheme";
 
 interface EditableStrategicConsultingExpertiseProps {
   section: StrategicConsultingExpertiseSection;
@@ -36,7 +37,7 @@ export default function EditableStrategicConsultingExpertiseSection({
       {
         id: "2",
         title: "Financial Services",
-        description: "Expert guidance in banking, insurance, and fintech regulatory compliance.",
+        description: "Expert guidance in banking, insurance and fintech regulatory compliance.",
         year: "2018",
         icon: "🏦",
         color: "#d63324",
@@ -74,11 +75,11 @@ export default function EditableStrategicConsultingExpertiseSection({
         achievements: ["25% Revenue Growth", "Enhanced Customer Loyalty"],
       },
     ],
-    backgroundColor = "#ffffff",
-    textColor = "#000000",
-    titleColor = "#000000",
-    subtitleColor = "#EF4130",
-    timelineColor = "#EF4130",
+    backgroundColor = strategicTheme.pageBackground,
+    textColor = strategicTheme.textSecondary,
+    titleColor = strategicTheme.textPrimary,
+    subtitleColor = strategicTheme.accent,
+    timelineColor = strategicTheme.accent,
     showAchievements = true,
   } = content;
 
@@ -114,8 +115,8 @@ export default function EditableStrategicConsultingExpertiseSection({
 
   if (!isEditing) {
     return (
-      <section className="py-20" style={{ backgroundColor }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={strategicSectionWrapper} style={{ backgroundColor }}>
+        <div className={`${strategicContainer} px-4 sm:px-6 lg:px-8`}>
           {/* Header */}
           <div className="text-center mb-16">
             <h2
@@ -146,8 +147,8 @@ export default function EditableStrategicConsultingExpertiseSection({
           <div className="hidden lg:block relative">
             {/* Timeline line */}
             <div
-              className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-transparent via-gray-300 to-transparent"
-              style={{ backgroundColor: timelineColor }}
+              className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full rounded-full"
+              style={{ background: `linear-gradient(180deg, transparent, ${timelineColor}66, transparent)` }}
             />
 
             {expertiseAreas.map((area, index) => {
@@ -184,7 +185,7 @@ export default function EditableStrategicConsultingExpertiseSection({
 
                   {/* Content card */}
                   <div
-                    className={`bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform cursor-pointer p-8 relative overflow-hidden group ${
+                    className={`${strategicPanel} transition-all duration-500 transform cursor-pointer p-8 relative overflow-hidden group ${
                       isLeft ? 'mr-8' : 'ml-8'
                     } ${
                       isVisible
@@ -224,18 +225,18 @@ export default function EditableStrategicConsultingExpertiseSection({
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                    <p className="mb-6 leading-relaxed text-lg" style={{ color: textColor }}>
                       {area.description}
                     </p>
 
                     {/* Skills */}
                     <div className="mb-6">
-                      <h4 className="font-semibold text-gray-700 mb-3 text-lg">Key Skills:</h4>
+                      <h4 className="font-semibold mb-3 text-lg" style={{ color: titleColor }}>Key Skills:</h4>
                       <div className="flex flex-wrap gap-3">
                         {area.skills?.map((skill, idx) => (
                           <span
                             key={idx}
-                            className="px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 text-gray-700 text-sm rounded-full border border-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-md"
+                            className="px-4 py-2 text-sm rounded-full border border-white/10 bg-white/5 text-white/80 transition-all duration-300 hover:scale-105 hover:shadow-md"
                           >
                             {skill}
                           </span>
@@ -246,12 +247,13 @@ export default function EditableStrategicConsultingExpertiseSection({
                     {/* Achievements */}
                     {showAchievements && area.achievements && (
                       <div>
-                        <h4 className="font-semibold text-gray-700 mb-3 text-lg">Achievements:</h4>
+                        <h4 className="font-semibold mb-3 text-lg" style={{ color: titleColor }}>Achievements:</h4>
                         <div className="space-y-3">
                           {area.achievements.map((achievement, idx) => (
                             <div 
                               key={idx} 
-                              className="text-gray-600 flex items-center transition-all duration-300 hover:translate-x-2"
+                              className="flex items-center transition-all duration-300 hover:translate-x-2"
+                              style={{ color: textColor }}
                             >
                               <span
                                 className="w-3 h-3 rounded-full mr-3 flex-shrink-0 transition-transform duration-300 group-hover:scale-125"
@@ -295,8 +297,8 @@ export default function EditableStrategicConsultingExpertiseSection({
             <div className="relative">
               {/* Vertical timeline line */}
               <div
-                className="absolute left-6 top-0 bottom-0 w-1 transform -translate-x-1/2"
-                style={{ backgroundColor: timelineColor }}
+                className="absolute left-6 top-0 bottom-0 w-1 transform -translate-x-1/2 rounded-full"
+                style={{ background: `linear-gradient(180deg, transparent, ${timelineColor}66, transparent)` }}
               />
               
               {expertiseAreas.map((area, index) => {
@@ -328,7 +330,7 @@ export default function EditableStrategicConsultingExpertiseSection({
 
                     {/* Content card for mobile */}
                     <div
-                      className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform cursor-pointer p-6 relative overflow-hidden group ${
+                      className={`${strategicPanel} shadow-lg hover:shadow-xl transition-all duration-500 transform cursor-pointer p-6 relative overflow-hidden group ${
                         isVisible
                           ? 'translate-x-0 opacity-100'
                           : 'translate-x-10 opacity-0'
@@ -364,18 +366,18 @@ export default function EditableStrategicConsultingExpertiseSection({
                       </div>
 
                       {/* Description */}
-                      <p className="text-gray-600 mb-4 leading-relaxed">
+                      <p className="mb-4 leading-relaxed" style={{ color: textColor }}>
                         {area.description}
                       </p>
 
                       {/* Skills */}
                       <div className="mb-4">
-                        <h4 className="font-semibold text-gray-700 mb-2 text-sm">Key Skills:</h4>
+                        <h4 className="font-semibold mb-2 text-sm" style={{ color: titleColor }}>Key Skills:</h4>
                         <div className="flex flex-wrap gap-2">
                           {area.skills?.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full border border-gray-200"
+                              className="px-3 py-1 text-xs rounded-full border border-white/10 bg-white/5 text-white/80"
                             >
                               {skill}
                             </span>
@@ -386,10 +388,10 @@ export default function EditableStrategicConsultingExpertiseSection({
                       {/* Achievements */}
                       {showAchievements && area.achievements && (
                         <div>
-                          <h4 className="font-semibold text-gray-700 mb-2 text-sm">Achievements:</h4>
+                          <h4 className="font-semibold mb-2 text-sm" style={{ color: titleColor }}>Achievements:</h4>
                           <div className="space-y-2">
                             {area.achievements.map((achievement, idx) => (
-                              <div key={idx} className="text-sm text-gray-600 flex items-center">
+                              <div key={idx} className="text-sm flex items-center" style={{ color: textColor }}>
                                 <span
                                   className="w-2 h-2 rounded-full mr-2 flex-shrink-0"
                                   style={{ backgroundColor: area.color }}

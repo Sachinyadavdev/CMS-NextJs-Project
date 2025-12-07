@@ -51,7 +51,7 @@ export default function EditableAgilityAdaptabilitySection({
   const {
     title = "Agility & Adaptability",
     subtitle = "Flexible Solutions for Complex Challenges",
-    description = "RAUS embraces project complexity with flexible methodologies, responsive design logic, and scalable solutions adaptable to diverse industries, operating environments, and evolving market demands.",
+    description = "RAUS embraces project complexity with flexible methodologies, responsive design logic and scalable solutions adaptable to diverse industries, operating environments and evolving market demands.",
     capabilities = [
       {
         title: "Flexible Methodologies",
@@ -109,9 +109,9 @@ export default function EditableAgilityAdaptabilitySection({
       { value: "50+", label: "Industries Served", icon: "🌍" },
       { value: "99%", label: "Change Success Rate", icon: "✅" },
     ],
-    backgroundColor = "from-orange-50 to-amber-100",
+    backgroundColor = "from-red-50 to-rose-100",
     textColor = "text-gray-800",
-    accentColor = "orange",
+    accentColor = "red",
   } = content;
 
   const [localContent, setLocalContent] = useState(content);
@@ -184,7 +184,7 @@ export default function EditableAgilityAdaptabilitySection({
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute top-20 left-20 w-32 h-32 bg-orange-200 opacity-20"
+            className="absolute top-20 left-20 w-32 h-32 bg-red-200 opacity-20"
           />
           <motion.div
             animate={{
@@ -198,7 +198,7 @@ export default function EditableAgilityAdaptabilitySection({
               ease: "easeInOut",
               delay: 5,
             }}
-            className="absolute bottom-20 right-20 w-24 h-24 bg-amber-300 opacity-25"
+            className="absolute bottom-20 right-20 w-24 h-24 bg-rose-300 opacity-25"
           />
           <motion.div
             animate={{
@@ -207,211 +207,211 @@ export default function EditableAgilityAdaptabilitySection({
               y: [0, -30, 30, 0],
             }}
             transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 10,
-          }}
-          className="absolute top-1/2 left-1/2 w-16 h-16 bg-orange-300 opacity-30"
-        />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
-          >
-            {title}
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
-          >
-            {subtitle}
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
-          >
-            {description}
-          </motion.p>
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 10,
+            }}
+            className="absolute top-1/2 left-1/2 w-16 h-16 bg-red-300 opacity-30"
+          />
         </div>
 
-        {/* Core Capabilities */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {(localContent.capabilities || capabilities).map(
-            (capability, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
-              >
-                {/* Morphing background shape */}
-                <motion.div
-                  animate={{
-                    borderRadius: ["0%", "50%", "25%", "0%"],
-                    rotate: [0, 90, 180, 270],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 2,
-                  }}
-                  className="absolute top-4 right-4 w-16 h-16 bg-orange-100 opacity-50"
-                />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
+            >
+              {title}
+            </motion.h2>
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
+            >
+              {subtitle}
+            </motion.h3>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
+            >
+              {description}
+            </motion.p>
+          </div>
 
-              <div className="relative z-10">
-                <div className="flex items-center mb-4">
-                  <motion.span
-                    animate={{ rotate: [0, 10, -10, 0] }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.5,
-                    }}
-                    className="text-4xl mr-4"
-                  >
-                    {capability.icon}
-                  </motion.span>
-                  <h4 className="text-2xl font-bold text-gray-800">
-                    {capability.title}
-                  </h4>
-                </div>
-                <p className="text-gray-600 mb-3">
-                  {capability.description}
-                </p>
-                <p className="text-sm italic text-orange-600">
-                  {capability.adaptability}
-                </p>
-              </div>
-              </motion.div>
-            )
-          )}
-        </div>
-
-        {/* Methodologies & Stats */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Methodologies */}
-          <div className="space-y-6">
-            <h4 className={`text-2xl font-bold ${textColor} text-center mb-6`}>
-              Our Methodologies
-            </h4>
-            {(localContent.methodologies || methodologies).map(
-              (methodology, index) => (
+          {/* Core Capabilities */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {(localContent.capabilities || capabilities).map(
+              (capability, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
-                  className="bg-white rounded-lg shadow-md p-6"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
                 >
-                <h5 className="text-xl font-semibold text-gray-800 mb-2">
-                  {methodology.name}
-                </h5>
-                <p className="text-gray-600 mb-3">
-                  {methodology.description}
-                </p>
-                <div className="space-y-1">
-                  {methodology.benefits.map((benefit, benefitIndex) => (
-                    <div
-                      key={benefitIndex}
-                      className="flex items-center text-sm text-orange-700"
-                    >
-                      <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                      {benefit}
+                  {/* Morphing background shape */}
+                  <motion.div
+                    animate={{
+                      borderRadius: ["0%", "50%", "25%", "0%"],
+                      rotate: [0, 90, 180, 270],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 2,
+                    }}
+                    className="absolute top-4 right-4 w-16 h-16 bg-red-100 opacity-50"
+                  />
+
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-4">
+                      <motion.span
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.5,
+                        }}
+                        className="text-4xl mr-4"
+                      >
+                        {capability.icon}
+                      </motion.span>
+                      <h4 className="text-2xl font-bold text-gray-800">
+                        {capability.title}
+                      </h4>
                     </div>
-                  ))}
-                </div>
+                    <p className="text-gray-600 mb-3">
+                      {capability.description}
+                    </p>
+                    <p className="text-sm italic text-red-600">
+                      {capability.adaptability}
+                    </p>
+                  </div>
                 </motion.div>
               )
             )}
           </div>
 
-          {/* Flexibility Stats */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
-              Flexibility Metrics
-            </h4>
-            <div className="grid grid-cols-2 gap-6">
-              {(localContent.flexibilityStats || flexibilityStats).map(
-                (stat, index) => (
+          {/* Methodologies & Stats */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Methodologies */}
+            <div className="space-y-6">
+              <h4 className={`text-2xl font-bold ${textColor} text-center mb-6`}>
+                Our Methodologies
+              </h4>
+              {(localContent.methodologies || methodologies).map(
+                (methodology, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-                    className="text-center"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
+                    className="bg-white rounded-lg shadow-md p-6"
                   >
-                    {isEditing ? (
-                      <div className="space-y-2">
-                        <input
-                          type="text"
-                          value={stat.icon}
-                          onChange={(e: any) =>
-                            handleStatUpdate(index, "icon", e.target.value)
-                          }
-                          className="text-3xl text-center w-full bg-transparent border-b border-orange-300 focus:border-orange-500 outline-none"
-                        />
-                        <input
-                          type="text"
-                          value={stat.value}
-                          onChange={(e: any) =>
-                            handleStatUpdate(index, "value", e.target.value)
-                          }
-                          className="text-3xl font-bold text-orange-600 text-center w-full bg-transparent border-b border-orange-300 focus:border-orange-500 outline-none"
-                        />
-                        <input
-                          type="text"
-                          value={stat.label}
-                          onChange={(e: any) =>
-                            handleStatUpdate(index, "label", e.target.value)
-                          }
-                          className="text-sm text-center w-full bg-transparent border-b border-orange-300 focus:border-orange-500 outline-none"
-                        />
-                      </div>
-                    ) : (
-                      <>
-                        <motion.div
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            rotate: [0, 5, -5, 0],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            delay: index * 0.5,
-                          }}
-                          className="text-4xl mb-2"
+                    <h5 className="text-xl font-semibold text-red-600 mb-2">
+                      {methodology.name}
+                    </h5>
+                    <p className="text-gray-600 mb-3">
+                      {methodology.description}
+                    </p>
+                    <div className="space-y-1">
+                      {methodology.benefits.map((benefit, benefitIndex) => (
+                        <div
+                          key={benefitIndex}
+                          className="flex items-center text-sm text-black"
                         >
-                          {stat.icon}
-                        </motion.div>
-                        <div className="text-3xl font-bold text-orange-600 mb-1">
-                          {stat.value}
+                          <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                          {benefit}
                         </div>
-                        <div className="text-sm text-gray-600">
-                          {stat.label}
-                        </div>
-                      </>
-                    )}
+                      ))}
+                    </div>
                   </motion.div>
                 )
               )}
             </div>
+
+            {/* Flexibility Stats */}
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
+                Flexibility Metrics
+              </h4>
+              <div className="grid grid-cols-2 gap-6">
+                {(localContent.flexibilityStats || flexibilityStats).map(
+                  (stat, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                      className="text-center"
+                    >
+                      {isEditing ? (
+                        <div className="space-y-2">
+                          <input
+                            type="text"
+                            value={stat.icon}
+                            onChange={(e: any) =>
+                              handleStatUpdate(index, "icon", e.target.value)
+                            }
+                            className="text-3xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                          />
+                          <input
+                            type="text"
+                            value={stat.value}
+                            onChange={(e: any) =>
+                              handleStatUpdate(index, "value", e.target.value)
+                            }
+                            className="text-3xl font-bold text-red-600 text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                          />
+                          <input
+                            type="text"
+                            value={stat.label}
+                            onChange={(e: any) =>
+                              handleStatUpdate(index, "label", e.target.value)
+                            }
+                            className="text-sm text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                          />
+                        </div>
+                      ) : (
+                        <>
+                          <motion.div
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              rotate: [0, 5, -5, 0],
+                            }}
+                            transition={{
+                              duration: 3,
+                              repeat: Infinity,
+                              delay: index * 0.5,
+                            }}
+                            className="text-4xl mb-2"
+                          >
+                            {stat.icon}
+                          </motion.div>
+                          <div className="text-3xl font-bold text-red-600 mb-1">
+                            {stat.value}
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {stat.label}
+                          </div>
+                        </>
+                      )}
+                    </motion.div>
+                  )
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     );
   }
 
@@ -419,12 +419,12 @@ export default function EditableAgilityAdaptabilitySection({
   // EDITING MODE
   // ===================================================================
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-rose-50 to-pink-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Agility & Adaptability Editor</h1>
-          <p className="text-gray-600">Customize your agility and adaptability showcase with dynamic orange-amber styling</p>
+          <p className="text-gray-600">Customize your agility and adaptability showcase with dynamic red-rose styling</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -432,14 +432,14 @@ export default function EditableAgilityAdaptabilitySection({
           <div className="sticky top-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <div className="w-3 h-3 bg-orange-500 rounded-full mr-3 animate-pulse"></div>
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
                 Live Preview
               </h2>
             </div>
             <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-              <div className="p-6 bg-gradient-to-r from-orange-500 to-amber-500 text-white">
+              <div className="p-6 bg-gradient-to-r from-red-500 to-rose-500 text-white">
                 <h1 className="text-2xl font-bold">Agility & Adaptability</h1>
-                <p className="text-orange-100 mt-1">Flexible solutions showcase</p>
+                <p className="text-red-100 mt-1">Flexible solutions showcase</p>
               </div>
               <div className="p-6 max-h-96 overflow-y-auto">
                 <div className="space-y-4">
@@ -469,7 +469,7 @@ export default function EditableAgilityAdaptabilitySection({
             {/* Header Settings */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-orange-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Header Settings
               </h2>
               <div className="space-y-5">
@@ -496,7 +496,7 @@ export default function EditableAgilityAdaptabilitySection({
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold text-gray-900 flex items-center">
-                  <span className="w-3 h-3 bg-amber-500 rounded-full mr-3"></span>
+                  <span className="w-3 h-3 bg-rose-500 rounded-full mr-3"></span>
                   Capabilities ({(localContent.capabilities || capabilities).length})
                 </h2>
                 <button
@@ -509,7 +509,7 @@ export default function EditableAgilityAdaptabilitySection({
                     };
                     handleUpdate("capabilities", [...(localContent.capabilities || capabilities), newCapability]);
                   }}
-                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all font-medium shadow-lg"
+                  className="px-6 py-3 bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-xl hover:from-red-600 hover:to-rose-600 transition-all font-medium shadow-lg"
                 >
                   + Add Capability
                 </button>
@@ -523,11 +523,11 @@ export default function EditableAgilityAdaptabilitySection({
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="mb-6 p-6 bg-gradient-to-r from-gray-50 to-orange-50 rounded-2xl border border-gray-200"
+                    className="mb-6 p-6 bg-gradient-to-r from-gray-50 to-red-50 rounded-2xl border border-gray-200"
                   >
                     <div className="flex justify-between items-center mb-4">
                       <h4 className="font-semibold text-gray-800 flex items-center">
-                        <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
                         Capability {i + 1}: {capability.title}
                       </h4>
                       <button
@@ -577,7 +577,7 @@ export default function EditableAgilityAdaptabilitySection({
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold text-gray-900 flex items-center">
-                  <span className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+                  <span className="w-3 h-3 bg-red-400 rounded-full mr-3"></span>
                   Methodologies ({(localContent.methodologies || methodologies).length})
                 </h2>
                 <button
@@ -589,7 +589,7 @@ export default function EditableAgilityAdaptabilitySection({
                     };
                     handleUpdate("methodologies", [...(localContent.methodologies || methodologies), newMethodology]);
                   }}
-                  className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl hover:from-orange-600 hover:to-amber-600 transition-all font-medium shadow-lg"
+                  className="px-6 py-3 bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-xl hover:from-red-600 hover:to-rose-600 transition-all font-medium shadow-lg"
                 >
                   + Add Methodology
                 </button>
@@ -603,11 +603,11 @@ export default function EditableAgilityAdaptabilitySection({
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="mb-6 p-6 bg-gradient-to-r from-gray-50 to-amber-50 rounded-2xl border border-gray-200"
+                    className="mb-6 p-6 bg-gradient-to-r from-gray-50 to-rose-50 rounded-2xl border border-gray-200"
                   >
                     <div className="flex justify-between items-center mb-4">
                       <h4 className="font-semibold text-gray-800 flex items-center">
-                        <div className="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
+                        <div className="w-2 h-2 bg-rose-500 rounded-full mr-2"></div>
                         Methodology {i + 1}: {methodology.name}
                       </h4>
                       <button
@@ -651,7 +651,7 @@ export default function EditableAgilityAdaptabilitySection({
                                 updatedBenefits[benefitIndex] = e.target.value;
                                 handleMethodologyUpdate(i, "benefits", updatedBenefits);
                               }}
-                              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm"
+                              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all text-sm"
                               placeholder="Enter benefit..."
                             />
                             <button
@@ -671,7 +671,7 @@ export default function EditableAgilityAdaptabilitySection({
                           onClick={() => {
                             handleMethodologyUpdate(i, "benefits", [...methodology.benefits, "New benefit"]);
                           }}
-                          className="w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-orange-500 hover:text-orange-500 transition-colors text-sm font-medium"
+                          className="w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-gray-500 hover:border-red-500 hover:text-red-500 transition-colors text-sm font-medium"
                         >
                           + Add Benefit
                         </button>
@@ -690,7 +690,7 @@ export default function EditableAgilityAdaptabilitySection({
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(localContent.flexibilityStats || flexibilityStats).map((stat: any, index: number) => (
-                  <div key={index} className="p-4 bg-gradient-to-r from-gray-50 to-orange-50 rounded-xl border border-gray-200">
+                  <div key={index} className="p-4 bg-gradient-to-r from-gray-50 to-red-50 rounded-xl border border-gray-200">
                     <div className="space-y-3">
                       <EditableText
                         label="Value"

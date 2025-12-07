@@ -22,7 +22,7 @@ export default function PartnershipPhilosophy({ section, isEditing, onUpdate }: 
   const content = section.content || {};
   const [localContent, setLocalContent] = useState({
     title: content.title || "🌍 Our Partnership Philosophy",
-    description: content.description || "We view every partner as an extension of our mission — contributing to intelligent, sustainable, and high-performing environments. Every collaboration is built on:",
+    description: content.description || "We view every partner as an extension of our mission — contributing to intelligent, sustainable and high-performing environments. Every collaboration is built on:",
     backgroundColor: content.backgroundColor || "#071027",
     titleColor: content.titleColor || "#FFFFFF",
     textColor: content.textColor || "#DCEAFE",
@@ -79,7 +79,7 @@ export default function PartnershipPhilosophy({ section, isEditing, onUpdate }: 
       <section className="relative w-full py-16 lg:py-20 flex items-center justify-center overflow-hidden" style={{ minHeight: 420, background: data.backgroundColor }}>
         <div className="relative z-10 max-w-6xl w-full px-6">
           <div className="max-w-3xl mx-auto text-center mb-8">
-            <h3 className="text-sm font-medium uppercase tracking-wide mb-2" style={{ color: hexToRGBA(data.accentColor, 0.9) }}>Our Philosophy</h3>
+            {/* <h3 className="text-sm font-medium uppercase tracking-wide mb-2" style={{ color: hexToRGBA(data.accentColor, 0.9) }}>Our Philosophy</h3> */}
             <h2 className="text-2xl md:text-4xl font-extrabold mb-3" style={{ color: data.titleColor }}>{data.title}</h2>
             <p className="text-sm md:text-base leading-relaxed" style={{ color: data.textColor }}>{data.description}</p>
           </div>

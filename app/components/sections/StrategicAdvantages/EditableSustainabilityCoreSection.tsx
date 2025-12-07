@@ -102,9 +102,9 @@ export default function EditableSustainabilityCoreSection({
       "Green Building Council",
       "ISO 14001",
     ],
-    backgroundColor = "from-teal-50 to-cyan-100",
+    backgroundColor = "from-red-50 to-rose-100",
     textColor = "text-gray-800",
-    accentColor = "teal",
+    accentColor = "red",
   } = content;
 
   const [localContent, setLocalContent] = useState(content);
@@ -145,305 +145,305 @@ export default function EditableSustainabilityCoreSection({
       <section
         className={`relative py-20 bg-gradient-to-br ${backgroundColor} overflow-hidden`}
       >
-      {/* Nature-inspired animated background */}
-      <div className="absolute inset-0">
-        {/* Floating leaves */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 left-20 text-6xl opacity-20"
-        >
-          🍃
-        </motion.div>
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            rotate: [0, -5, 0],
-            x: [0, -10, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-20 right-20 text-5xl opacity-25"
-        >
-          🌿
-        </motion.div>
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-1/2 left-1/4 text-4xl opacity-15"
-        >
-          🌸
-        </motion.div>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          {isEditing ? (
-            <div className="space-y-4">
-              <input
-                type="text"
-                value={localContent.title || title}
-                onChange={(e: any) => handleUpdate("title", e.target.value)}
-                className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-teal-300 focus:border-teal-500 outline-none"
-                placeholder="Section Title"
-              />
-              <input
-                type="text"
-                value={localContent.subtitle || subtitle}
-                onChange={(e: any) => handleUpdate("subtitle", e.target.value)}
-                className="text-xl text-center w-full bg-transparent border-b-2 border-teal-300 focus:border-teal-500 outline-none"
-                placeholder="Section Subtitle"
-              />
-              <textarea
-                value={localContent.description || description}
-                onChange={(e: any) => handleUpdate("description", e.target.value)}
-                className="text-lg text-center w-full bg-transparent border-2 border-teal-300 focus:border-teal-500 outline-none rounded p-2 min-h-[100px]"
-                placeholder="Section Description"
-              />
-            </div>
-          ) : (
-            <>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
-              >
-                {title}
-              </motion.h2>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
-              >
-                {subtitle}
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
-              >
-                {description}
-              </motion.p>
-            </>
-          )}
+        {/* Nature-inspired animated background */}
+        <div className="absolute inset-0">
+          {/* Floating leaves */}
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 5, 0],
+              x: [0, 10, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-20 left-20 text-6xl opacity-20"
+          >
+            🍃
+          </motion.div>
+          <motion.div
+            animate={{
+              y: [0, 20, 0],
+              rotate: [0, -5, 0],
+              x: [0, -10, 0],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+            className="absolute bottom-20 right-20 text-5xl opacity-25"
+          >
+            🌿
+          </motion.div>
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute top-1/2 left-1/4 text-4xl opacity-15"
+          >
+            🌸
+          </motion.div>
         </div>
 
-        {/* Sustainability Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {(localContent.pillars || pillars).map((pillar, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-            >
-              {isEditing ? (
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    value={pillar.icon}
-                    onChange={(e: any) =>
-                      handlePillarUpdate(index, "icon", e.target.value)
-                    }
-                    className="text-4xl text-center w-full bg-transparent border-b border-teal-300 focus:border-teal-500 outline-none"
-                  />
-                  <input
-                    type="text"
-                    value={pillar.title}
-                    onChange={(e: any) =>
-                      handlePillarUpdate(index, "title", e.target.value)
-                    }
-                    className="text-2xl font-bold text-center w-full bg-transparent border-b border-teal-300 focus:border-teal-500 outline-none"
-                  />
-                  <textarea
-                    value={pillar.description}
-                    onChange={(e: any) =>
-                      handlePillarUpdate(index, "description", e.target.value)
-                    }
-                    className="text-base w-full bg-transparent border border-teal-300 focus:border-teal-500 outline-none rounded p-2 min-h-[60px]"
-                  />
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Initiatives:
-                    </label>
-                    <textarea
-                      value={pillar.initiatives.join("\n")}
-                      onChange={(e: any) =>
-                        handlePillarUpdate(
-                          index,
-                          "initiatives",
-                          e.target.value.split("\n")
-                        )
-                      }
-                      className="text-sm w-full bg-transparent border border-teal-300 focus:border-teal-500 outline-none rounded p-2 min-h-[80px]"
-                      placeholder="Enter initiatives (one per line)"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <div className="flex items-center mb-4">
-                    <motion.span
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        delay: index * 0.5,
-                      }}
-                      className="text-4xl mr-4"
-                    >
-                      {pillar.icon}
-                    </motion.span>
-                    <h4 className="text-2xl font-bold text-gray-800">
-                      {pillar.title}
-                    </h4>
-                  </div>
-                  <p className="text-gray-600 mb-4">{pillar.description}</p>
-                  <div className="space-y-2">
-                    {pillar.initiatives.map((initiative, initiativeIndex) => (
-                      <div
-                        key={initiativeIndex}
-                        className="flex items-center text-sm text-teal-700"
-                      >
-                        <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                        {initiative}
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Impact Stats & Certifications */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Environmental Impact Stats */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h4 className={`text-2xl font-bold ${textColor} text-center mb-6`}>
-              Environmental Impact
-            </h4>
-            <div className="grid grid-cols-2 gap-6">
-              {(localContent.impactStats || impactStats).map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                  className="text-center"
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            {isEditing ? (
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  value={localContent.title || title}
+                  onChange={(e: any) => handleUpdate("title", e.target.value)}
+                  className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
+                  placeholder="Section Title"
+                />
+                <input
+                  type="text"
+                  value={localContent.subtitle || subtitle}
+                  onChange={(e: any) => handleUpdate("subtitle", e.target.value)}
+                  className="text-xl text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
+                  placeholder="Section Subtitle"
+                />
+                <textarea
+                  value={localContent.description || description}
+                  onChange={(e: any) => handleUpdate("description", e.target.value)}
+                  className="text-lg text-center w-full bg-transparent border-2 border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[100px]"
+                  placeholder="Section Description"
+                />
+              </div>
+            ) : (
+              <>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
                 >
-                  {isEditing ? (
-                    <div className="space-y-2">
-                      <input
-                        type="text"
-                        value={stat.icon}
+                  {title}
+                </motion.h2>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
+                >
+                  {subtitle}
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
+                >
+                  {description}
+                </motion.p>
+              </>
+            )}
+          </div>
+
+          {/* Sustainability Pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {(localContent.pillars || pillars).map((pillar, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              >
+                {isEditing ? (
+                  <div className="space-y-4">
+                    <input
+                      type="text"
+                      value={pillar.icon}
+                      onChange={(e: any) =>
+                        handlePillarUpdate(index, "icon", e.target.value)
+                      }
+                      className="text-4xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                    />
+                    <input
+                      type="text"
+                      value={pillar.title}
+                      onChange={(e: any) =>
+                        handlePillarUpdate(index, "title", e.target.value)
+                      }
+                      className="text-2xl font-bold text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                    />
+                    <textarea
+                      value={pillar.description}
+                      onChange={(e: any) =>
+                        handlePillarUpdate(index, "description", e.target.value)
+                      }
+                      className="text-base w-full bg-transparent border border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[60px]"
+                    />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Initiatives:
+                      </label>
+                      <textarea
+                        value={pillar.initiatives.join("\n")}
                         onChange={(e: any) =>
-                          handleStatUpdate(index, "icon", e.target.value)
+                          handlePillarUpdate(
+                            index,
+                            "initiatives",
+                            e.target.value.split("\n")
+                          )
                         }
-                        className="text-3xl text-center w-full bg-transparent border-b border-teal-300 focus:border-teal-500 outline-none"
-                      />
-                      <input
-                        type="text"
-                        value={stat.value}
-                        onChange={(e: any) =>
-                          handleStatUpdate(index, "value", e.target.value)
-                        }
-                        className="text-3xl font-bold text-teal-600 text-center w-full bg-transparent border-b border-teal-300 focus:border-teal-500 outline-none"
-                      />
-                      <input
-                        type="text"
-                        value={stat.label}
-                        onChange={(e: any) =>
-                          handleStatUpdate(index, "label", e.target.value)
-                        }
-                        className="text-sm text-center w-full bg-transparent border-b border-teal-300 focus:border-teal-500 outline-none"
+                        className="text-sm w-full bg-transparent border border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[80px]"
+                        placeholder="Enter initiatives (one per line)"
                       />
                     </div>
-                  ) : (
-                    <>
-                      <motion.div
-                        animate={{ rotate: [0, 10, -10, 0] }}
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex items-center mb-4">
+                      <motion.span
+                        animate={{ scale: [1, 1.1, 1] }}
                         transition={{
-                          duration: 4,
+                          duration: 3,
                           repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: index * 0.3,
+                          delay: index * 0.5,
                         }}
-                        className="text-4xl mb-2"
+                        className="text-4xl mr-4"
                       >
-                        {stat.icon}
-                      </motion.div>
-                      <div className="text-3xl font-bold text-teal-600 mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
-                    </>
-                  )}
-                </motion.div>
-              ))}
-            </div>
+                        {pillar.icon}
+                      </motion.span>
+                      <h4 className="text-2xl font-bold text-red-600">
+                        {pillar.title}
+                      </h4>
+                    </div>
+                    <p className="text-gray-600 mb-4">{pillar.description}</p>
+                    <div className="space-y-2">
+                      {pillar.initiatives.map((initiative, initiativeIndex) => (
+                        <div
+                          key={initiativeIndex}
+                          className="flex items-center text-sm text-black"
+                        >
+                          <span className="w-2 h-2 bg-red-600 rounded-full mr-3"></span>
+                          {initiative}
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            ))}
           </div>
 
-          {/* Certifications */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h4 className={`text-2xl font-bold ${textColor} text-center mb-6`}>
-              Certifications & Standards
-            </h4>
-            <div className="grid grid-cols-2 gap-4">
-              {(localContent.certifications || certifications).map(
-                (cert, index) => (
+          {/* Impact Stats & Certifications */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Environmental Impact Stats */}
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h4 className={`text-2xl font-bold ${textColor} text-center mb-6`}>
+                Environmental Impact
+              </h4>
+              <div className="grid grid-cols-2 gap-6">
+                {(localContent.impactStats || impactStats).map((stat, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
-                    className="text-center p-4 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                    className="text-center"
                   >
                     {isEditing ? (
-                      <input
-                        type="text"
-                        value={cert}
-                        onChange={(e: any) =>
-                          handleCertificationUpdate(index, e.target.value)
-                        }
-                        className="text-sm font-semibold text-center w-full bg-transparent border-b border-teal-300 focus:border-teal-500 outline-none"
-                      />
+                      <div className="space-y-2">
+                        <input
+                          type="text"
+                          value={stat.icon}
+                          onChange={(e: any) =>
+                            handleStatUpdate(index, "icon", e.target.value)
+                          }
+                          className="text-3xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                        />
+                        <input
+                          type="text"
+                          value={stat.value}
+                          onChange={(e: any) =>
+                            handleStatUpdate(index, "value", e.target.value)
+                          }
+                          className="text-3xl font-bold text-red-600 text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                        />
+                        <input
+                          type="text"
+                          value={stat.label}
+                          onChange={(e: any) =>
+                            handleStatUpdate(index, "label", e.target.value)
+                          }
+                          className="text-sm text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                        />
+                      </div>
                     ) : (
-                      <span className="text-sm font-semibold text-teal-800">
-                        {cert}
-                      </span>
+                      <>
+                        <motion.div
+                          animate={{ rotate: [0, 10, -10, 0] }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.3,
+                          }}
+                          className="text-4xl mb-2"
+                        >
+                          {stat.icon}
+                        </motion.div>
+                        <div className="text-3xl font-bold text-red-600 mb-1">
+                          {stat.value}
+                        </div>
+                        <div className="text-sm text-gray-600">{stat.label}</div>
+                      </>
                     )}
                   </motion.div>
-                )
-              )}
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h4 className={`text-2xl font-bold ${textColor} text-center mb-6`}>
+                Certifications & Standards
+              </h4>
+              <div className="grid grid-cols-2 gap-4">
+                {(localContent.certifications || certifications).map(
+                  (cert, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                      className="text-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition-colors"
+                    >
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={cert}
+                          onChange={(e: any) =>
+                            handleCertificationUpdate(index, e.target.value)
+                          }
+                          className="text-sm font-semibold text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                        />
+                      ) : (
+                        <span className="text-sm font-semibold text-red-800">
+                          {cert}
+                        </span>
+                      )}
+                    </motion.div>
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     );
   }
 
@@ -451,7 +451,7 @@ export default function EditableSustainabilityCoreSection({
   // EDITING MODE
   // ===================================================================
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-red-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -641,7 +641,7 @@ export default function EditableSustainabilityCoreSection({
             {/* Impact Stats */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-teal-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Impact Stats
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

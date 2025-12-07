@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { StrategicConsultingCaseStudiesSection } from "@/lib/db";
 import MediaUpload from "../../MediaUpload";
 import { EditableText, EditableTextarea, EditableColorPicker, EditableCheckbox } from "@/app/components/EditableInputs";
+import SectionEditorLayout from "./SectionEditorLayout";
+import { strategicTheme, strategicSectionWrapper, strategicContainer, strategicPanel } from "./StrategicConsultingTheme";
 
 interface EditableStrategicConsultingCaseStudiesProps {
   section: StrategicConsultingCaseStudiesSection;
@@ -74,10 +76,10 @@ export default function EditableStrategicConsultingCaseStudiesSection({
         color: "#b52a1f",
       },
     ],
-    backgroundColor = "#f9fafb",
-    textColor = "#000000",
-    titleColor = "#000000",
-    subtitleColor = "#EF4130",
+    backgroundColor = strategicTheme.pageBackground,
+    textColor = strategicTheme.textSecondary,
+    titleColor = strategicTheme.textPrimary,
+    subtitleColor = strategicTheme.accent,
     showFilters = true,
     filters = ["All", "Retail", "Manufacturing", "Financial Services", "Healthcare", "Technology"],
   } = content;
@@ -106,8 +108,8 @@ export default function EditableStrategicConsultingCaseStudiesSection({
 
   if (!isEditing) {
     return (
-      <section className="py-20" style={{ backgroundColor }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`${strategicSectionWrapper} pb-20`} style={{ backgroundColor }}>
+        <div className={`${strategicContainer} px-4 sm:px-6 lg:px-8`}>
           {/* Header */}
           <div className="text-center mb-16">
             <h2
@@ -141,17 +143,11 @@ export default function EditableStrategicConsultingCaseStudiesSection({
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 border ${
                     activeFilter === filter
-                      ? "bg-red-500 text-white shadow-lg"
-                      : "bg-white text-gray-700 hover:bg-red-50 hover:text-red-600 hover:border-red-200 border-2 border-transparent shadow-md"
+                      ? "text-white shadow-[0_15px_45px_rgba(239,65,48,0.35)] bg-[#EF4130] border-transparent"
+                      : "text-white/70 border-white/10 bg-white/5 hover:bg-white/10"
                   }`}
-                  style={{
-                    backgroundColor:
-                      activeFilter === filter ? "#EF4130" : undefined,
-                    borderColor:
-                      activeFilter !== filter ? "#EF4130" : undefined,
-                  }}
                 >
                   {filter}
                 </button>
@@ -332,8 +328,8 @@ export default function EditableStrategicConsultingCaseStudiesSection({
   // Render the preview section
   const renderPreview = () => {
     return (
-      <section className="py-12" style={{ backgroundColor }}>
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="py-12 rounded-3xl" style={{ backgroundColor }}>
+        <div className={`${strategicContainer} max-w-4xl px-4`}>
           <div className="text-center mb-8">
             <h2
               className="text-3xl font-bold mb-2"
@@ -352,7 +348,7 @@ export default function EditableStrategicConsultingCaseStudiesSection({
             {caseStudies.slice(0, 3).map((study) => (
               <div
                 key={study.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className={`${strategicPanel} shadow-md overflow-hidden`}
               >
                 <img
                   src={study.image}
@@ -360,9 +356,9 @@ export default function EditableStrategicConsultingCaseStudiesSection({
                   className="w-full h-32 object-cover"
                 />
                 <div className="p-4">
-                  <h3 className="font-bold text-sm mb-1">{study.title}</h3>
-                  <p className="text-xs text-gray-600">{study.client}</p>
-                  <p className="text-xs text-red-500 mt-1">{study.industry}</p>
+                  <h3 className="font-bold text-sm mb-1" style={{ color: titleColor }}>{study.title}</h3>
+                  <p className="text-xs" style={{ color: textColor }}>{study.client}</p>
+                  <p className="text-xs mt-1" style={{ color: subtitleColor }}>{study.industry}</p>
                 </div>
               </div>
             ))}
@@ -373,22 +369,17 @@ export default function EditableStrategicConsultingCaseStudiesSection({
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-xl">
-      {/* Preview Panel */}
-      <div className="lg:col-span-1 space-y-4">
-        <div className="flex items-center justify-between p-4 bg-white rounded-2xl border border-blue-100">
-          <h3 className="text-lg font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Live Preview
-          </h3>
-          <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse" />
-        </div>
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/50 shadow-2xl overflow-hidden">
+    <SectionEditorLayout
+      title="Case Studies Section Editor"
+      description="Curate success stories and styling"
+      preview={
+        <div className="h-full overflow-auto">
           {renderPreview()}
         </div>
-      </div>
-
-      {/* Controls Panel */}
-      <div className="lg:col-span-2 space-y-6">
+      }
+      previewWrapperClassName="relative h-[680px] bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200"
+      controls={
+        <>
         {/* Text Content Section */}
         <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-lg">
           <h3 className="text-xl font-bold mb-4 text-gray-800 flex items-center">
@@ -634,7 +625,8 @@ export default function EditableStrategicConsultingCaseStudiesSection({
             />
           </div>
         </div>
-      </div>
-    </div>
+        </>
+      }
+    />
   );
 }

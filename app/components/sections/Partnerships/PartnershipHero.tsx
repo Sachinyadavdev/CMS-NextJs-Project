@@ -190,7 +190,7 @@ export default function PartnershipHero({ section, isEditing, onUpdate }: Partne
       subtitle = 'Building Tomorrow Together',
       description = 'We collaborate with industry leaders to deliver innovative solutions that drive sustainable growth and create lasting impact.',
       buttonText = 'Explore Opportunities',
-      buttonLink = '#contact',
+      buttonLink = '/contact',
       backgroundImage,
       backgroundVideo,
       backgroundColor = '#021124',

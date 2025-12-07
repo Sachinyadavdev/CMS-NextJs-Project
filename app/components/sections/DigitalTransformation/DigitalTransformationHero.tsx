@@ -47,7 +47,7 @@ export default function DigitalTransformationHeroBanner({
     title: "Digital Transformation",
     subtitle: "Reimagining the Future of Business",
     description:
-      "Leverage cutting-edge technologies to accelerate innovation, streamline operations, and deliver unparalleled customer experiences in the digital era.",
+      "Leverage cutting-edge technologies to accelerate innovation, streamline operations and deliver unparalleled customer experiences in the digital era.",
     buttonText: "Start Your Journey",
     buttonLink: "#contact",
     buttonVariant: "gradient",
@@ -59,7 +59,7 @@ export default function DigitalTransformationHeroBanner({
     backgroundColor: "#0f172a",
     accentColor: "#00d4ff",
     textColor: "#e2e8f0",
-    overlayOpacity: 0.65,
+    overlayOpacity: 0.5,
     overlayColor: "#020617",
     alignment: "center",
     height: "full",
@@ -354,13 +354,11 @@ export default function DigitalTransformationHeroBanner({
               label="Title"
               value={content.title || ""}
               onChange={(e: any) => handleUpdate({ title: e.target.value })}
-              onChange={(e: any) => handleUpdate({ title: e.target.value })}
             />
             <EditableText
               label="Subtitle"
               value={content.subtitle || ""}
               onChange={(e: any) => handleUpdate({ subtitle: e.target.value })}
-              onChange={(e:any) => handleUpdate({ subtitle: e.target.value })}
             />
             <div className="md:col-span-2">
               <EditableTextarea
@@ -369,7 +367,6 @@ export default function DigitalTransformationHeroBanner({
                 onChange={(e: any) =>
                   handleUpdate({ description: e.target.value })
                 }
-                onChange={(e: any) => handleUpdate({ description: e.target.value })}
               />
             </div>
           </div>
@@ -408,7 +405,6 @@ export default function DigitalTransformationHeroBanner({
               onChange={(e: any) =>
                 handleUpdate({ accentColor: e.target.value })
               }
-              onChange={(e:any) => handleUpdate({ accentColor: e.target.value })}
             />
             <EditableColorPicker
               label="Background Color"

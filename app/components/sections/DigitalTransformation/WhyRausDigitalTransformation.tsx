@@ -76,7 +76,7 @@ const defaultContent: WhyRausContent = {
       iconName: "Wrench",
       iconType: "lucide",
       title: "Integrated Expertise",
-      description: "Seamless collaboration across design, engineering, IT, and smart technology teams ensures cohesive solutions.",
+      description: "Seamless collaboration across design, engineering, IT and smart technology teams ensures cohesive solutions.",
       image: ""
     },
     {
@@ -92,7 +92,7 @@ const defaultContent: WhyRausContent = {
       iconName: "Bot",
       iconType: "lucide",
       title: "Advanced Technology Stack",
-      description: "Leverage BIM, IoT, AI, and digital twins to deliver next-generation building solutions.",
+      description: "Leverage BIM, IoT, AI and digital twins to deliver next-generation building solutions.",
       image: ""
     },
     {
@@ -116,7 +116,7 @@ const defaultContent: WhyRausContent = {
       iconName: "Leaf",
       iconType: "lucide",
       title: "Sustainability Focus",
-      description: "Committed to long-term performance, carbon reduction, and environmental responsibility.",
+      description: "Committed to long-term performance, carbon reduction and environmental responsibility.",
       image: ""
     }
   ],

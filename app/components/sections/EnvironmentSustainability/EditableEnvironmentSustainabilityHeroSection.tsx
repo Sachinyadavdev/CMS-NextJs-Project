@@ -25,8 +25,8 @@ export default function EditableEnvironmentSustainabilityHeroSection({
   const {
     title = "🌿 Environment & Sustainability",
     subtitle = "Building a Sustainable Legacy, Today and Beyond",
-    description1 = "At RAUS, sustainability is not an added feature — it is a foundational philosophy that shapes every decision, every design, and every project we deliver. Our work is guided by a deep commitment to environmental responsibility, social well-being, and long-term resilience. From planning and material selection to construction and operations, we approach sustainability with purpose, precision, and future-focused insight.",
-    description2 = "We see sustainable development as a collective responsibility, and our mission is to create spaces and systems that support both people and the planet. By integrating innovation, resource awareness, and ecological sensitivity, RAUS ensures that every project contributes to a healthier environment and a stronger community.",
+    description1 = "At RAUS, sustainability is not an added feature — it is a foundational philosophy that shapes every decision, every design and every project we deliver. Our work is guided by a deep commitment to environmental responsibility, social well-being and long-term resilience. From planning and material selection to construction and operations, we approach sustainability with purpose, precision and future-focused insight.",
+    description2 = "We see sustainable development as a collective responsibility and our mission is to create spaces and systems that support both people and the planet. By integrating innovation, resource awareness and ecological sensitivity, RAUS ensures that every project contributes to a healthier environment and a stronger community.",
     backgroundColor = "#fef2f2",
     textColor = "#1f2937",
     titleColor = "#dc2626",

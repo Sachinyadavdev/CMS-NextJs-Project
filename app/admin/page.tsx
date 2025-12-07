@@ -5,6 +5,8 @@ import { useAuth } from "@/app/providers";
 import { useRouter } from "next/navigation";
 import Loader from "@/app/components/Loader";
 import { useComponentLoading } from "@/app/contexts/LoadingContext";
+import { useAuthModal } from "@/app/contexts/AuthModalContext";
+import AdminNavbar from "../components/AdminNavbar";
 
 interface Layout {
   id: string;
@@ -17,6 +19,7 @@ interface Layout {
 export default function AdminPage() {
   const { user, token, isLoading } = useAuth();
   const router = useRouter();
+  const { apiFetch } = useAuthModal();
   const [layouts, setLayouts] = useState<Layout[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -31,14 +34,13 @@ export default function AdminPage() {
     try {
       startLoading();
       setError("");
-      const response = await fetch("/api/layouts", {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-      });
+      const data = await apiFetch("/api/layouts");
 
-      if (!response.ok) throw new Error("Failed to fetch layouts");
-      const data = await response.json();
+      const cleaned = Array.isArray(data)
+        ? data.filter((item) => item.sections && item.sections.length > 0)
+        : [];
 
-      setLayouts(Array.isArray(data) ? data : []);
+      setLayouts(cleaned);
     } catch (err) {
       setError("Failed to load layouts. Please try again.");
       console.error(err);
@@ -46,7 +48,7 @@ export default function AdminPage() {
       setLoading(false);
       stopLoading();
     }
-  }, [token, startLoading, stopLoading]);
+  }, [apiFetch, startLoading, stopLoading]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -58,17 +60,12 @@ export default function AdminPage() {
   }, [isLoading, user, router, fetchLayouts]);
 
   const deleteLayout = async (id: string) => {
-    if (!token) return;
-
     try {
       setDeletingId(id);
       setError("");
-      const response = await fetch(`/api/layouts/${id}`, {
+      await apiFetch(`/api/layouts/${id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
       });
-
-      if (!response.ok) throw new Error("Failed to delete");
 
       setLayouts((prev) => prev.filter((l) => l.id !== id));
       setShowDeleteModal(null);
@@ -107,37 +104,10 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-lg">C</span>
-              </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                CMS Admin
-              </h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={navigateToSite}
-                className="text-gray-600 hover:text-orange-600 font-medium px-4 py-2 rounded-lg hover:bg-orange-50 transition"
-              >
-                View Site
-              </button>
-              <button
-                onClick={navigateToLogout}
-                className="text-gray-600 hover:text-red-600 font-medium px-4 py-2 rounded-lg hover:bg-red-50 transition"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <AdminNavbar user={user} />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <main className="max-w-7xl mx-auto pt-24 sm:px-6 lg:px-8 py-10">
         <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h2 className="text-3xl font-bold text-gray-900">

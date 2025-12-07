@@ -49,7 +49,7 @@ export default function EditableRealEstateServicesSection({
     const {
       title = "SERVICES",
       subtitle = "We believe in guiding our clients on a transformative journey",
-      description = "We embrace intelligence, deep industry expertise, and responsible working practices because the future demands it.",
+      description = "We embrace intelligence, deep industry expertise and responsible working practices because the future demands it.",
       backgroundColor = '#ffffff',
       textColor = '#000000'
     } = content;

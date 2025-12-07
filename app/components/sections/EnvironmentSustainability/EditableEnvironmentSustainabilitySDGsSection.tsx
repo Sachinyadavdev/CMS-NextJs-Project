@@ -33,7 +33,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
 
   const {
     title = "Aligned With Global Sustainable Development Goals (SDGs)",
-    description = "RAUS aligns with the United Nations Sustainable Development Goals, ensuring that our projects contribute to global sustainability targets. Our work advances better health and well-being (SDG 3), clean energy (SDG 7), economic growth (SDG 8), sustainable cities (SDG 11), responsible consumption (SDG 12), climate action (SDG 13), life on land (SDG 15), and strong partnerships (SDG 17). Through this alignment, we ensure that every project is part of a broader mission to create resilient, inclusive, and future-ready environments.",
+    description = "RAUS aligns with the United Nations Sustainable Development Goals, ensuring that our projects contribute to global sustainability targets. Our work advances better health and well-being (SDG 3), clean energy (SDG 7), economic growth (SDG 8), sustainable cities (SDG 11), responsible consumption (SDG 12), climate action (SDG 13), life on land (SDG 15) and strong partnerships (SDG 17). Through this alignment, we ensure that every project is part of a broader mission to create resilient, inclusive and future-ready environments.",
     sdgs = [
       {
         id: "1",
@@ -41,7 +41,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Good Health and Well-being",
         description: "Ensuring healthy lives and promoting well-being for all at all ages",
         icon: "🏥",
-        color: "#ef4444",
+        color: "#dc2626",
         focus: "Health & Wellness",
       },
       {
@@ -50,7 +50,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Affordable and Clean Energy",
         description: "Ensuring access to affordable, reliable, sustainable and modern energy",
         icon: "⚡",
-        color: "#f59e0b",
+        color: "#ef4444",
         focus: "Clean Energy",
       },
       {
@@ -59,7 +59,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Decent Work and Economic Growth",
         description: "Promoting sustained, inclusive and sustainable economic growth",
         icon: "💼",
-        color: "#10b981",
+        color: "#f87171",
         focus: "Economic Development",
       },
       {
@@ -68,7 +68,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Sustainable Cities and Communities",
         description: "Making cities and human settlements inclusive, safe, resilient and sustainable",
         icon: "🏙️",
-        color: "#f97316",
+        color: "#fca5a5",
         focus: "Urban Development",
       },
       {
@@ -77,7 +77,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Responsible Consumption and Production",
         description: "Ensuring sustainable consumption and production patterns",
         icon: "♻️",
-        color: "#eab308",
+        color: "#dc2626",
         focus: "Resource Management",
       },
       {
@@ -86,7 +86,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Climate Action",
         description: "Taking urgent action to combat climate change and its impacts",
         icon: "🌡️",
-        color: "#06b6d4",
+        color: "#ef4444",
         focus: "Climate Change",
       },
       {
@@ -95,7 +95,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Life on Land",
         description: "Protecting, restoring and promoting sustainable use of terrestrial ecosystems",
         icon: "🌳",
-        color: "#22c55e",
+        color: "#f87171",
         focus: "Biodiversity",
       },
       {
@@ -104,7 +104,7 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
         title: "Partnerships for the Goals",
         description: "Strengthening the means of implementation and revitalizing the global partnership",
         icon: "🤝",
-        color: "#3b82f6",
+        color: "#fca5a5",
         focus: "Global Cooperation",
       },
     ],
@@ -159,32 +159,6 @@ export default function EditableEnvironmentSustainabilitySDGsSection({
           >
             🌍
           </motion.div>
-        </div>
-
-        {/* Floating SDG numbers */}
-        <div className="absolute inset-0 pointer-events-none">
-          {sdgs.slice(0, 8).map((sdg: SDG, i: number) => (
-            <motion.div
-              key={sdg.id}
-              className="absolute text-white opacity-20 font-bold text-6xl"
-              style={{
-                left: `${10 + (i % 4) * 20}%`,
-                top: `${20 + Math.floor(i / 4) * 30}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, 5, -5, 0],
-              }}
-              transition={{
-                duration: 4 + i * 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.8,
-              }}
-            >
-              {sdg.number}
-            </motion.div>
-          ))}
         </div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">

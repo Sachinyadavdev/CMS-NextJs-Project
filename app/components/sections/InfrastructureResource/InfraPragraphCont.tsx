@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import MediaUpload from "@/app/components/MediaUpload";
 
 interface InfraParagraphContent {
   title?: string;
@@ -32,26 +33,6 @@ export default function InfraParagraphCont({
   isEditing,
   onUpdate,
 }: InfraParagraphContProps) {
-  const [uploadProgress, setUploadProgress] = useState(0);
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    setUploadProgress(30);
-
-    reader.onload = () => {
-      setUploadProgress(70);
-      const base64String = reader.result as string;
-      handleUpdate({ imageUrl: base64String });
-      setUploadProgress(100);
-      setTimeout(() => setUploadProgress(0), 1000);
-    };
-
-    reader.readAsDataURL(file);
-  };
-
   const content = {
     title: "About Us",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at fermentum felis. Phasellus eget vehicula sem. Duis malesuada sapien nec quam gravida accumsan. Nam vel quam in turpis ultrices consectetur ut nec orci.",
@@ -240,13 +221,12 @@ export default function InfraParagraphCont({
               />
 
               <p
-                className={`relative text-lg sm:text-xl lg:text-2xl leading-relaxed font-light p-8 sm:p-10 lg:p-12 rounded-2xl backdrop-blur-sm ${
-                  content.alignment === "left"
-                    ? "text-left"
-                    : content.alignment === "right"
+                className={`relative text-lg sm:text-xl lg:text-2xl leading-relaxed font-light p-8 sm:p-10 lg:p-12 rounded-2xl backdrop-blur-sm ${content.alignment === "left"
+                  ? "text-left"
+                  : content.alignment === "right"
                     ? "text-right"
                     : "text-center"
-                }`}
+                  }`}
                 style={{ color: content.descriptionColor || content.textColor }}
               >
                 {/* Animated Quote Mark */}
@@ -464,13 +444,12 @@ export default function InfraParagraphCont({
                   style={{ backgroundColor: content.highlightColor }}
                 />
                 <p
-                  className={`relative text-sm leading-relaxed font-light p-6 rounded-xl ${
-                    content.alignment === "left"
-                      ? "text-left"
-                      : content.alignment === "right"
+                  className={`relative text-sm leading-relaxed font-light p-6 rounded-xl ${content.alignment === "left"
+                    ? "text-left"
+                    : content.alignment === "right"
                       ? "text-right"
                       : "text-center"
-                  }`}
+                    }`}
                   style={{ color: content.descriptionColor || content.textColor }}
                 >
                   "{content.content}"
@@ -594,76 +573,13 @@ export default function InfraParagraphCont({
                 {content.layout === "side-by-side" && (
                   <>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-3">
-                        Upload Image
-                      </label>
-                      <div className="space-y-3">
-                        <motion.label
-                          whileHover={{ scale: 1.01 }}
-                          className="relative flex items-center justify-center w-full px-4 py-6 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-red-500 hover:bg-red-50 transition-colors group"
-                        >
-                          <div className="text-center">
-                            <motion.svg
-                              className="w-8 h-8 text-gray-400 mx-auto mb-2 group-hover:text-red-500 transition-colors"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                              whileHover={{ y: -4 }}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 4v16m8-8H4"
-                              />
-                            </motion.svg>
-                            <p className="text-sm font-medium text-gray-600 group-hover:text-red-600">
-                              Click to upload or drag & drop
-                            </p>
-                            <p className="text-xs text-gray-500 mt-1">
-                              PNG, JPG, GIF up to 10MB
-                            </p>
-                          </div>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageUpload}
-                            className="hidden"
-                          />
-                        </motion.label>
-
-                        {uploadProgress > 0 && (
-                          <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="w-full bg-gray-200 rounded-full h-2 overflow-hidden"
-                          >
-                            <motion.div
-                              className="h-full bg-gradient-to-r from-red-500 to-orange-500"
-                              initial={{ width: 0 }}
-                              animate={{ width: `${uploadProgress}%` }}
-                              transition={{ duration: 0.3 }}
-                            />
-                          </motion.div>
-                        )}
-
-                        <div className="relative">
-                          <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-gray-300" />
-                          </div>
-                          <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-white text-gray-500">or</span>
-                          </div>
-                        </div>
-
-                        <input
-                          type="text"
-                          value={content.imageUrl || ""}
-                          onChange={(e: any) => handleUpdate({ imageUrl: e.target.value })}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition"
-                          placeholder="Or paste image URL..."
-                        />
-                      </div>
+                      <MediaUpload
+                        label="Upload Image"
+                        type="image"
+                        currentUrl={content.imageUrl}
+                        onUpload={(url) => handleUpdate({ imageUrl: url })}
+                        onRemove={() => handleUpdate({ imageUrl: "" })}
+                      />
                     </div>
 
                     <div>

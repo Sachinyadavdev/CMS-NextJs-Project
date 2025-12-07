@@ -52,7 +52,7 @@ export default function EditableWynnAlMarjanSection({
   const {
     title = "Wynn Al Marjan Island – UAE",
     subtitle = "The Region's First Luxury Gaming Resort",
-    description = "The region's first luxury gaming resort, combining hospitality, tourism, leisure, and smart infrastructure. The development integrates real-time building systems, sustainable frameworks, advanced mobility planning, and operational readiness to deliver guest-focused performance and long-term asset value.",
+    description = "The region's first luxury gaming resort, combining hospitality, tourism, leisure and smart infrastructure. The development integrates real-time building systems, sustainable frameworks, advanced mobility planning and operational readiness to deliver guest-focused performance and long-term asset value.",
     location = "Al Marjan Island, UAE",
     year = "2024",
     status = "In Development",
@@ -82,13 +82,13 @@ export default function EditableWynnAlMarjanSection({
       {
         title: "Smart Infrastructure",
         description:
-          "IoT-enabled systems, automated operations, and intelligent building management",
+          "IoT-enabled systems, automated operations and intelligent building management",
         icon: "🏗️",
       },
       {
         title: "Island Paradise",
         description:
-          "Private island location with pristine beaches, water activities, and exclusive access",
+          "Private island location with pristine beaches, water activities and exclusive access",
         icon: "🏝️",
       },
     ],
@@ -106,7 +106,7 @@ export default function EditableWynnAlMarjanSection({
       { value: "50+", label: "Dining Options" },
       { value: "24/7", label: "Entertainment" },
     ],
-    backgroundColor = "#f8fafc",
+    backgroundColor = "#fef2f2",
     textColor = "#1f2937",
     accentColor = "#dc2626",
   } = content;
@@ -410,9 +410,9 @@ export default function EditableWynnAlMarjanSection({
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center p-4 bg-yellow-50 rounded-xl border border-yellow-100"
+                    className="flex items-center p-4 bg-red-100 rounded-xl border border-red-200"
                   >
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-red-600 rounded-full mr-3"></div>
                     <span className="font-medium text-gray-800">
                       {experience}
                     </span>

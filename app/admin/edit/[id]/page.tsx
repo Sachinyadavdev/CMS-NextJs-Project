@@ -7,6 +7,7 @@ import MediaUpload from "@/app/components/MediaUpload";
 import Loader from "@/app/components/Loader";
 import SectionManager from "@/app/components/SectionManager";
 import { useComponentLoading } from "@/app/contexts/LoadingContext";
+import { useAuthModal } from "@/app/contexts/AuthModalContext";
 import type { PageSection } from "@/lib/db";
 
 interface LayoutResponse {
@@ -28,6 +29,7 @@ export default function EditLayoutPage() {
   const router = useRouter();
   const params = useParams();
   const id = params.id as string;
+  const { apiFetch } = useAuthModal();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -52,19 +54,7 @@ export default function EditLayoutPage() {
     try {
       startLayoutLoading();
       setError("");
-      const response = await fetch(`/api/layouts/${id}`, {
-        headers: token
-          ? {
-              Authorization: `Bearer ${token}`,
-            }
-          : undefined,
-      });
-
-      if (!response.ok) {
-        throw new Error("Layout not found");
-      }
-
-      const data: LayoutResponse = await response.json();
+      const data: LayoutResponse = await apiFetch(`/api/layouts/${id}`);
       setFormData({
         name: data.name || "",
         title: data.title || "",
@@ -79,7 +69,7 @@ export default function EditLayoutPage() {
     } finally {
       stopLayoutLoading();
     }
-  }, [id, token, startLayoutLoading, stopLayoutLoading]);
+  }, [id, apiFetch, startLayoutLoading, stopLayoutLoading]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -113,19 +103,13 @@ export default function EditLayoutPage() {
   const confirmSubmit = async () => {
     setShowConfirmModal(false);
 
-    if (!token) {
-      setError("Authentication required. Please log in again.");
-      return;
-    }
-
     setSaving(true);
 
     try {
-      const response = await fetch(`/api/layouts/${id}`, {
+      await apiFetch(`/api/layouts/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           name: formData.name,
@@ -140,11 +124,6 @@ export default function EditLayoutPage() {
           },
         }),
       });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Failed to update layout");
-      }
 
       setToast({ message: "Layout updated successfully!", type: "success" });
 

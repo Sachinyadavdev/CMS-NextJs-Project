@@ -33,14 +33,14 @@ export default function EditableProjectCoordinationCoreSection({
 
   const {
     title = "Core Coordination Framework",
-    subtitle = "Driving Consistency Across Teams, Timelines, and Deliverables",
-    description = "Our coordination model ensures transparent communication, disciplined execution, and rigorous control across the full lifecycle of every project.",
+    subtitle = "Driving Consistency Across Teams, Timelines and Deliverables",
+    description = "Our coordination model ensures transparent communication, disciplined execution and rigorous control across the full lifecycle of every project.",
     sections: coreSections = [
       {
         id: "1",
         title: "Centralized Management Across Phases",
         description:
-          "Oversight of planning, design, execution, and delivery under one framework—ensuring consistency, clarity, and quality across every stage.",
+          "Oversight of planning, design, execution and delivery under one framework—ensuring consistency, clarity and quality across every stage.",
         icon: "📋",
         color: "#EF4130",
         features: [
@@ -53,7 +53,7 @@ export default function EditableProjectCoordinationCoreSection({
         id: "2",
         title: "Stakeholder Alignment & Communication",
         description:
-          "Transparent collaboration across clients, consultants, contractors, and vendors to maintain clarity and reduce friction.",
+          "Transparent collaboration across clients, consultants, contractors and vendors to maintain clarity and reduce friction.",
         icon: "🤝",
         color: "#d63324",
         features: [
@@ -66,7 +66,7 @@ export default function EditableProjectCoordinationCoreSection({
         id: "3",
         title: "Risk, Quality & Timeline Assurance",
         description:
-          "Rigorous controls that reduce risks, reinforce standards, and maintain predictable schedules.",
+          "Rigorous controls that reduce risks, reinforce standards and maintain predictable schedules.",
         icon: "🛡️",
         color: "#b52a1f",
         features: [

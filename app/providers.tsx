@@ -27,6 +27,7 @@ import {
   LoadingProvider,
   useComponentLoading,
 } from "./contexts/LoadingContext";
+import { AuthModalProvider } from "./contexts/AuthModalContext";
 
 interface AuthContextType {
   user: User | null;
@@ -130,9 +131,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       <ReduxProvider store={store}>
         <LoadingProvider>
           <AuthProviderInner>
-            <NavigationLoader />
-            <BackToTop />
-            {children}
+            <AuthModalProvider>
+              <NavigationLoader />
+              <BackToTop />
+              {children}
+            </AuthModalProvider>
           </AuthProviderInner>
         </LoadingProvider>
       </ReduxProvider>

@@ -24,7 +24,7 @@ interface CallToActionProps {
 const defaultContent: CallToActionContent = {
   title: "🌱 Partner With Us",
   description:
-    "Join our mission to reshape built environments through innovation, purpose, and integrity. Whether you’re a technology leader, sustainability consultant, contractor, or regulatory collaborator, RAUS welcomes partners who share our vision for smarter, greener, and more resilient infrastructure.",
+    "Join our mission to reshape built environments through innovation, purpose and integrity. Whether you’re a technology leader, sustainability consultant, contractor, or regulatory collaborator, RAUS welcomes partners who share our vision for smarter, greener and more resilient infrastructure.",
   buttonText: "Become a Partner",
   buttonLink: "#contact",
   accentColor: "#22C55E",

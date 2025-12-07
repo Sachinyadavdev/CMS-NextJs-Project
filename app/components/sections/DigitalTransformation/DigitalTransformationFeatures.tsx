@@ -160,7 +160,7 @@ const defaultContent: FeaturesContent = {
       iconType: "lucide",
       iconName: "Wrench",
       title: "Building Information Modeling (BIM)",
-      description: "BIM is central to our process—ensuring clarity, precision, and alignment across all stakeholders.",
+      description: "BIM is central to our process—ensuring clarity, precision and alignment across all stakeholders.",
       items: [
         "Intelligent 3D modeling",
         "Clash detection & coordination",

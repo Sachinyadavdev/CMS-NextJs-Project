@@ -52,7 +52,7 @@ export default function EditableProjectsHeroSection({
     secondaryButtonText = "Start a Project",
     secondaryButtonLink = "/contact",
     backgroundImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920",
-    backgroundColor = "#0f172a",
+    backgroundColor = "#450a0a",
     textColor = "#ffffff",
     titleColor = "#ffffff",
     subtitleColor = "#ef4444",
@@ -85,7 +85,7 @@ export default function EditableProjectsHeroSection({
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
-                className="absolute w-96 h-96 rounded-full blur-3xl bg-amber-600/10"
+                className="absolute w-96 h-96 rounded-full blur-3xl bg-red-600/10"
                 style={{
                   top: `${15 + i * 25}%`,
                   left: i === 1 ? "auto" : "-10%",
@@ -136,30 +136,6 @@ export default function EditableProjectsHeroSection({
               {description}
             </motion.p>
           )}
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-12 flex flex-col sm:flex-row gap-6 justify-center"
-          >
-            {primaryButtonText && (
-              <a
-                href={primaryButtonLink}
-                className="px-10 py-5 bg-amber-600 text-white rounded-full font-semibold hover:bg-amber-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-              >
-                {primaryButtonText}
-              </a>
-            )}
-            {secondaryButtonText && (
-              <a
-                href={secondaryButtonLink}
-                className="px-10 py-5 border-2 border-white/40 text-white rounded-full font-medium hover:bg-white/10 transition-all duration-300"
-              >
-                {secondaryButtonText}
-              </a>
-            )}
-          </motion.div>
         </div>
       </section>
     );
@@ -189,12 +165,12 @@ export default function EditableProjectsHeroSection({
       {showFloatingElements && (
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
-            className="absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl bg-amber-600/10"
+            className="absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl bg-red-600/10"
             animate={{ y: [0, -50, 20, 0] }}
             transition={{ duration: 20, repeat: Infinity }}
           />
           <motion.div
-            className="absolute bottom-32 -right-32 w-96 h-96 rounded-full blur-3xl bg-orange-600/10"
+            className="absolute bottom-32 -right-32 w-96 h-96 rounded-full blur-3xl bg-red-700/10"
             animate={{ y: [0, 40, -30, 0] }}
             transition={{ duration: 24, repeat: Infinity }}
           />
@@ -219,7 +195,7 @@ export default function EditableProjectsHeroSection({
           )}
           <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center">
             {primaryButtonText && (
-              <button className="px-8 py-4 bg-amber-600 text-white rounded-full font-semibold hover:bg-amber-700 transition">
+              <button className="px-8 py-4 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition">
                 {primaryButtonText}
               </button>
             )}

@@ -132,7 +132,7 @@ export default function EditableDualHeaderImageSection({
           style={{ animation: "fadeInUp 1s ease-out" }}
         >
           {/* Glass card container */}
-          <div className="relative p-8 lg:p-10 rounded-3xl backdrop-blur-sm border border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl overflow-hidden">
+          <div className="relative p-8 lg:p-10 rounded-3xl backdrop-blur-md border border-white/20 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl overflow-hidden">
             {/* Glowing accent in corner */}
             <div
               className="absolute -top-1 -right-1 w-32 h-32 rounded-3xl blur-2xl"
@@ -186,7 +186,7 @@ export default function EditableDualHeaderImageSection({
               {content.bigHeader && (
                 <div>
                   <h2
-                    className="font-bold leading-tight tracking-tight mb-4"
+                    className="font-bold leading-tight mb-4"
                     style={{
                       fontSize: content.bigHeaderFontSize || "3rem",
                       color: content.bigHeaderColor || "#ffffff",
@@ -382,7 +382,7 @@ export default function EditableDualHeaderImageSection({
               placeholder="e.g., WHO WE ARE"
             />
 
-            <EditableText
+            <EditableTextarea
               label="Big Header (Main Title)"
               value={content.bigHeader || ""}
               onChange={(val) => handleContentUpdate({ bigHeader: val })}

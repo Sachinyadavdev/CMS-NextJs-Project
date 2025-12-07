@@ -17,7 +17,7 @@ export default function EditableRealEstateArchitecturalSection({ section, isEdit
   const {
     title = "Architectural Approach",
     subtitle = "Innovation Implementation",
-    description = "Real estate at RAUS is our promise of vision, precision, and performance. It's the foundation that empowers us to shape future-ready spaces, deliver transformative value, and build environments where people thrive and businesses grow.",
+    description = "Real estate at RAUS is our promise of vision, precision and performance. It's the foundation that empowers us to shape future-ready spaces, deliver transformative value and build environments where people thrive and businesses grow.",
     backgroundImage,
     backgroundVideo,
     backgroundColor = '#0a0e27',
@@ -140,7 +140,7 @@ export default function EditableRealEstateArchitecturalSection({ section, isEdit
           </div>
 
           {/* Content Section */}
-          <div className="max-w-4xl mx-auto">
+          <div className=" mx-auto">
             {description && (
               <p
                 className="text-lg md:text-xl lg:text-2xl leading-relaxed text-center"

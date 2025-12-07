@@ -93,7 +93,7 @@ export default function OurCoreValues({
   if (!isEditing) {
     const {
       title = "Our Core Values",
-      subtitle = "At RAUS, our values define who we are, guide every decision we make, and inspire the impact we aim to create. We believe in building more than projects — we build trust, responsibility, and a legacy of sustainable progress.",
+      subtitle = "At RAUS, our values define who we are, guide every decision we make and inspire the impact we aim to create. We believe in building more than projects — we build trust, responsibility and a legacy of sustainable progress.",
       backgroundColor = "#ffffff",
       titleColor = "#EF4130",
       subtitleColor = "#333333",
@@ -108,31 +108,31 @@ export default function OurCoreValues({
         {
           number: 1,
           title: "Integrity in Every Action",
-          description: "We operate with transparency, honesty, and accountability — ensuring that every partnership, process, and project reflects the highest ethical standards. Integrity isn't just a principle at RAUS; it's our foundation for lasting relationships.",
+          description: "We operate with transparency, honesty and accountability — ensuring that every partnership, process and project reflects the highest ethical standards. Integrity isn't just a principle at RAUS; it's our foundation for lasting relationships.",
           icon: "shield" as IconType,
         },
         {
           number: 2,
           title: "Innovation with Purpose",
-          description: "We embrace emerging technologies, data intelligence, and creative thinking not for novelty, but for meaningful progress. Every innovation we adopt drives efficiency, enhances performance, and creates value that endures.",
+          description: "We embrace emerging technologies, data intelligence and creative thinking not for novelty, but for meaningful progress. Every innovation we adopt drives efficiency, enhances performance and creates value that endures.",
           icon: "lightbulb" as IconType,
         },
         {
           number: 3,
           title: "Sustainability as a Standard",
-          description: "Sustainability is embedded in everything we do — from design and material selection to operations and governance. We go beyond compliance to champion circular economy practices, low-carbon solutions, and community well-being.",
+          description: "Sustainability is embedded in everything we do — from design and material selection to operations and governance. We go beyond compliance to champion circular economy practices, low-carbon solutions and community well-being.",
           icon: "leaf" as IconType,
         },
         {
           number: 4,
           title: "Collaboration for Collective Success",
-          description: "We believe the best outcomes come from shared vision and teamwork. Our multidisciplinary approach unites experts, partners, and communities to deliver integrated, future-ready solutions that serve people and the planet.",
+          description: "We believe the best outcomes come from shared vision and teamwork. Our multidisciplinary approach unites experts, partners and communities to deliver integrated, future-ready solutions that serve people and the planet.",
           icon: "users" as IconType,
         },
         {
           number: 5,
           title: "Excellence through Accountability",
-          description: "We strive for excellence in every deliverable, guided by data, precision, and responsibility. Each milestone is measured not just by results, but by the value it adds to our clients, our communities, and the environment.",
+          description: "We strive for excellence in every deliverable, guided by data, precision and responsibility. Each milestone is measured not just by results, but by the value it adds to our clients, our communities and the environment.",
           icon: "target" as IconType,
         },
       ],
@@ -348,7 +348,7 @@ export default function OurCoreValues({
   const renderPreview = () => {
     const {
       title = "Our Core Values",
-      subtitle = "At RAUS, our values define who we are, guide every decision we make, and inspire the impact we aim to create.",
+      subtitle = "At RAUS, our values define who we are, guide every decision we make and inspire the impact we aim to create.",
       backgroundColor = "#ffffff",
       titleColor = "#EF4130",
       cardBackgroundColor = "#ffffff",

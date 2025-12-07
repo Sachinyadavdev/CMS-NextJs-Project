@@ -46,7 +46,7 @@ export default function EditableHumanCenteredSection({
   const {
     title = "Human-Centered Development",
     subtitle = "Spaces Designed for People",
-    description = "Spaces are created not only to perform well but to foster belonging, interaction, and pride—whether corporate environments, public domains, or mixed-use developments.",
+    description = "Spaces are created not only to perform well but to foster belonging, interaction and pride—whether corporate environments, public domains, or mixed-use developments.",
     designPrinciples = [
       {
         title: "Belonging",

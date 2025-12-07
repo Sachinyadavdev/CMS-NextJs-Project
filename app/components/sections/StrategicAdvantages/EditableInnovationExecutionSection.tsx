@@ -46,7 +46,7 @@ export default function EditableInnovationExecutionSection({
   const {
     title = "Innovation-Driven Execution",
     subtitle = "Advanced Technologies for Superior Results",
-    description = "Advanced technologies including BIM, IoT, automation, AI analytics, and digital twins enhance accuracy, reduce risk, accelerate decision-making, and provide real-time operational insight throughout the project lifecycle.",
+    description = "Advanced technologies including BIM, IoT, automation, AI analytics and digital twins enhance accuracy, reduce risk, accelerate decision-making and provide real-time operational insight throughout the project lifecycle.",
     technologies = [
       {
         name: "BIM Technology",
@@ -95,9 +95,9 @@ export default function EditableInnovationExecutionSection({
       { value: "60%", label: "Faster Decisions", icon: "⚡" },
       { value: "24/7", label: "Real-time Monitoring", icon: "📊" },
     ],
-    backgroundColor = "from-purple-50 to-indigo-100",
+    backgroundColor = "from-red-50 to-rose-100",
     textColor = "text-gray-800",
-    accentColor = "purple",
+    accentColor = "red",
   } = content;
 
   const [localContent, setLocalContent] = useState(content);
@@ -132,268 +132,268 @@ export default function EditableInnovationExecutionSection({
       <section
         className={`relative py-20 bg-gradient-to-br ${backgroundColor} overflow-hidden`}
       >
-      {/* Circuit-like animated background */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="w-full h-full" viewBox="0 0 1000 1000">
-          <motion.path
-            d="M100,200 L300,200 L300,400 L500,400 L500,200 L700,200"
-            stroke="#8B5CF6"
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-          <motion.path
-            d="M200,300 L400,300 L400,500 L600,500 L600,300 L800,300"
-            stroke="#A855F7"
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: 1,
-            }}
-          />
-          <motion.circle
-            cx="300"
-            cy="200"
-            r="8"
-            fill="#8B5CF6"
-            animate={{ scale: [1, 1.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <motion.circle
-            cx="500"
-            cy="400"
-            r="8"
-            fill="#A855F7"
-            animate={{ scale: [1, 1.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          />
-        </svg>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          {isEditing ? (
-            <div className="space-y-4">
-              <input
-                type="text"
-                value={localContent.title || title}
-                onChange={(e: any) => handleUpdate("title", e.target.value)}
-                className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-purple-300 focus:border-purple-500 outline-none"
-                placeholder="Section Title"
-              />
-              <input
-                type="text"
-                value={localContent.subtitle || subtitle}
-                onChange={(e: any) => handleUpdate("subtitle", e.target.value)}
-                className="text-xl text-center w-full bg-transparent border-b-2 border-purple-300 focus:border-purple-500 outline-none"
-                placeholder="Section Subtitle"
-              />
-              <textarea
-                value={localContent.description || description}
-                onChange={(e: any) => handleUpdate("description", e.target.value)}
-                className="text-lg text-center w-full bg-transparent border-2 border-purple-300 focus:border-purple-500 outline-none rounded p-2 min-h-[100px]"
-                placeholder="Section Description"
-              />
-            </div>
-          ) : (
-            <>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
-              >
-                {title}
-              </motion.h2>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
-              >
-                {subtitle}
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
-              >
-                {description}
-              </motion.p>
-            </>
-          )}
+        {/* Circuit-like animated background */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 1000 1000">
+            <motion.path
+              d="M100,200 L300,200 L300,400 L500,400 L500,200 L700,200"
+              stroke="#8B5CF6"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
+            <motion.path
+              d="M200,300 L400,300 L400,500 L600,500 L600,300 L800,300"
+              stroke="#A855F7"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+                delay: 1,
+              }}
+            />
+            <motion.circle
+              cx="300"
+              cy="200"
+              r="8"
+              fill="#8B5CF6"
+              animate={{ scale: [1, 1.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.circle
+              cx="500"
+              cy="400"
+              r="8"
+              fill="#A855F7"
+              animate={{ scale: [1, 1.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+            />
+          </svg>
         </div>
 
-        {/* Technology Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {(localContent.technologies || technologies).map((tech, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
-            >
-              {/* Tech icon animation */}
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute top-4 right-4 text-6xl opacity-10"
-              >
-                {tech.icon}
-              </motion.div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            {isEditing ? (
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  value={localContent.title || title}
+                  onChange={(e: any) => handleUpdate("title", e.target.value)}
+                  className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
+                  placeholder="Section Title"
+                />
+                <input
+                  type="text"
+                  value={localContent.subtitle || subtitle}
+                  onChange={(e: any) => handleUpdate("subtitle", e.target.value)}
+                  className="text-xl text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
+                  placeholder="Section Subtitle"
+                />
+                <textarea
+                  value={localContent.description || description}
+                  onChange={(e: any) => handleUpdate("description", e.target.value)}
+                  className="text-lg text-center w-full bg-transparent border-2 border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[100px]"
+                  placeholder="Section Description"
+                />
+              </div>
+            ) : (
+              <>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
+                >
+                  {title}
+                </motion.h2>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
+                >
+                  {subtitle}
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
+                >
+                  {description}
+                </motion.p>
+              </>
+            )}
+          </div>
 
-              {isEditing ? (
-                <div className="space-y-4 relative z-10">
-                  <input
-                    type="text"
-                    value={tech.icon}
-                    onChange={(e: any) =>
-                      handleTechUpdate(index, "icon", e.target.value)
-                    }
-                    className="text-4xl text-center w-full bg-transparent border-b border-purple-300 focus:border-purple-500 outline-none"
-                  />
-                  <input
-                    type="text"
-                    value={tech.name}
-                    onChange={(e: any) =>
-                      handleTechUpdate(index, "name", e.target.value)
-                    }
-                    className="text-2xl font-bold text-center w-full bg-transparent border-b border-purple-300 focus:border-purple-500 outline-none"
-                  />
-                  <textarea
-                    value={tech.description}
-                    onChange={(e: any) =>
-                      handleTechUpdate(index, "description", e.target.value)
-                    }
-                    className="text-base w-full bg-transparent border border-purple-300 focus:border-purple-500 outline-none rounded p-2 min-h-[60px]"
-                  />
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Benefits:
-                    </label>
-                    <textarea
-                      value={tech.benefits.join("\n")}
-                      onChange={(e: any) =>
-                        handleTechUpdate(
-                          index,
-                          "benefits",
-                          e.target.value.split("\n")
-                        )
-                      }
-                      className="text-sm w-full bg-transparent border border-purple-300 focus:border-purple-500 outline-none rounded p-2 min-h-[80px]"
-                      placeholder="Enter benefits (one per line)"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div className="relative z-10">
-                  <div className="flex items-center mb-4">
-                    <span className="text-4xl mr-4">{tech.icon}</span>
-                    <h4 className="text-2xl font-bold text-gray-800">
-                      {tech.name}
-                    </h4>
-                  </div>
-                  <p className="text-gray-600 mb-4">{tech.description}</p>
-                  <div className="space-y-2">
-                    {tech.benefits.map((benefit, benefitIndex) => (
-                      <div
-                        key={benefitIndex}
-                        className="flex items-center text-sm text-purple-700"
-                      >
-                        <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                        {benefit}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Stats Dashboard */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
-            Performance Metrics
-          </h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {(localContent.stats || stats).map((stat, index) => (
+          {/* Technology Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {(localContent.technologies || technologies).map((tech, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                className="text-center"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative overflow-hidden"
               >
+                {/* Tech icon animation */}
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-4 right-4 text-6xl opacity-10"
+                >
+                  {tech.icon}
+                </motion.div>
+
                 {isEditing ? (
-                  <div className="space-y-2">
+                  <div className="space-y-4 relative z-10">
                     <input
                       type="text"
-                      value={stat.icon}
+                      value={tech.icon}
                       onChange={(e: any) =>
-                        handleStatUpdate(index, "icon", e.target.value)
+                        handleTechUpdate(index, "icon", e.target.value)
                       }
-                      className="text-3xl text-center w-full bg-transparent border-b border-purple-300 focus:border-purple-500 outline-none"
+                      className="text-4xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
                     />
                     <input
                       type="text"
-                      value={stat.value}
+                      value={tech.name}
                       onChange={(e: any) =>
-                        handleStatUpdate(index, "value", e.target.value)
+                        handleTechUpdate(index, "name", e.target.value)
                       }
-                      className="text-3xl font-bold text-purple-600 text-center w-full bg-transparent border-b border-purple-300 focus:border-purple-500 outline-none"
+                      className="text-2xl font-bold text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
                     />
-                    <input
-                      type="text"
-                      value={stat.label}
+                    <textarea
+                      value={tech.description}
                       onChange={(e: any) =>
-                        handleStatUpdate(index, "label", e.target.value)
+                        handleTechUpdate(index, "description", e.target.value)
                       }
-                      className="text-sm text-center w-full bg-transparent border-b border-purple-300 focus:border-purple-500 outline-none"
+                      className="text-base w-full bg-transparent border border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[60px]"
                     />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Benefits:
+                      </label>
+                      <textarea
+                        value={tech.benefits.join("\n")}
+                        onChange={(e: any) =>
+                          handleTechUpdate(
+                            index,
+                            "benefits",
+                            e.target.value.split("\n")
+                          )
+                        }
+                        className="text-sm w-full bg-transparent border border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[80px]"
+                        placeholder="Enter benefits (one per line)"
+                      />
+                    </div>
                   </div>
                 ) : (
-                  <>
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.5,
-                      }}
-                      className="text-4xl mb-2"
-                    >
-                      {stat.icon}
-                    </motion.div>
-                    <div className="text-3xl font-bold text-purple-600 mb-1">
-                      {stat.value}
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-4">
+                      <span className="text-4xl mr-4">{tech.icon}</span>
+                      <h4 className="text-2xl font-bold text-gray-800">
+                        {tech.name}
+                      </h4>
                     </div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </>
+                    <p className="text-gray-600 mb-4">{tech.description}</p>
+                    <div className="space-y-2">
+                      {tech.benefits.map((benefit, benefitIndex) => (
+                        <div
+                          key={benefitIndex}
+                          className="flex items-center text-sm text-black"
+                        >
+                          <span className="w-2 h-2 bg-black rounded-full mr-3"></span>
+                          {benefit}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </motion.div>
             ))}
           </div>
+
+          {/* Stats Dashboard */}
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
+              Performance Metrics
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {(localContent.stats || stats).map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                  className="text-center"
+                >
+                  {isEditing ? (
+                    <div className="space-y-2">
+                      <input
+                        type="text"
+                        value={stat.icon}
+                        onChange={(e: any) =>
+                          handleStatUpdate(index, "icon", e.target.value)
+                        }
+                        className="text-3xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                      />
+                      <input
+                        type="text"
+                        value={stat.value}
+                        onChange={(e: any) =>
+                          handleStatUpdate(index, "value", e.target.value)
+                        }
+                        className="text-3xl font-bold text-red-600 text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                      />
+                      <input
+                        type="text"
+                        value={stat.label}
+                        onChange={(e: any) =>
+                          handleStatUpdate(index, "label", e.target.value)
+                        }
+                        className="text-sm text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <motion.div
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: index * 0.5,
+                        }}
+                        className="text-4xl mb-2"
+                      >
+                        {stat.icon}
+                      </motion.div>
+                      <div className="text-3xl font-bold text-red-600 mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-gray-600">{stat.label}</div>
+                    </>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     );
   }
 
@@ -401,7 +401,7 @@ export default function EditableInnovationExecutionSection({
   // EDITING MODE
   // ===================================================================
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-red-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -591,7 +591,7 @@ export default function EditableInnovationExecutionSection({
             {/* Stats */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-purple-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Innovation Stats
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

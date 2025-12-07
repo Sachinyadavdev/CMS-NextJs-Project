@@ -33,8 +33,8 @@ export default function EditableEnvironmentSustainabilityBuildingSection({
 
   const {
     title = "Green Building & Urban Design",
-    description1 = "We design high-performance buildings and urban environments that enhance air quality, reduce energy demand, and elevate the experience of occupants. Our green building solutions incorporate biophilic design, natural ventilation strategies, efficient façades, and advanced sustainability technologies — creating modern spaces that prioritize comfort, safety, and environmental integrity.",
-    description2 = "Our urban design approach integrates green corridors, public spaces, and nature-based solutions that enrich the urban fabric and foster strong, resilient communities.",
+    description1 = "We design high-performance buildings and urban environments that enhance air quality, reduce energy demand and elevate the experience of occupants. Our green building solutions incorporate biophilic design, natural ventilation strategies, efficient façades and advanced sustainability technologies — creating modern spaces that prioritize comfort, safety and environmental integrity.",
+    description2 = "Our urban design approach integrates green corridors, public spaces and nature-based solutions that enrich the urban fabric and foster strong, resilient communities.",
     features = [
       {
         id: "1",
@@ -79,12 +79,12 @@ export default function EditableEnvironmentSustainabilityBuildingSection({
         buildingType: "mixed",
       },
     ],
-    backgroundColor = "#ecfdf5",
+    backgroundColor = "#fef2f2",
     textColor = "#1f2937",
     titleColor = "#1f2937",
-    accentColor = "#16a34a",
-    buildingColor = "#22c55e",
-    skyColor = "#dbeafe",
+    accentColor = "#dc2626",
+    buildingColor = "#ef4444",
+    skyColor = "#fca5a5",
   } = content;
 
   const handleUpdate = (patch: Record<string, unknown>) => {

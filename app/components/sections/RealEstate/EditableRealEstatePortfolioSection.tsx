@@ -20,7 +20,7 @@ export default function EditableRealEstatePortfolioSection({
   const {
     title = "Our Portfolio",
     subtitle = "Showcasing Excellence in Real Estate & Construction",
-    description = "Explore our diverse portfolio of completed projects that demonstrate our commitment to quality, innovation, and sustainable development.",
+    description = "Explore our diverse portfolio of completed projects that demonstrate our commitment to quality, innovation and sustainable development.",
     projects = [
       {
         id: "1",
@@ -57,7 +57,7 @@ export default function EditableRealEstatePortfolioSection({
         image:
           "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
         description:
-          "Integrated mixed-use development combining retail, office, and residential spaces.",
+          "Integrated mixed-use development combining retail, office and residential spaces.",
         location: "Sharjah, UAE",
         year: "2022",
         features: ["Mixed-Use", "Community Focus", "Retail Integration"],

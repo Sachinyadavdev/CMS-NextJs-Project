@@ -85,7 +85,7 @@ export default function CorporateGovernance({
     const {
       title = "Corporate Governance",
       subtitle = "Building Trust Through Transparency",
-      description = "Corporate governance at RAUS is not a compliance checklist — it's our promise of integrity, responsibility, and accountability. It ensures that we innovate boldly, partner responsibly, and deliver long-term value for all stakeholders.",
+      description = "Corporate governance at RAUS is not a compliance checklist — it's our promise of integrity, responsibility and accountability. It ensures that we innovate boldly, partner responsibly and deliver long-term value for all stakeholders.",
       frameworkTitle = "Governance Framework",
       backgroundImage,
       backgroundColor = "#f9fafb",
@@ -107,7 +107,7 @@ export default function CorporateGovernance({
         },
         {
           title: "Transparency",
-          description: "Our processes are traceable, auditable, and fully aligned with international governance best practices.",
+          description: "Our processes are traceable, auditable and fully aligned with international governance best practices.",
           icon: "eye" as IconType,
         },
         {
@@ -255,7 +255,6 @@ export default function CorporateGovernance({
             <div 
               className={`
                 ${imagePosition === 'right' ? 'lg:order-1' : 'lg:order-2'}
-                ${animationEnabled ? (imagePosition === 'right' ? 'animate-fadeInLeft' : 'animate-fadeInRight') : ''}
               `}
               style={{ 
                 animationDelay: '0.3s',
@@ -376,7 +375,7 @@ export default function CorporateGovernance({
                   <img
                     src={backgroundImage}
                     alt={title}
-                    className={`w-full h-full object-cover ${animationEnabled ? 'group-hover:scale-110 group-hover:rotate-2' : ''} transition-all duration-700 ease-out`}
+                    className={`w-full h-full object-cover ${animationEnabled ? 'group-hover:scale-110 ' : ''} transition-all duration-700 ease-out`}
                   />
                   
                   {/* Hover overlay with subtle gradient */}
@@ -414,7 +413,7 @@ export default function CorporateGovernance({
     const {
       title = "Corporate Governance",
       subtitle = "Building Trust Through Transparency",
-      description = "Corporate governance at RAUS is not a compliance checklist — it's our promise of integrity, responsibility, and accountability.",
+      description = "Corporate governance at RAUS is not a compliance checklist — it's our promise of integrity, responsibility and accountability.",
       frameworkTitle = "Governance Framework",
       backgroundImage,
       backgroundColor = "#f9fafb",

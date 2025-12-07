@@ -17,7 +17,7 @@ export default function EditableRealEstateHeroSection({ section, isEditing, onUp
   const {
     title = "Real Estate & Construction",
     subtitle = "Building Tomorrow's Landscapes Today",
-    description = "Transforming visions into reality through innovative design, sustainable construction, and unparalleled expertise in real estate development.",
+    description = "Transforming visions into reality through innovative design, sustainable construction and unparalleled expertise in real estate development.",
     buttonText = "Explore Our Projects",
     buttonLink = "/projects",
     stats = [],
@@ -176,11 +176,11 @@ export default function EditableRealEstateHeroSection({ section, isEditing, onUp
 
                 {/* Stats Section */}
                 {stats && stats.length > 0 && (
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                  <div className="grid grid-cols-2 lg:grid-cols-4  max-w-4xl mx-auto">
                     {stats.map((stat, index) => (
                       <div
                         key={index}
-                        className="text-center group cursor-pointer"
+                        className="text-center group "
                         style={{ animation: `fadeInUp 1s ease-out ${0.8 + index * 0.1}s both` }}
                       >
                         <div className="relative">

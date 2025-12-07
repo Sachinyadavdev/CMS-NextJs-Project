@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { HoverCardSection, HoverCardItem } from "@/lib/db";
 import MediaUpload from "../MediaUpload";
+import { useRouter } from "next/navigation";
 
 interface EditableHoverCardProps {
   section: HoverCardSection;
@@ -18,14 +19,25 @@ interface HoverCard extends HoverCardItem {
   subtitleFontSize?: string;
   subtitleFontWeight?: string;
   subtitleColor?: string;
+  link?: string;
 }
 
 const HoverCardComponent = ({ card }: { card: HoverCard }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    if (card.link) {
+      router.push(card.link);
+    }
+  };
 
   if (card.type === "static") {
     return (
-      <div className="w-full">
+      <div 
+        className={`w-full ${card.link ? 'cursor-pointer' : ''}`}
+        onClick={handleCardClick}
+      >
         <div className="w-full rounded-lg overflow-hidden shadow-xl flex items-center justify-center bg-gray-100 min-h-64">
           {/* Background Media */}
           {card.mediaType === "video" && card.mediaUrl ? (
@@ -84,9 +96,10 @@ const HoverCardComponent = ({ card }: { card: HoverCard }) => {
   // Hover type
   return (
     <div
-      className="relative w-full rounded-lg overflow-hidden shadow-xl cursor-pointer group flex items-center justify-center bg-gray-100 min-h-64"
+      className={`relative w-full rounded-lg overflow-hidden shadow-xl group flex items-center justify-center bg-gray-100 min-h-64 ${card.link ? 'cursor-pointer' : ''}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       {/* Background Media */}
       {card.mediaType === "video" && card.mediaUrl ? (
@@ -157,16 +170,24 @@ const HoverCardComponent = ({ card }: { card: HoverCard }) => {
   );
 };
 
-export default function EditableHoverCardSection({ section, isEditing, onUpdate }: EditableHoverCardProps) {
+export default function EditableHoverCardSection({
+  section,
+  isEditing,
+  onUpdate,
+}: EditableHoverCardProps) {
   const content = section.content || {};
-  const cards: HoverCard[] = Array.isArray(content.cards) ? content.cards as HoverCard[] : [];
+  const cards: HoverCard[] = Array.isArray(content.cards)
+    ? (content.cards as HoverCard[])
+    : [];
 
   const handleContentUpdate = (patch: Record<string, unknown>) => {
     onUpdate({ content: { ...content, ...patch } });
   };
 
   const handleCardUpdate = (index: number, patch: Partial<HoverCard>) => {
-    const updatedCards = cards.map((card, idx) => (idx === index ? { ...card, ...patch } : card));
+    const updatedCards = cards.map((card, idx) =>
+      idx === index ? { ...card, ...patch } : card
+    );
     handleContentUpdate({ cards: updatedCards });
   };
 
@@ -208,16 +229,19 @@ export default function EditableHoverCardSection({ section, isEditing, onUpdate 
   // Render the preview section
   const renderPreview = () => {
     const allCardsStatic = cards.every((card) => card.type === "static");
-    const previewCards = cards.length > 0 ? cards.slice(0, 3) : [
-      {
-        id: '1',
-        title: 'Sample Card',
-        subtitle: 'This is a sample hover card\nwith multiple lines',
-        mediaType: 'image',
-        mediaUrl: '',
-        type: 'hover' as const
-      }
-    ];
+    const previewCards =
+      cards.length > 0
+        ? cards.slice(0, 3)
+        : [
+            {
+              id: "1",
+              title: "Sample Card",
+              subtitle: "This is a sample hover card\nwith multiple lines",
+              mediaType: "image",
+              mediaUrl: "",
+              type: "hover" as const,
+            },
+          ];
 
     return (
       <section className="pb-2 px-4 max-w-7xl mx-auto flex items-center justify-center rounded-lg">
@@ -252,7 +276,9 @@ export default function EditableHoverCardSection({ section, isEditing, onUpdate 
       {/* Editing Controls */}
       <div className="rounded-xl border  bg-white p-6 shadow-sm">
         <div className="mb-6 flex items-center justify-between">
-          <h3 className="text-xl font-semibold text-gray-900">Edit Hover Card Section</h3>
+          <h3 className="text-xl font-semibold text-gray-900">
+            Edit Hover Card Section
+          </h3>
           <button
             type="button"
             onClick={handleAddCard}
@@ -261,160 +287,215 @@ export default function EditableHoverCardSection({ section, isEditing, onUpdate 
             Add Card
           </button>
         </div>
-      <div className="space-y-6">
-        {cards.map((card, index) => (
-          <div key={card.id} className="space-y-4 rounded-lg border bg-white p-5">
-            <div className="flex items-center justify-between">
-              <h4 className="text-lg font-semibold text-gray-900">Card {index + 1}</h4>
-              <button
-                type="button"
-                onClick={() => handleRemoveCard(index)}
-                className="text-sm text-red-600 transition hover:text-red-500"
-              >
-                Remove
-              </button>
-            </div>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Type
-                <select
-                  value={card.type || "hover"}
-                  onChange={(event) => handleCardUpdate(index, { type: event.target.value as "static" | "hover" })}
-                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+        <div className="space-y-6">
+          {cards.map((card, index) => (
+            <div
+              key={card.id}
+              className="space-y-4 rounded-lg border bg-white p-5"
+            >
+              <div className="flex items-center justify-between">
+                <h4 className="text-lg font-semibold text-gray-900">
+                  Card {index + 1}
+                </h4>
+                <button
+                  type="button"
+                  onClick={() => handleRemoveCard(index)}
+                  className="text-sm text-red-600 transition hover:text-red-500"
                 >
-                  <option value="hover">Hover</option>
-                  <option value="static">Static</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Media Type
-                <select
-                  value={card.mediaType || "image"}
-                  onChange={(event) => handleCardUpdate(index, { mediaType: event.target.value })}
-                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                >
-                  <option value="image">Image</option>
-                  <option value="video">Video</option>
-                </select>
-              </label>
-            </div>
-            <MediaUpload
-              label={`Card ${index + 1} Media`}
-              type={card.mediaType === "video" ? "video" : "image"}
-              currentUrl={card.mediaUrl}
-              onUpload={(url) => handleCardUpdate(index, { mediaUrl: url })}
-              onRemove={() => handleCardUpdate(index, { mediaUrl: '' })}
-              placeholder="Upload media or paste URL..."
-              maxSize={card.mediaType === "video" ? "50MB" : "10MB"}
-              supportedFormats={card.mediaType === "video" ? "MP4, WebM, MOV" : "PNG, JPG, WebP, GIF"}
-              className=""
-            />
-            <label className="flex flex-col gap-2 text-sm text-gray-700">
-              Title
-              <input
-                type="text"
-                value={card.title || ""}
-                onChange={(event) => handleCardUpdate(index, { title: event.target.value })}
-                className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                  Remove
+                </button>
+              </div>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Type
+                  <select
+                    value={card.type || "hover"}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        type: event.target.value as "static" | "hover",
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                  >
+                    <option value="hover">Hover</option>
+                    <option value="static">Static</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Media Type
+                  <select
+                    value={card.mediaType || "image"}
+                    onChange={(event) =>
+                      handleCardUpdate(index, { mediaType: event.target.value })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                  >
+                    <option value="image">Image</option>
+                    <option value="video">Video</option>
+                  </select>
+                </label>
+              </div>
+              <MediaUpload
+                label={`Card ${index + 1} Media`}
+                type={card.mediaType === "video" ? "video" : "image"}
+                currentUrl={card.mediaUrl}
+                onUpload={(url) => handleCardUpdate(index, { mediaUrl: url })}
+                onRemove={() => handleCardUpdate(index, { mediaUrl: "" })}
+                placeholder="Upload media or paste URL..."
+                maxSize={card.mediaType === "video" ? "50MB" : "10MB"}
+                supportedFormats={
+                  card.mediaType === "video"
+                    ? "MP4, WebM, MOV"
+                    : "PNG, JPG, WebP, GIF"
+                }
+                className=""
               />
-            </label>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Title Font Size
+                Title
                 <input
                   type="text"
-                  value={card.titleFontSize || ""}
-                  onChange={(event) => handleCardUpdate(index, { titleFontSize: event.target.value })}
+                  value={card.title || ""}
+                  onChange={(event) =>
+                    handleCardUpdate(index, { title: event.target.value })
+                  }
                   className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                  placeholder="e.g. 24px"
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Title Font Weight
-                <select
-                  value={card.titleFontWeight || "bold"}
-                  onChange={(event) => handleCardUpdate(index, { titleFontWeight: event.target.value })}
-                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                >
-                  <option value="300">Light (300)</option>
-                  <option value="400">Normal (400)</option>
-                  <option value="500">Medium (500)</option>
-                  <option value="600">Semi Bold (600)</option>
-                  <option value="700">Bold (700)</option>
-                  <option value="800">Extra Bold (800)</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Title Color
+                Link (Optional)
                 <input
                   type="text"
-                  value={card.titleColor || ""}
-                  onChange={(event) => handleCardUpdate(index, { titleColor: event.target.value })}
+                  value={card.link || ""}
+                  onChange={(event) =>
+                    handleCardUpdate(index, { link: event.target.value })
+                  }
                   className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                  placeholder="#ffffff"
+                  placeholder="/about or https://example.com"
                 />
               </label>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Title Font Size
+                  <input
+                    type="text"
+                    value={card.titleFontSize || ""}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        titleFontSize: event.target.value,
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                    placeholder="e.g. 24px"
+                  />
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Title Font Weight
+                  <select
+                    value={card.titleFontWeight || "bold"}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        titleFontWeight: event.target.value,
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                  >
+                    <option value="300">Light (300)</option>
+                    <option value="400">Normal (400)</option>
+                    <option value="500">Medium (500)</option>
+                    <option value="600">Semi Bold (600)</option>
+                    <option value="700">Bold (700)</option>
+                    <option value="800">Extra Bold (800)</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Title Color
+                  <input
+                    type="text"
+                    value={card.titleColor || ""}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        titleColor: event.target.value,
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                    placeholder="#ffffff"
+                  />
+                </label>
+              </div>
+              <label className="flex flex-col gap-2 text-sm text-gray-700">
+                Subtitle
+                <textarea
+                  value={card.subtitle || ""}
+                  onChange={(event) =>
+                    handleCardUpdate(index, { subtitle: event.target.value })
+                  }
+                  rows={3}
+                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                />
+              </label>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Subtitle Font Size
+                  <input
+                    type="text"
+                    value={card.subtitleFontSize || ""}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        subtitleFontSize: event.target.value,
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                    placeholder="e.g. 18px"
+                  />
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Subtitle Font Weight
+                  <select
+                    value={card.subtitleFontWeight || "400"}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        subtitleFontWeight: event.target.value,
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                  >
+                    <option value="300">Light (300)</option>
+                    <option value="400">Normal (400)</option>
+                    <option value="500">Medium (500)</option>
+                    <option value="600">Semi Bold (600)</option>
+                    <option value="700">Bold (700)</option>
+                    <option value="800">Extra Bold (800)</option>
+                  </select>
+                </label>
+                <label className="flex flex-col gap-2 text-sm text-gray-700">
+                  Subtitle Color
+                  <input
+                    type="text"
+                    value={card.subtitleColor || ""}
+                    onChange={(event) =>
+                      handleCardUpdate(index, {
+                        subtitleColor: event.target.value,
+                      })
+                    }
+                    className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
+                    placeholder="#ffffff"
+                  />
+                </label>
+              </div>
             </div>
-            <label className="flex flex-col gap-2 text-sm text-gray-700">
-              Subtitle
-              <textarea
-                value={card.subtitle || ""}
-                onChange={(event) => handleCardUpdate(index, { subtitle: event.target.value })}
-                rows={3}
-                className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-              />
-            </label>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-              <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Subtitle Font Size
-                <input
-                  type="text"
-                  value={card.subtitleFontSize || ""}
-                  onChange={(event) => handleCardUpdate(index, { subtitleFontSize: event.target.value })}
-                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                  placeholder="e.g. 18px"
-                />
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Subtitle Font Weight
-                <select
-                  value={card.subtitleFontWeight || "400"}
-                  onChange={(event) => handleCardUpdate(index, { subtitleFontWeight: event.target.value })}
-                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                >
-                  <option value="300">Light (300)</option>
-                  <option value="400">Normal (400)</option>
-                  <option value="500">Medium (500)</option>
-                  <option value="600">Semi Bold (600)</option>
-                  <option value="700">Bold (700)</option>
-                  <option value="800">Extra Bold (800)</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-2 text-sm text-gray-700">
-                Subtitle Color
-                <input
-                  type="text"
-                  value={card.subtitleColor || ""}
-                  onChange={(event) => handleCardUpdate(index, { subtitleColor: event.target.value })}
-                  className="rounded-lg border  bg-white px-4 py-3 text-gray-900 focus:border-fuchsia-500 focus:outline-none"
-                  placeholder="#ffffff"
-                />
-              </label>
-            </div>
-          </div>
-        ))}
+          ))}
 
-        {/* Save Button */}
-        <div className="mt-6 border-t pt-4">
-          <button
-            type="button"
-            onClick={handleSaveChanges}
-            className="rounded-lg bg-fuchsia-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-fuchsia-700"
-          >
-            Save Changes
-          </button>
+          {/* Save Button */}
+          <div className="mt-6 border-t pt-4">
+            <button
+              type="button"
+              onClick={handleSaveChanges}
+              className="rounded-lg bg-fuchsia-600 px-6 py-2 text-sm font-semibold text-white transition hover:bg-fuchsia-700"
+            >
+              Save Changes
+            </button>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

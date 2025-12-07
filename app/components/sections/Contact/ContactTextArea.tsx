@@ -26,7 +26,7 @@ export default function ContactTextArea({
     const {
       title = "Why Choose Us?",
       subtitle = "Your Trusted Partner",
-      description = "We bring together industry expertise, innovative solutions, and a commitment to excellence. Our team is dedicated to delivering results that exceed expectations and build lasting partnerships.",
+      description = "We bring together industry expertise, innovative solutions and a commitment to excellence. Our team is dedicated to delivering results that exceed expectations and build lasting partnerships.",
       titleColor = '#EF4130',
       subtitleColor = '#6B7280',
       textColor = '#374151',
@@ -295,7 +295,7 @@ export default function ContactTextArea({
     const {
       title = "Why Choose Us?",
       subtitle = "Your Trusted Partner",
-      description = "We bring together industry expertise, innovative solutions, and a commitment to excellence. Our team is dedicated to delivering results that exceed expectations and build lasting partnerships.",
+      description = "We bring together industry expertise, innovative solutions and a commitment to excellence. Our team is dedicated to delivering results that exceed expectations and build lasting partnerships.",
       titleColor = '#EF4130',
       subtitleColor = '#6B7280',
       textColor = '#374151',

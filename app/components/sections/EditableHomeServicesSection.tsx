@@ -4,6 +4,7 @@ import React from "react";
 import { ArrowUpRight, Home, Globe, Users, Truck, BarChart3, Building, Zap, Settings, Shield, Lightbulb, Target, Briefcase, Award, CheckCircle, TrendingUp, Layers, Map, Clock, Star, Heart, Smile, Coffee, Camera, Music, Gamepad2, Headphones, Palette, Bookmark, Calendar, Mail, Phone, MessageCircle, Search, Filter, Download, Upload, Share, Edit, Trash, Plus, Minus, X, Check, Eye, EyeOff, Lock, Unlock, User, Crown, Diamond, Gem, Sparkles, Flame, Sun, Moon, Cloud, Umbrella, Snowflake, Droplet, Leaf, Trees, Flower, Mountain, Waves } from "lucide-react";
 import { HomeServicesSection, HomeServiceItem } from "@/lib/db";
 import MediaUpload from "../MediaUpload";
+import EditableText from "../EditableInputs/EditableText";
 
 interface EditableHomeServicesProps {
   section: HomeServicesSection;
@@ -64,6 +65,7 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
       iconName: "Sparkles",
       title: "New Service",
       description: "Update this description.",
+      link: "",
     };
     handleContentUpdate({ services: [...services, newService] });
   };
@@ -97,7 +99,8 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
       titleFontSize = 28,
       subtitleFontSize = 18,
       showSeparator = false,
-      separatorColor = '#EF4130'
+      separatorColor = '#EF4130',
+      link = "",
     } = baseConfig;
 
     // Default services if none provided
@@ -211,14 +214,19 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
           <div className="space-y-8 lg:space-y-12">
             {/* First Row - 3 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {defaultServices.slice(0, 3).map((service: HomeServiceItem, index: number) => (
+              {defaultServices.slice(0, 3).map((service: HomeServiceItem, index: number) => {
+              const CardElement = service.link ? 'a' : 'div';
+              const cardProps = service.link ? { href: service.link } : {};
+              
+              return (
                 <div 
                   key={service.id}
                   className="relative group"
                 >
                   {/* Service Card */}
-                  <div 
-                    className="p-6 transition-all duration-300 text-center relative"
+                  <CardElement 
+                    {...cardProps}
+                    className={`p-6 transition-all duration-300 text-center relative block ${service.link ? 'cursor-pointer hover:opacity-90' : ''}`}
                     style={{ 
                       backgroundColor: cardBackgroundColor,
                       borderColor: cardBorderColor,
@@ -265,23 +273,29 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
                         {service.description}
                       </p>
                     </div>
-                  </div>
+                  </CardElement>
                 </div>
-              ))}
+              );
+            })}
             </div>
 
             {/* Second Row - 2 Cards Centered */}
             {defaultServices.length > 3 && (
               <div className="flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-                  {defaultServices.slice(3, 5).map((service: HomeServiceItem, index: number) => (
+                  {defaultServices.slice(3, 5).map((service: HomeServiceItem, index: number) => {
+                    const CardElement = service.link ? 'a' : 'div';
+                    const cardProps = service.link ? { href: service.link } : {};
+                    
+                    return (
                     <div 
                       key={service.id}
                       className="relative group"
                     >
                       {/* Service Card */}
-                      <div 
-                        className="p-6 transition-all duration-300 text-center relative"
+                      <CardElement 
+                        {...cardProps}
+                        className={`p-6 transition-all duration-300 text-center relative block ${service.link ? 'cursor-pointer hover:opacity-90' : ''}`}
                         style={{ 
                           backgroundColor: cardBackgroundColor,
                           borderColor: cardBorderColor,
@@ -328,9 +342,10 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
                             {service.description}
                           </p>
                         </div>
-                      </div>
+                      </CardElement>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -435,12 +450,19 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
 
           {/* Services Grid - Preview only shows first 3 */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {defaultServices.slice(0, 3).map((service: HomeServiceItem, index: number) => (
+            {defaultServices.slice(0, 3).map((service: HomeServiceItem, index: number) => {
+              const CardElement = service.link ? 'a' : 'div';
+              const cardProps = service.link ? { href: service.link } : {};
+              
+              return (
               <div 
                 key={service.id}
                 className="relative group"
               >
-                <div className="p-4 rounded-xl transition-all duration-300 text-center relative border border-gray-200">
+                <CardElement 
+                  {...cardProps}
+                  className={`p-4 rounded-xl transition-all duration-300 text-center relative border border-gray-200 block ${service.link ? 'cursor-pointer hover:shadow-lg hover:border-blue-300' : ''}`}
+                >
                   {/* Arrow in top-right corner */}
                   <div className="absolute top-4 right-4">
                     <ArrowUpRight 
@@ -471,9 +493,10 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
                       {service.description}
                     </p>
                   </div>
-                </div>
+                </CardElement>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -680,6 +703,15 @@ export default function EditableHomeServicesSection({ section, isEditing, onUpda
                     rows={3}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     placeholder="Service description..."
+                  />
+                </div>
+                <div className="mt-3">
+                  <EditableText
+                    label="Link"
+                    value={service.link || ""}
+                    onChange={(value) => handleServiceUpdate(index, { link: value })}
+                    placeholder="Enter link (e.g., https://example.com or /page)..."
+                    type="text"
                   />
                 </div>
               </div>

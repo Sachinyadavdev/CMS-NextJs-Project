@@ -32,8 +32,8 @@ export default function EditableEnvironmentSustainabilityPlanningSection({
 
   const {
     title = "Environmental Planning & Compliance",
-    description1 = "RAUS provides comprehensive environmental planning aligned with regulatory frameworks and local and global sustainability standards. Our strategies reduce risk, enhance ecological performance, and strengthen project resilience from the earliest stages of design.",
-    description2 = "We conduct assessments that address regulatory compliance while supporting improved biodiversity, reduced emissions, and optimized resource consumption. This ensures that every project not only meets environmental requirements but contributes meaningfully to its surrounding ecosystem.",
+    description1 = "RAUS provides comprehensive environmental planning aligned with regulatory frameworks and local and global sustainability standards. Our strategies reduce risk, enhance ecological performance and strengthen project resilience from the earliest stages of design.",
+    description2 = "We conduct assessments that address regulatory compliance while supporting improved biodiversity, reduced emissions and optimized resource consumption. This ensures that every project not only meets environmental requirements but contributes meaningfully to its surrounding ecosystem.",
     checklistItems = [
       {
         id: "1",
@@ -63,7 +63,7 @@ export default function EditableEnvironmentSustainabilityPlanningSection({
         id: "4",
         title: "Resource Optimization",
         description:
-          "Efficient use of water, energy, and raw materials throughout project lifecycle",
+          "Efficient use of water, energy and raw materials throughout project lifecycle",
         checked: true,
         icon: "💧",
       },

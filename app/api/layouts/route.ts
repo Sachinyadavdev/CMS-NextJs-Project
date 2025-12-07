@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
 
     if (!name || !title || !slug) {
       return NextResponse.json(
-        { error: 'Name, title, and slug are required' },
+        { error: 'Name, title and slug are required' },
         { status: 400 }
       );
     }

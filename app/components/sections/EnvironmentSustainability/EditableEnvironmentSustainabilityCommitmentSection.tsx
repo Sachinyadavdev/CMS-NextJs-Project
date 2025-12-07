@@ -32,8 +32,8 @@ export default function EditableEnvironmentSustainabilityCommitmentSection({
 
   const {
     title = "Our Commitment",
-    description1 = "Sustainability is our pledge to build responsibly, act consciously, and leave a positive legacy. By integrating environmental intelligence with innovative technologies and human-centered design, RAUS delivers solutions that support climate resilience, ecological balance, and long-term community prosperity.",
-    description2 = "We believe that shaping tomorrow begins with the actions we take today—and we remain committed to creating places where people thrive, ecosystems flourish, and future generations are protected.",
+    description1 = "Sustainability is our pledge to build responsibly, act consciously and leave a positive legacy. By integrating environmental intelligence with innovative technologies and human-centered design, RAUS delivers solutions that support climate resilience, ecological balance and long-term community prosperity.",
+    description2 = "We believe that shaping tomorrow begins with the actions we take today—and we remain committed to creating places where people thrive, ecosystems flourish and future generations are protected.",
     commitments = [
       {
         id: "1",
@@ -41,7 +41,7 @@ export default function EditableEnvironmentSustainabilityCommitmentSection({
         author: "RAUS Leadership",
         role: "Environmental Stewardship",
         icon: "🌱",
-        color: "#10b981",
+        color: "#dc2626",
       },
       {
         id: "2",
@@ -49,7 +49,7 @@ export default function EditableEnvironmentSustainabilityCommitmentSection({
         author: "RAUS Team",
         role: "Sustainable Development",
         icon: "♻️",
-        color: "#3b82f6",
+        color: "#ef4444",
       },
       {
         id: "3",
@@ -57,7 +57,7 @@ export default function EditableEnvironmentSustainabilityCommitmentSection({
         author: "RAUS Vision",
         role: "Climate Action",
         icon: "🌍",
-        color: "#f59e0b",
+        color: "#f87171",
       },
     ],
     backgroundColor = "#f8fafc",

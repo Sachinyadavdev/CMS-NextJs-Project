@@ -32,7 +32,7 @@ export default function EditableEnvironmentSustainabilityPracticesSection({
 
   const {
     title = "Sustainable Development Practices",
-    description = "RAUS champions sustainable development through the integration of low-carbon materials, energy-efficient systems, and green building standards. Our teams focus on minimizing environmental impact through:",
+    description = "RAUS champions sustainable development through the integration of low-carbon materials, energy-efficient systems and green building standards. Our teams focus on minimizing environmental impact through:",
     practices = [
       {
         id: "1",
@@ -69,7 +69,7 @@ export default function EditableEnvironmentSustainabilityPracticesSection({
       {
         id: "5",
         title: "Healthy Indoor Environmental Quality",
-        description: "Creating spaces that promote occupant health, comfort, and well-being",
+        description: "Creating spaces that promote occupant health, comfort and well-being",
         icon: "🏥",
         color: "#dc2626",
         benefits: ["Health improvement", "Productivity boost", "Well-being enhancement"],

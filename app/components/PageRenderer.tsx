@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, memo, useCallback } from "react";
 import { useAuth } from "@/app/providers";
+import { useAuthModal } from "@/app/contexts/AuthModalContext";
 import Loader from "./Loader";
 import {
   Layout,
@@ -19,6 +20,7 @@ interface PageRendererProps {
 
 function PageRenderer({ layout }: PageRendererProps) {
   const { user, token } = useAuth();
+  const { apiFetch, isOpen: isAuthModalOpen } = useAuthModal();
   const [isEditing, setIsEditing] = useState(false);
   const [sections, setSections] = useState<PageSection[]>(
     layout.sections || []
@@ -88,7 +90,7 @@ function PageRenderer({ layout }: PageRendererProps) {
       
       if (isMetaKey && e.key === "e") {
         e.preventDefault();
-        setIsEditing(!isEditing);
+       isAdmin && setIsEditing(!isEditing);
       }
     };
 
@@ -137,14 +139,11 @@ function PageRenderer({ layout }: PageRendererProps) {
         return;
       }
 
-      const headers: Record<string, string> = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
-      };
-
-      const response = await fetch(`/api/layouts/${layout.id}/version`, {
+      const savedLayout = await apiFetch(`/api/layouts/${layout.id}/version`, {
         method: "POST",
-        headers,
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           sections,
           isDraft,
@@ -152,15 +151,6 @@ function PageRenderer({ layout }: PageRendererProps) {
         }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.text();
-        console.error("Save error response:", errorData);
-        throw new Error(
-          `Failed to save version: ${response.status} - ${errorData}`
-        );
-      }
-
-      const savedLayout = await response.json();
       setSections(savedLayout.sections || []);
       setVersions(savedLayout.versions || []);
       setDraftNotes("");
@@ -193,28 +183,14 @@ function PageRenderer({ layout }: PageRendererProps) {
     if (!confirm("Are you sure you want to revert to this version?")) return;
 
     try {
-      const authToken =
-        token ||
-        (typeof window !== "undefined" ? localStorage.getItem("token") : null);
-      const headers: Record<string, string> = {
-        "Content-Type": "application/json",
-      };
-
-      if (authToken) {
-        headers.Authorization = `Bearer ${authToken}`;
-      }
-
-      const response = await fetch(`/api/layouts/${layout.id}/revert`, {
+      const revertedLayout = await apiFetch(`/api/layouts/${layout.id}/revert`, {
         method: "POST",
-        headers,
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ versionId }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to revert");
-      }
-
-      const revertedLayout = await response.json();
       setSections(revertedLayout.sections || []);
       setVersions(revertedLayout.versions || []);
       setShowVersionHistory(false);
@@ -244,7 +220,7 @@ function PageRenderer({ layout }: PageRendererProps) {
 
   return (
     <div className="bg-white text-white">
-      {isSaving && (
+      {isSaving && !isAuthModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <Loader message="Saving changes..." size="lg" />
         </div>

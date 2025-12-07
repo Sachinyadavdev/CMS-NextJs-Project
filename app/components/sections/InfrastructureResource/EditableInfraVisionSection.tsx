@@ -44,12 +44,12 @@ export default function EditableInfraVisionSection({
   const content = {
     title: "Our Vision for Infrastructure",
     subtitle: "Shaping Tomorrow's Intelligent Ecosystems",
-    description: "We envision infrastructure as more than concrete and steel: it's an intelligent, adaptive ecosystem. Whether we're planning transport networks, power systems, or water and resource utilities, we approach each project holistically — aligning technical performance with environmental stewardship and socio-economic resilience. Our infrastructure solutions are not standalone; they form part of a broader vision where every system is connected, sustainable, and scalable.",
+    description: "We envision infrastructure as more than concrete and steel: it's an intelligent, adaptive ecosystem. Whether we're planning transport networks, power systems, or water and resource utilities, we approach each project holistically — aligning technical performance with environmental stewardship and socio-economic resilience. Our infrastructure solutions are not standalone; they form part of a broader vision where every system is connected, sustainable and scalable.",
     visionPoints: [
       {
         id: "1",
         title: "Intelligent Systems",
-        description: "Infrastructure that adapts, learns, and optimizes itself through advanced analytics and AI integration.",
+        description: "Infrastructure that adapts, learns and optimizes itself through advanced analytics and AI integration.",
         icon: "🧠",
       },
       {
@@ -61,13 +61,13 @@ export default function EditableInfraVisionSection({
       {
         id: "3",
         title: "Socio-Economic Impact",
-        description: "Infrastructure that strengthens communities, creates opportunities, and improves quality of life.",
+        description: "Infrastructure that strengthens communities, creates opportunities and improves quality of life.",
         icon: "👥",
       },
       {
         id: "4",
         title: "System Integration",
-        description: "Connected ecosystems where transport, energy, and utilities work seamlessly together.",
+        description: "Connected ecosystems where transport, energy and utilities work seamlessly together.",
         icon: "🔗",
       },
     ],

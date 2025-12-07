@@ -105,7 +105,7 @@ const fontSizeOptions = [
 ---
 
 ### 4. EditableColorPicker
-For color selection with visual picker, hex input, and presets.
+For color selection with visual picker, hex input and presets.
 
 ```tsx
 import { EditableColorPicker } from "@/app/components/EditableInputs";

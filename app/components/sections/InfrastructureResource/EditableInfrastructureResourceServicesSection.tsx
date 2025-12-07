@@ -34,12 +34,12 @@ export default function EditableInfrastructureResourceServicesSection({
   const {
     title = "Our Infrastructure Services",
     subtitle = "Comprehensive Solutions for Modern Infrastructure",
-    description = "From planning to execution, we deliver end-to-end infrastructure services that meet the highest standards of quality, safety, and innovation.",
+    description = "From planning to execution, we deliver end-to-end infrastructure services that meet the highest standards of quality, safety and innovation.",
     services = [
       {
         id: "1",
         title: "Transportation Infrastructure",
-        description: "Building roads, bridges, and transit systems that connect communities and drive economic growth.",
+        description: "Building roads, bridges and transit systems that connect communities and drive economic growth.",
         icon: "🚗",
         color: "#3b82f6",
         features: [

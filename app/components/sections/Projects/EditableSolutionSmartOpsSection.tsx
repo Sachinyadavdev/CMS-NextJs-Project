@@ -52,7 +52,7 @@ export default function EditableSolutionSmartOpsSection({
   const {
     title = "Solution+ Smart Operations Facility – UAE",
     subtitle = "Next-Generation BPO Operations Center",
-    description = "A flagship operations center designed for large-scale BPO workflows. RAUS provides ergonomic work systems, productivity-focused interiors, and spatial layouts that improve efficiency, reduce operational friction, and support 24/7 use.",
+    description = "A flagship operations center designed for large-scale BPO workflows. RAUS provides ergonomic work systems, productivity-focused interiors and spatial layouts that improve efficiency, reduce operational friction and support 24/7 use.",
     location = "Dubai, UAE",
     year = "2024",
     status = "Operational",
@@ -82,7 +82,7 @@ export default function EditableSolutionSmartOpsSection({
       {
         title: "Smart Infrastructure",
         description:
-          "IoT-enabled systems, automated climate control, and intelligent lighting solutions",
+          "IoT-enabled systems, automated climate control and intelligent lighting solutions",
         icon: "🤖",
       },
       {
@@ -106,9 +106,9 @@ export default function EditableSolutionSmartOpsSection({
       { value: "99.9%", label: "Uptime" },
       { value: "50%", label: "Energy Savings" },
     ],
-    backgroundColor = "#f8fafc",
+    backgroundColor = "#fef2f2",
     textColor = "#1f2937",
-    accentColor = "#7c3aed",
+    accentColor = "#dc2626",
   } = content;
 
   const handleUpdate = (patch: Record<string, unknown>) => {
@@ -170,7 +170,7 @@ export default function EditableSolutionSmartOpsSection({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.002 }}
-                className="bg-purple-400 rounded-sm"
+                className="bg-red-400 rounded-sm"
               />
             ))}
           </div>
@@ -208,8 +208,8 @@ export default function EditableSolutionSmartOpsSection({
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-purple-500 rounded-full mr-2 animate-pulse"></span>
+            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
               {status} • {year}
             </div>
             <h2
@@ -269,7 +269,7 @@ export default function EditableSolutionSmartOpsSection({
                 whileHover={{ scale: 1.05 }}
                 className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
               >
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
@@ -355,9 +355,9 @@ export default function EditableSolutionSmartOpsSection({
                     <motion.div
                       key={index}
                       whileHover={{ scale: 1.02 }}
-                      className="flex items-center p-4 bg-purple-50 rounded-xl border border-purple-100"
+                      className="flex items-center p-4 bg-red-50 rounded-xl border border-red-100"
                     >
-                      <div className="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
+                      <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                       <span className="font-medium text-gray-800">
                         {feature}
                       </span>
@@ -381,9 +381,9 @@ export default function EditableSolutionSmartOpsSection({
                     <motion.div
                       key={index}
                       whileHover={{ scale: 1.02 }}
-                      className="flex items-center p-4 bg-indigo-50 rounded-xl border border-indigo-100"
+                      className="flex items-center p-4 bg-red-100 rounded-xl border border-red-200"
                     >
-                      <div className="w-3 h-3 bg-indigo-500 rounded-full mr-3"></div>
+                      <div className="w-3 h-3 bg-red-600 rounded-full mr-3"></div>
                       <span className="font-medium text-gray-800">
                         {technology}
                       </span>
@@ -403,9 +403,9 @@ export default function EditableSolutionSmartOpsSection({
   // ===================================================================
   const Preview = () => (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-      <div className="p-6 bg-gradient-to-r from-purple-500 to-indigo-500 text-white">
+      <div className="p-6 bg-gradient-to-r from-red-500 to-red-600 text-white">
         <h1 className="text-2xl font-bold">Solution+ Smart Operations</h1>
-        <p className="text-purple-100 mt-1">BPO Operations Center</p>
+        <p className="text-red-100 mt-1">BPO Operations Center</p>
       </div>
       <div className="p-6 max-h-80 overflow-y-auto">
         <div className="space-y-4">
@@ -433,7 +433,7 @@ export default function EditableSolutionSmartOpsSection({
             {features.slice(0, 3).map((feature, i) => (
               <span
                 key={i}
-                className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs"
+                className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs"
               >
                 {feature}
               </span>
@@ -445,7 +445,7 @@ export default function EditableSolutionSmartOpsSection({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-violet-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-red-50 to-red-100 p-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -459,7 +459,7 @@ export default function EditableSolutionSmartOpsSection({
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="sticky top-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-              <div className="w-3 h-3 bg-purple-500 rounded-full mr-3 animate-pulse"></div>
+              <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
               Live Preview
             </h2>
             <Preview />
@@ -469,7 +469,7 @@ export default function EditableSolutionSmartOpsSection({
             {/* Project Information */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-purple-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Project Information
               </h2>
               <div className="space-y-5">
@@ -512,7 +512,7 @@ export default function EditableSolutionSmartOpsSection({
             {/* Hero & Facility Images */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-indigo-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-600 rounded-full mr-3"></span>
                 Images
               </h2>
               <MediaUpload
@@ -549,7 +549,7 @@ export default function EditableSolutionSmartOpsSection({
             {/* Stats */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-purple-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Key Statistics
               </h2>
               <div className="space-y-4">
@@ -574,13 +574,13 @@ export default function EditableSolutionSmartOpsSection({
             {/* Highlights */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-indigo-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-600 rounded-full mr-3"></span>
                 Project Highlights
               </h2>
               <div className="space-y-6">
                 {highlights.map((highlight, index) => (
                   // REMOVED key={index} FROM PARENT DIV
-                  <div key={index} className="p-6 bg-purple-50 rounded-2xl border border-purple-100">
+                  <div key={index} className="p-6 bg-red-50 rounded-2xl border border-red-100">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <EditableText
                         label="Title"
@@ -616,7 +616,7 @@ export default function EditableSolutionSmartOpsSection({
             {/* Features */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-violet-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-700 rounded-full mr-3"></span>
                 Key Features
               </h2>
               <div className="space-y-3">
@@ -636,7 +636,7 @@ export default function EditableSolutionSmartOpsSection({
             {/* Technologies */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-purple-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Smart Technologies
               </h2>
               <div className="space-y-3">

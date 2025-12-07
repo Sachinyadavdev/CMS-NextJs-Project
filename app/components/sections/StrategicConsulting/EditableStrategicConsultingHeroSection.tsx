@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { StrategicConsultingHeroSection } from "@/lib/db";
 import MediaUpload from "../../MediaUpload";
 import { EditableText, EditableTextarea, EditableColorPicker, EditableCheckbox, EditableRange, EditableSelect } from "@/app/components/EditableInputs";
+import SectionEditorLayout from "./SectionEditorLayout";
+import { strategicTheme, strategicSectionWrapper } from "./StrategicConsultingTheme";
 
 interface EditableStrategicConsultingHeroProps {
   section: StrategicConsultingHeroSection;
@@ -28,13 +30,13 @@ export default function EditableStrategicConsultingHeroSection({
     secondaryButtonLink = "#methodology",
     backgroundImage = "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920",
     backgroundVideo = "",
-    backgroundColor = "#0a0e27",
-    textColor = "#ffffff",
-    titleColor = "#ffffff",
-    subtitleColor = "#EF4130",
-    primaryButtonColor = "#EF4130",
-    secondaryButtonColor = "transparent",
-    overlayOpacity = 0.6,
+    backgroundColor = strategicTheme.pageBackground,
+    textColor = strategicTheme.textSecondary,
+    titleColor = strategicTheme.textPrimary,
+    subtitleColor = strategicTheme.accent,
+    primaryButtonColor = strategicTheme.accent,
+    secondaryButtonColor = strategicTheme.surfaceAlt,
+    overlayOpacity = 0.75,
     showParticles = true,
     showFloatingElements = true,
     titleAlignment = "left",
@@ -102,7 +104,7 @@ export default function EditableStrategicConsultingHeroSection({
     return (
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-start overflow-hidden"
+        className={`${strategicSectionWrapper} min-h-screen flex items-center justify-start`}
         style={{ backgroundColor }}
       >
         {/* Advanced Background with Parallax */}
@@ -130,12 +132,12 @@ export default function EditableStrategicConsultingHeroSection({
 
           {/* Dynamic Gradient Overlay */}
           <div
-            className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-950/70"
+            className="absolute inset-0 bg-gradient-to-r from-[#05070F]/95 via-[#0B1220]/85 to-[#160a0a]/75"
             style={{ opacity: overlayOpacity }}
           />
 
           {/* Additional Gradient Accent */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-red-500/5" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#EF4130]/15 via-transparent to-[#FF6B4A]/10" />
 
           {/* Animated Grid Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -162,13 +164,13 @@ export default function EditableStrategicConsultingHeroSection({
         {showFloatingElements && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Strategic Icons Floating */}
-            <div className="absolute top-20 left-20 w-20 h-20 bg-red-500/10 rounded-full blur-xl animate-float-slow" />
-            <div className="absolute top-40 right-32 w-16 h-16 bg-blue-500/10 rounded-full blur-lg animate-float-medium" />
-            <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-purple-500/5 rounded-full blur-2xl animate-float-slow" />
+            <div className="absolute top-20 left-20 w-20 h-20 bg-[#EF4130]/15 rounded-full blur-xl animate-float-slow" />
+            <div className="absolute top-40 right-32 w-16 h-16 bg-[#FF6B4A]/15 rounded-full blur-lg animate-float-medium" />
+            <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-[#EF4130]/8 rounded-full blur-2xl animate-float-slow" />
 
             {/* Geometric Shapes */}
-            <div className="absolute top-1/3 right-40 w-3 h-3 bg-red-400/40 rounded-full animate-pulse" />
-            <div className="absolute bottom-1/3 left-40 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse delay-1000" />
+            <div className="absolute top-1/3 right-40 w-3 h-3 bg-[#EF4130]/40 rounded-full animate-pulse" />
+            <div className="absolute bottom-1/3 left-40 w-2 h-2 bg-[#FF6B4A]/30 rounded-full animate-pulse delay-1000" />
             <div className="absolute top-2/3 right-60 w-1.5 h-1.5 bg-white/40 rounded-full animate-pulse delay-500" />
 
             {/* Floating Business Icons */}
@@ -461,7 +463,7 @@ export default function EditableStrategicConsultingHeroSection({
             <div className="relative">
               <div className="relative w-full max-w-lg mx-auto">
                 {/* Main Abstract Shape */}
-                <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-blue-500/10 to-red-500/10 backdrop-blur-sm border border-white/10 transform rotate-3 shadow-2xl overflow-hidden">
+                <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-[#EF4130]/10 to-[#FF6B4A]/10 backdrop-blur-sm border border-white/10 transform rotate-3 shadow-2xl overflow-hidden">
                   {/* Centered Large Strategy Icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-32 h-32 bg-white/10 rounded-3xl backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl transform rotate-6">
@@ -485,7 +487,7 @@ export default function EditableStrategicConsultingHeroSection({
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-white/5 to-transparent" />
 
                   {/* Animated Orbs */}
-                  <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-blue-400/20 rounded-full blur-xl animate-pulse" />
+                  <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-[#FF6B4A]/20 rounded-full blur-xl animate-pulse" />
                   <div className="absolute bottom-1/3 right-1/4 w-12 h-12 bg-red-400/15 rounded-full blur-2xl animate-pulse delay-1000" />
 
                   {/* Floating Elements */}
@@ -527,7 +529,7 @@ export default function EditableStrategicConsultingHeroSection({
                 </div>
 
                 {/* Background Glow */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-red-500/10 rounded-3xl blur-xl opacity-50 animate-pulse" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#EF4130]/10 to-[#FF6B4A]/10 rounded-3xl blur-xl opacity-50 animate-pulse" />
               </div>
             </div>
           </div>
@@ -641,202 +643,162 @@ export default function EditableStrategicConsultingHeroSection({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Light Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="border-b border-gray-200 bg-white shadow-sm"
-      >
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Hero Section Editor
-          </h1>
-          <p className="text-gray-600 mt-1">
-            Real-time editing with instant preview
-          </p>
-        </div>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto p-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Preview */}
+    <SectionEditorLayout
+      title="Hero Section Editor"
+      description="Real-time editing with instant preview"
+      preview={renderPreview()}
+      controls={
+        <>
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="sticky top-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
           >
-            <motion.div
-              layout
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative h-[680px] bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-200"
-            >
-              {renderPreview()}
-              <div className="absolute top-5 left-6 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-                <span className="text-gray-800 font-medium text-sm">Live Preview</span>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Content
+            </h2>
+            <div className="space-y-6">
+              <EditableText
+                label="📝 Title"
+                value={title}
+                onChange={(value) => handleContentUpdate({ title: value })}
+              />
+
+              <EditableText
+                label="📋 Subtitle"
+                value={subtitle}
+                onChange={(value) => handleContentUpdate({ subtitle: value })}
+              />
+
+              <EditableTextarea
+                label="📄 Description"
+                value={description}
+                onChange={(value) => handleContentUpdate({ description: value })}
+              />
+
+              <div className="grid grid-cols-2 gap-4">
+                <EditableText
+                  label="🔘 Primary Button Text"
+                  value={primaryButtonText}
+                  onChange={(value) => handleContentUpdate({ primaryButtonText: value })}
+                />
+                <EditableText
+                  label="🔗 Primary Button Link"
+                  value={primaryButtonLink}
+                  onChange={(value) => handleContentUpdate({ primaryButtonLink: value })}
+                />
               </div>
-            </motion.div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <EditableText
+                  label="🔘 Secondary Button Text"
+                  value={secondaryButtonText}
+                  onChange={(value) => handleContentUpdate({ secondaryButtonText: value })}
+                />
+                <EditableText
+                  label="🔗 Secondary Button Link"
+                  value={secondaryButtonLink}
+                  onChange={(value) => handleContentUpdate({ secondaryButtonLink: value })}
+                />
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right: Controls */}
-          <div className="space-y-8">
-            {/* Content Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
-            >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                Content
-              </h2>
-              <div className="space-y-6">
-                <EditableText
-                  label="📝 Title"
-                  value={title}
-                  onChange={(value) => handleContentUpdate({ title: value })}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
+          >
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Style & Media
+            </h2>
+            <div className="space-y-7">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Background Image
+                </label>
+                <MediaUpload
+                  label="Background Image"
+                  type="image"
+                  currentUrl={backgroundImage}
+                  onUpload={(url) => handleContentUpdate({ backgroundImage: url })}
+                  onRemove={() => handleContentUpdate({ backgroundImage: "" })}
                 />
-
-                <EditableText
-                  label="📋 Subtitle"
-                  value={subtitle}
-                  onChange={(value) => handleContentUpdate({ subtitle: value })}
-                />
-
-                <EditableTextarea
-                  label="📄 Description"
-                  value={description}
-                  onChange={(value) => handleContentUpdate({ description: value })}
-                />
-
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableText
-                    label="🔘 Primary Button Text"
-                    value={primaryButtonText}
-                    onChange={(value) => handleContentUpdate({ primaryButtonText: value })}
-                  />
-                  <EditableText
-                    label="🔗 Primary Button Link"
-                    value={primaryButtonLink}
-                    onChange={(value) => handleContentUpdate({ primaryButtonLink: value })}
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableText
-                    label="🔘 Secondary Button Text"
-                    value={secondaryButtonText}
-                    onChange={(value) => handleContentUpdate({ secondaryButtonText: value })}
-                  />
-                  <EditableText
-                    label="🔗 Secondary Button Link"
-                    value={secondaryButtonLink}
-                    onChange={(value) => handleContentUpdate({ secondaryButtonLink: value })}
-                  />
-                </div>
               </div>
-            </motion.div>
 
-            {/* Style & Media Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
-            >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                Style & Media
-              </h2>
-              <div className="space-y-7">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Background Image
-                  </label>
-                  <MediaUpload
-                    label="Background Image"
-                    type="image"
-                    currentUrl={backgroundImage}
-                    onUpload={(url) => handleContentUpdate({ backgroundImage: url })}
-                    onRemove={() => handleContentUpdate({ backgroundImage: "" })}
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Background Video
+                </label>
+                <MediaUpload
+                  label="Background Video"
+                  type="video"
+                  currentUrl={backgroundVideo}
+                  onUpload={(url) => handleContentUpdate({ backgroundVideo: url })}
+                  onRemove={() => handleContentUpdate({ backgroundVideo: "" })}
+                />
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Background Video
-                  </label>
-                  <MediaUpload
-                    label="Background Video"
-                    type="video"
-                    currentUrl={backgroundVideo}
-                    onUpload={(url) => handleContentUpdate({ backgroundVideo: url })}
-                    onRemove={() => handleContentUpdate({ backgroundVideo: "" })}
-                  />
-                </div>
+              <EditableColorPicker
+                label="🎨 Fallback Background Color"
+                value={backgroundColor}
+                onChange={(value) => handleContentUpdate({ backgroundColor: value })}
+              />
 
+              <div className="grid grid-cols-2 gap-4">
                 <EditableColorPicker
-                  label="🎨 Fallback Background Color"
-                  value={backgroundColor}
-                  onChange={(value) => handleContentUpdate({ backgroundColor: value })}
+                  label="🎨 Text Color"
+                  value={textColor}
+                  onChange={(value) => handleContentUpdate({ textColor: value })}
                 />
-
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableColorPicker
-                    label="🎨 Text Color"
-                    value={textColor}
-                    onChange={(value) => handleContentUpdate({ textColor: value })}
-                  />
-                  <EditableColorPicker
-                    label="📝 Title Color"
-                    value={titleColor}
-                    onChange={(value) => handleContentUpdate({ titleColor: value })}
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableColorPicker
-                    label="📋 Subtitle Color"
-                    value={subtitleColor}
-                    onChange={(value) => handleContentUpdate({ subtitleColor: value })}
-                  />
-                  <EditableColorPicker
-                    label="🔘 Primary Button Color"
-                    value={primaryButtonColor}
-                    onChange={(value) => handleContentUpdate({ primaryButtonColor: value })}
-                  />
-                </div>
-
-                <EditableRange
-                  label="👁️ Overlay Opacity"
-                  value={overlayOpacity}
-                  onChange={(value) => handleContentUpdate({ overlayOpacity: value })}
-                  min={0}
-                  max={1}
-                  step={0.05}
-                  unit="%"
+                <EditableColorPicker
+                  label="📝 Title Color"
+                  value={titleColor}
+                  onChange={(value) => handleContentUpdate({ titleColor: value })}
                 />
-
-                <div className="space-y-4">
-                  <EditableCheckbox
-                    label="✨ Show Particles"
-                    checked={showParticles}
-                    onChange={(value) => handleContentUpdate({ showParticles: value })}
-                  />
-                  <EditableCheckbox
-                    label="🎭 Show Floating Elements"
-                    checked={showFloatingElements}
-                    onChange={(value) => handleContentUpdate({ showFloatingElements: value })}
-                  />
-                </div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <EditableColorPicker
+                  label="📋 Subtitle Color"
+                  value={subtitleColor}
+                  onChange={(value) => handleContentUpdate({ subtitleColor: value })}
+                />
+                <EditableColorPicker
+                  label="🔘 Primary Button Color"
+                  value={primaryButtonColor}
+                  onChange={(value) => handleContentUpdate({ primaryButtonColor: value })}
+                />
+              </div>
+
+              <EditableRange
+                label="👁️ Overlay Opacity"
+                value={overlayOpacity}
+                onChange={(value) => handleContentUpdate({ overlayOpacity: value })}
+                min={0}
+                max={1}
+                step={0.05}
+                unit="%"
+              />
+
+              <div className="space-y-4">
+                <EditableCheckbox
+                  label="✨ Show Particles"
+                  checked={showParticles}
+                  onChange={(value) => handleContentUpdate({ showParticles: value })}
+                />
+                <EditableCheckbox
+                  label="🎭 Show Floating Elements"
+                  checked={showFloatingElements}
+                  onChange={(value) => handleContentUpdate({ showFloatingElements: value })}
+                />
+              </div>
+            </div>
+          </motion.div>
+        </>
+      }
+    />
   );
 }

@@ -47,7 +47,7 @@ export default function EditablePublicSpacesSection({
   const {
     title = "Public Spaces with Purpose",
     subtitle = "Where Communities Come Together",
-    description = "Parks, plazas, civic areas, and shared domains are planned to unite people, encourage engagement, and elevate overall quality of life through thoughtful design.",
+    description = "Parks, plazas, civic areas and shared domains are planned to unite people, encourage engagement and elevate overall quality of life through thoughtful design.",
     spaceTypes = [
       {
         type: "Community Parks",

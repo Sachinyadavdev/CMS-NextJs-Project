@@ -64,7 +64,7 @@ export default function WhyChooseRaus({ section, isEditing, onUpdate }: WhyChoos
     title: content.title || "🚀 Why Partners Choose RAUS",
     description:
       content.description ||
-      "Together, we deliver impact that is scalable, future-proof, and human-centered.",
+      "Together, we deliver impact that is scalable, future-proof and human-centered.",
     bullets: content.bullets || defaultBullets,
     accentColor: content.accentColor || "#7C3AED",
     backgroundColor: content.backgroundColor || "#F5F7FA",
@@ -184,8 +184,7 @@ export default function WhyChooseRaus({ section, isEditing, onUpdate }: WhyChoos
           {/* Title Section */}
           <div className={`flex items-center gap-3 mb-6 ${alignClasses.title}`}>
             <div className="relative">
-              <Rocket className="w-10 h-10 animate-spin-slow" style={{ color: data.accentColor }} />
-              <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-yellow-400" />
+              <Rocket className="w-10 h-10" style={{ color: data.accentColor }} />
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight" 
                 style={{ color: data.accentColor }}>
@@ -209,7 +208,7 @@ export default function WhyChooseRaus({ section, isEditing, onUpdate }: WhyChoos
               >
                 <div className="flex-shrink-0 mt-0.5">
                   <div className="relative">
-                    <Star className="w-6 h-6 animate-bounce" style={{ color: data.accentColor }} />
+                    <Star className="w-6 h-6" style={{ color: data.accentColor }} />
                     <div className="absolute inset-0 w-6 h-6 rounded-full blur-md opacity-50" 
                          style={{ backgroundColor: data.accentColor }} />
                   </div>

@@ -22,9 +22,9 @@ interface ParagraphSectionFirstProps {
 const defaultContent: ParagraphSectionContent = {
   title: "Transforming Spaces Into Intelligent, Connected, Future-Ready Ecosystems",
   paragraphs: [
-    "At RAUS, Digital Transformation is more than integrating technology—it's about reshaping how buildings operate, how people interact with spaces, and how organizations unlock long-term performance.",
-    "We bridge architecture, engineering, data, and smart technologies to create intelligent environments that are adaptive, efficient, and built for tomorrow.",
-    "From smart buildings and IoT systems to digital twins, automation, and AI-driven project delivery, our digital solutions elevate every stage of the built environment lifecycle—design, construction, operations, and maintenance."
+    "At RAUS, Digital Transformation is more than integrating technology—it's about reshaping how buildings operate, how people interact with spaces and how organizations unlock long-term performance.",
+    "We bridge architecture, engineering, data and smart technologies to create intelligent environments that are adaptive, efficient and built for tomorrow.",
+    "From smart buildings and IoT systems to digital twins, automation and AI-driven project delivery, our digital solutions elevate every stage of the built environment lifecycle—design, construction, operations and maintenance."
   ],
   accentColor: "#00d4ff",
   backgroundColor: "#f8fafc",

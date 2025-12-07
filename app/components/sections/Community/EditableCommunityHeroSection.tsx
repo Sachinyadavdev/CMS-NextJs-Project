@@ -40,7 +40,7 @@ export default function EditableCommunityHeroSection({
   const {
     title = "Building Community",
     subtitle = "Spaces Where People Connect and Belong",
-    description = "At RAUS, we believe that great communities are built through thoughtful design, collaboration, and a commitment to creating spaces where people feel valued and connected.",
+    description = "At RAUS, we believe that great communities are built through thoughtful design, collaboration and a commitment to creating spaces where people feel valued and connected.",
     primaryButtonText = "Explore Our Approach",
     primaryButtonLink = "#community-focus",
     secondaryButtonText = "Get Involved",

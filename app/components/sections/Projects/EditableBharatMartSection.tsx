@@ -30,6 +30,7 @@ interface BharatMartContent {
   backgroundColor?: string;
   textColor?: string;
   accentColor?: string;
+  bharatMartId?: string;
 }
 
 type BharatMartSection = BaseSection<BharatMartContent>;
@@ -50,7 +51,7 @@ export default function EditableBharatMartSection({
   const {
     title = "Bharat Mart – Dubai",
     subtitle = "Next-Generation Commercial & Logistics Hub",
-    description = "A next-generation commercial and logistics hub designed to strengthen trade connectivity between the UAE and India. RAUS leads master planning, modular construction, digital enablement, vendor coordination, and sustainable design, ensuring a future-ready, operationally scalable ecosystem.",
+    description = "A next-generation commercial and logistics hub designed to strengthen trade connectivity between the UAE and India. RAUS leads master planning, modular construction, digital enablement, vendor coordination and sustainable design, ensuring a future-ready, operationally scalable ecosystem.",
     location = "Dubai, UAE",
     year = "2024",
     status = "In Development",
@@ -73,13 +74,13 @@ export default function EditableBharatMartSection({
       {
         title: "Digital Enablement",
         description:
-          "Smart warehouse management, IoT sensors, and automated logistics systems",
+          "Smart warehouse management, IoT sensors and automated logistics systems",
         icon: "📱",
       },
       {
         title: "Sustainable Design",
         description:
-          "Green building standards, energy-efficient operations, and eco-friendly materials",
+          "Green building standards, energy-efficient operations and eco-friendly materials",
         icon: "🌱",
       },
       {
@@ -95,9 +96,9 @@ export default function EditableBharatMartSection({
       { value: "100+", label: "Vendors" },
       { value: "99%", label: "Uptime Target" },
     ],
-    backgroundColor = "#f8fafc",
+    backgroundColor = "#fef2f2",
     textColor = "#1f2937",
-    accentColor = "#059669",
+    accentColor = "#dc2626",
   } = content;
 
   const handleUpdate = (patch: Record<string, unknown>) => {
@@ -154,6 +155,7 @@ export default function EditableBharatMartSection({
   if (!isEditing) {
     return (
       <section
+        id="BharatMartID"
         className="py-24 relative overflow-hidden"
         style={{ backgroundColor }}
       >
@@ -167,7 +169,7 @@ export default function EditableBharatMartSection({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.002 }}
-                className="bg-emerald-400 rounded-sm"
+                className="bg-red-400 rounded-sm"
               />
             ))}
           </div>
@@ -229,8 +231,8 @@ export default function EditableBharatMartSection({
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></span>
+            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
               {status} • {year}
             </div>
             <h2
@@ -290,7 +292,7 @@ export default function EditableBharatMartSection({
                 whileHover={{ scale: 1.05 }}
                 className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
               >
-                <div className="text-3xl md:text-4xl font-bold text-emerald-600 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
@@ -341,9 +343,9 @@ export default function EditableBharatMartSection({
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center p-4 bg-emerald-50 rounded-xl border border-emerald-100"
+                  className="flex items-center p-4 bg-red-50 rounded-xl border border-red-100"
                 >
-                  <div className="w-3 h-3 bg-emerald-500 rounded-full mr-3"></div>
+                  <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                   <span className="font-medium text-gray-800">{feature}</span>
                 </motion.div>
               ))}
@@ -359,9 +361,9 @@ export default function EditableBharatMartSection({
   // ===================================================================
   const Preview = () => (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-      <div className="p-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-white">
+      <div className="p-6 bg-gradient-to-r from-red-500 to-red-600 text-white">
         <h1 className="text-2xl font-bold">Bharat Mart Project</h1>
-        <p className="text-emerald-100 mt-1">
+        <p className="text-red-100 mt-1">
           Commercial & Logistics Hub Showcase
         </p>
       </div>
@@ -391,7 +393,7 @@ export default function EditableBharatMartSection({
             {features.slice(0, 3).map((feature, i) => (
               <span
                 key={i}
-                className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded text-xs"
+                className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs"
               >
                 {feature}
               </span>
@@ -403,7 +405,7 @@ export default function EditableBharatMartSection({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-red-50 to-red-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -420,7 +422,7 @@ export default function EditableBharatMartSection({
           <div className="sticky top-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <div className="w-3 h-3 bg-emerald-500 rounded-full mr-3 animate-pulse"></div>
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
                 Live Preview
               </h2>
             </div>
@@ -432,7 +434,7 @@ export default function EditableBharatMartSection({
             {/* Basic Info */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-emerald-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Project Information
               </h2>
               <div className="space-y-5">
@@ -475,7 +477,7 @@ export default function EditableBharatMartSection({
             {/* Hero Image */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-teal-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Hero Image
               </h2>
               <MediaUpload
@@ -491,7 +493,7 @@ export default function EditableBharatMartSection({
             {/* Stats */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-cyan-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Key Statistics
               </h2>
               <div className="space-y-4">
@@ -515,12 +517,12 @@ export default function EditableBharatMartSection({
             {/* Highlights */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-emerald-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Project Highlights
               </h2>
               <div className="space-y-6">
                 {highlights.map((highlight, index) => (
-                  <div key={index} className="p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
+                  <div key={index} className="p-6 bg-red-50 rounded-2xl border border-red-100">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <EditableText
                         label="Title"
@@ -556,7 +558,7 @@ export default function EditableBharatMartSection({
             {/* Features */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-teal-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Key Features
               </h2>
               <div className="space-y-3">

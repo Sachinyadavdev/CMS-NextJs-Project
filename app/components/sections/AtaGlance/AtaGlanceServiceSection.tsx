@@ -279,7 +279,7 @@ export default function AtaGlanceServiceSection({ section, isEditing, onUpdate }
                   <div className="relative z-10">
                     {/* Icon Container */}
                     <div 
-                      className="mb-6 inline-flex p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-6"
+                      className="mb-6 inline-flex p-4 rounded-2xl backdrop-blur-sm transition-all duration-500 group-hover:scale-110"
                       style={{ 
                         background: `linear-gradient(135deg, ${iconColor}20, ${iconColor}10)`,
                         boxShadow: `0 0 30px ${iconColor}30`

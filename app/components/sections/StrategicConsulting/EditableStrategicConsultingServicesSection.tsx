@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { StrategicConsultingServicesSection } from "@/lib/db";
 import MediaUpload from "../../MediaUpload";
 import { EditableText, EditableTextarea, EditableColorPicker, EditableCheckbox } from "@/app/components/EditableInputs";
+import SectionEditorLayout from "./SectionEditorLayout";
+import { strategicTheme, strategicSectionWrapper, strategicContainer, strategicPanel } from "./StrategicConsultingTheme";
 
 interface EditableStrategicConsultingServicesProps {
   section: StrategicConsultingServicesSection;
@@ -75,18 +77,18 @@ export default function EditableStrategicConsultingServicesSection({
       {
         id: "6",
         title: "Risk Management",
-        description: "Identify, assess, and mitigate risks to ensure business continuity and resilience.",
+        description: "Identify, assess and mitigate risks to ensure business continuity and resilience.",
         icon: "🛡️",
         color: "#61110c",
         features: ["Risk Assessment", "Compliance Management", "Crisis Planning"],
       },
     ],
-    backgroundColor = "#ffffff",
-    textColor = "#000000",
-    titleColor = "#000000",
-    subtitleColor = "#EF4130",
-    cardBackgroundColor = "#f8f9fa",
-    cardHoverColor = "#ffffff",
+    backgroundColor = strategicTheme.pageBackground,
+    textColor = strategicTheme.textSecondary,
+    titleColor = strategicTheme.textPrimary,
+    subtitleColor = strategicTheme.accent,
+    cardBackgroundColor = strategicTheme.card,
+    cardHoverColor = strategicTheme.surfaceAlt,
     layout = "grid", // 'grid' or 'masonry'
     showIcons = true,
     showFeatures = true,
@@ -149,22 +151,22 @@ export default function EditableStrategicConsultingServicesSection({
     return (
       <section
         ref={sectionRef}
-        className="relative py-20 overflow-hidden"
+        className={`${strategicSectionWrapper} overflow-hidden`}
         style={{ backgroundColor }}
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#EF4130]/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FF6B4A]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#EF4130]/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`relative z-10 ${strategicContainer} px-4 sm:px-6 lg:px-8`}>
           {/* Header Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-red-200 bg-red-50">
-              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-red-700 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur">
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: subtitleColor }} />
+              <span className="text-sm font-semibold uppercase tracking-wider" style={{ color: subtitleColor }}>
                 {subtitle}
               </span>
             </div>
@@ -277,7 +279,10 @@ export default function EditableStrategicConsultingServicesSection({
                     padding: '2px'
                   }}
                 >
-                  <div className="w-full h-full rounded-2xl bg-white" />
+                  <div
+                    className="w-full h-full rounded-2xl"
+                    style={{ backgroundColor: strategicTheme.card }}
+                  />
                 </div>
               </div>
             ))}
@@ -304,13 +309,13 @@ export default function EditableStrategicConsultingServicesSection({
     const previewServices = services.slice(0, 3);
 
     return (
-      <section className="relative py-12 overflow-hidden rounded-lg" style={{ backgroundColor }}>
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative py-12 overflow-hidden rounded-3xl" style={{ backgroundColor }}>
+        <div className={`${strategicContainer} px-4`}>
           {/* Header */}
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-red-200 bg-red-50">
-              <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
-              <span className="text-xs font-semibold text-red-700 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-white/10 bg-white/5 backdrop-blur">
+              <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: subtitleColor }} />
+              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: subtitleColor }}>
                 {subtitle}
               </span>
             </div>
@@ -381,222 +386,185 @@ export default function EditableStrategicConsultingServicesSection({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Light Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="border-b border-gray-200 bg-white shadow-sm"
-      >
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Services Section Editor
-          </h1>
-          <p className="text-gray-600 mt-1">
-            Real-time editing with instant preview
-          </p>
+    <SectionEditorLayout
+      title="Services Section Editor"
+      description="Real-time editing with instant preview"
+      preview={
+        <div className="h-full overflow-auto">
+          {renderPreview()}
         </div>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto p-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Preview */}
+      }
+      controls={
+        <>
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="sticky top-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
           >
-            <motion.div
-              layout
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-200"
-            >
-              {renderPreview()}
-              <div className="absolute top-5 left-6 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse" />
-                <span className="text-gray-800 font-medium text-sm">Live Preview</span>
-              </div>
-            </motion.div>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-semibold text-gray-900">
+                Content
+              </h2>
+              <button
+                type="button"
+                onClick={handleAddService}
+                className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
+              >
+                Add Service
+              </button>
+            </div>
+            <div className="space-y-6">
+              <EditableText
+                label="📝 Title"
+                value={title}
+                onChange={(value) => handleContentUpdate({ title: value })}
+              />
+              <EditableText
+                label="📋 Subtitle"
+                value={subtitle}
+                onChange={(value) => handleContentUpdate({ subtitle: value })}
+              />
+              <EditableTextarea
+                label="📄 Description"
+                value={description}
+                onChange={(value) => handleContentUpdate({ description: value })}
+              />
+            </div>
           </motion.div>
 
-          {/* Right: Controls */}
-          <div className="space-y-8">
-            {/* Content Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
-            >
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-semibold text-gray-900">
-                  Content
-                </h2>
-                <button
-                  type="button"
-                  onClick={handleAddService}
-                  className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
-                >
-                  Add Service
-                </button>
-              </div>
-              <div className="space-y-6">
-                <EditableText
-                  label="📝 Title"
-                  value={title}
-                  onChange={(value) => handleContentUpdate({ title: value })}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
+          >
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Style
+            </h2>
+            <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <EditableColorPicker
+                  label="🎨 Background Color"
+                  value={backgroundColor}
+                  onChange={(value) => handleContentUpdate({ backgroundColor: value })}
                 />
-                <EditableText
-                  label="📋 Subtitle"
-                  value={subtitle}
-                  onChange={(value) => handleContentUpdate({ subtitle: value })}
-                />
-                <EditableTextarea
-                  label="📄 Description"
-                  value={description}
-                  onChange={(value) => handleContentUpdate({ description: value })}
+                <EditableColorPicker
+                  label="📋 Title Color"
+                  value={titleColor}
+                  onChange={(value) => handleContentUpdate({ titleColor: value })}
                 />
               </div>
-            </motion.div>
 
-            {/* Style Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
-            >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                Style
-              </h2>
-              <div className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableColorPicker
-                    label="🎨 Background Color"
-                    value={backgroundColor}
-                    onChange={(value) => handleContentUpdate({ backgroundColor: value })}
+              <div className="grid grid-cols-2 gap-4">
+                <EditableColorPicker
+                  label="📝 Subtitle Color"
+                  value={subtitleColor}
+                  onChange={(value) => handleContentUpdate({ subtitleColor: value })}
+                />
+                <EditableColorPicker
+                  label="📝 Text Color"
+                  value={textColor}
+                  onChange={(value) => handleContentUpdate({ textColor: value })}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <EditableColorPicker
+                  label="📦 Card Background"
+                  value={cardBackgroundColor}
+                  onChange={(value) => handleContentUpdate({ cardBackgroundColor: value })}
+                />
+                <EditableColorPicker
+                  label="✨ Card Hover Color"
+                  value={cardHoverColor}
+                  onChange={(value) => handleContentUpdate({ cardHoverColor: value })}
+                />
+              </div>
+
+              <div className="space-y-4">
+                <EditableText
+                  label="📐 Layout"
+                  value={layout}
+                  onChange={(value) => handleContentUpdate({ layout: value })}
+                  type="text"
+                />
+
+                <div className="space-y-3">
+                  <EditableCheckbox
+                    label="🎨 Show Icons"
+                    checked={showIcons}
+                    onChange={(value) => handleContentUpdate({ showIcons: value })}
                   />
-                  <EditableColorPicker
-                    label="📋 Title Color"
-                    value={titleColor}
-                    onChange={(value) => handleContentUpdate({ titleColor: value })}
+                  <EditableCheckbox
+                    label="✨ Show Features"
+                    checked={showFeatures}
+                    onChange={(value) => handleContentUpdate({ showFeatures: value })}
                   />
                 </div>
+              </div>
+            </div>
+          </motion.div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableColorPicker
-                    label="📝 Subtitle Color"
-                    value={subtitleColor}
-                    onChange={(value) => handleContentUpdate({ subtitleColor: value })}
-                  />
-                  <EditableColorPicker
-                    label="📝 Text Color"
-                    value={textColor}
-                    onChange={(value) => handleContentUpdate({ textColor: value })}
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <EditableColorPicker
-                    label="📦 Card Background"
-                    value={cardBackgroundColor}
-                    onChange={(value) => handleContentUpdate({ cardBackgroundColor: value })}
-                  />
-                  <EditableColorPicker
-                    label="✨ Card Hover Color"
-                    value={cardHoverColor}
-                    onChange={(value) => handleContentUpdate({ cardHoverColor: value })}
-                  />
-                </div>
-
-                <div className="space-y-4">
-                  <EditableText
-                    label="📐 Layout"
-                    value={layout}
-                    onChange={(value) => handleContentUpdate({ layout: value })}
-                    type="text"
-                  />
-
-                  <div className="space-y-3">
-                    <EditableCheckbox
-                      label="🎨 Show Icons"
-                      checked={showIcons}
-                      onChange={(value) => handleContentUpdate({ showIcons: value })}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
+          >
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+              Services ({services.length})
+            </h2>
+            <div className="space-y-4 max-h-[600px] overflow-y-auto">
+              {services.map((service: any, index: number) => (
+                <div key={service.id} className="rounded-lg border border-gray-200 p-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h5 className="text-md font-semibold text-gray-900">Service {index + 1}</h5>
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveService(index)}
+                      className="text-sm text-red-600 transition hover:text-red-700 font-medium"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                    <EditableText
+                      label="📝 Title"
+                      value={service.title}
+                      onChange={(value) => handleServiceUpdate(index, { title: value })}
                     />
-                    <EditableCheckbox
-                      label="✨ Show Features"
-                      checked={showFeatures}
-                      onChange={(value) => handleContentUpdate({ showFeatures: value })}
+                    <EditableText
+                      label="🎨 Icon"
+                      value={service.icon}
+                      onChange={(value) => handleServiceUpdate(index, { icon: value })}
+                      placeholder="🎯"
+                    />
+                  </div>
+                  <EditableTextarea
+                    label="📄 Description"
+                    value={service.description}
+                    onChange={(value) => handleServiceUpdate(index, { description: value })}
+                  />
+                  <div className="grid grid-cols-1 gap-3 md:grid-cols-2 mt-3">
+                    <EditableColorPicker
+                      label="🎨 Color"
+                      value={service.color}
+                      onChange={(value) => handleServiceUpdate(index, { color: value })}
+                    />
+                    <EditableText
+                      label="✨ Features (comma-separated)"
+                      value={service.features.join(', ')}
+                      onChange={(value) => handleServiceUpdate(index, { features: value.split(',').map((f) => f.trim()) })}
+                      placeholder="Feature 1, Feature 2"
                     />
                   </div>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Services List Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8"
-            >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                Services ({services.length})
-              </h2>
-              <div className="space-y-4 max-h-[600px] overflow-y-auto">
-                {services.map((service: any, index: number) => (
-                  <div key={service.id} className="rounded-lg border border-gray-200 p-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <h5 className="text-md font-semibold text-gray-900">Service {index + 1}</h5>
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveService(index)}
-                        className="text-sm text-red-600 transition hover:text-red-700 font-medium"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                    <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                      <EditableText
-                        label="📝 Title"
-                        value={service.title}
-                        onChange={(value) => handleServiceUpdate(index, { title: value })}
-                      />
-                      <EditableText
-                        label="🎨 Icon"
-                        value={service.icon}
-                        onChange={(value) => handleServiceUpdate(index, { icon: value })}
-                        placeholder="🎯"
-                      />
-                    </div>
-                    <EditableTextarea
-                      label="📄 Description"
-                      value={service.description}
-                      onChange={(value) => handleServiceUpdate(index, { description: value })}
-                    />
-                    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 mt-3">
-                      <EditableColorPicker
-                        label="🎨 Color"
-                        value={service.color}
-                        onChange={(value) => handleServiceUpdate(index, { color: value })}
-                      />
-                      <EditableText
-                        label="✨ Features (comma-separated)"
-                        value={service.features.join(', ')}
-                        onChange={(value) => handleServiceUpdate(index, { features: value.split(',').map((f) => f.trim()) })}
-                        placeholder="Feature 1, Feature 2"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </div>
+              ))}
+            </div>
+          </motion.div>
+        </>
+      }
+    />
   );
 };

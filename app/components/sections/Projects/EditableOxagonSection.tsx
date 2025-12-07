@@ -52,7 +52,7 @@ export default function EditableOxagonSection({
   const {
     title = "Oxagon – NEOM, Saudi Arabia",
     subtitle = "World's First Floating Industrial City",
-    description = "The world's first floating industrial city, powered by clean energy and built on circular economic principles. RAUS supports development that integrates smart logistics, Industry 4.0 systems, autonomous transport, and AI-enabled operations for global trade and industrial innovation.",
+    description = "The world's first floating industrial city, powered by clean energy and built on circular economic principles. RAUS supports development that integrates smart logistics, Industry 4.0 systems, autonomous transport and AI-enabled operations for global trade and industrial innovation.",
     location = "NEOM, Saudi Arabia",
     year = "2024",
     status = "In Development",
@@ -76,7 +76,7 @@ export default function EditableOxagonSection({
       {
         title: "Clean Energy Powered",
         description:
-          "100% renewable energy systems including solar, wind, and wave energy technologies",
+          "100% renewable energy systems including solar, wind and wave energy technologies",
         icon: "🌊",
       },
       {
@@ -106,9 +106,9 @@ export default function EditableOxagonSection({
       { value: "0", label: "Carbon Footprint" },
       { value: "500+", label: "Jobs Created" },
     ],
-    backgroundColor = "#f8fafc",
+    backgroundColor = "#fef2f2",
     textColor = "#1f2937",
-    accentColor = "#0369a1",
+    accentColor = "#dc2626",
   } = content;
 
   const handleUpdate = (patch: Record<string, unknown>) => {
@@ -162,6 +162,7 @@ export default function EditableOxagonSection({
   if (!isEditing) {
     return (
       <section
+        id="OxagonID"
         className="py-24 relative overflow-hidden"
         style={{ backgroundColor }}
       >
@@ -175,7 +176,7 @@ export default function EditableOxagonSection({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.01 }}
-                className="bg-sky-400 rounded-full"
+                className="bg-red-400 rounded-full"
               />
             ))}
           </div>
@@ -237,8 +238,8 @@ export default function EditableOxagonSection({
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-sky-100 text-sky-700 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-sky-500 rounded-full mr-2 animate-pulse"></span>
+            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
               {status} • {year}
             </div>
             <h2
@@ -298,7 +299,7 @@ export default function EditableOxagonSection({
                 whileHover={{ scale: 1.05 }}
                 className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
               >
-                <div className="text-3xl md:text-4xl font-bold text-sky-600 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
@@ -385,9 +386,9 @@ export default function EditableOxagonSection({
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center p-4 bg-sky-50 rounded-xl border border-sky-100"
+                    className="flex items-center p-4 bg-red-50 rounded-xl border border-red-100"
                   >
-                    <div className="w-3 h-3 bg-sky-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                     <span className="font-medium text-gray-800">{feature}</span>
                   </motion.div>
                 ))}
@@ -410,9 +411,9 @@ export default function EditableOxagonSection({
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center p-4 bg-cyan-50 rounded-xl border border-cyan-100"
+                    className="flex items-center p-4 bg-red-50 rounded-xl border border-red-100"
                   >
-                    <div className="w-3 h-3 bg-cyan-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                     <span className="font-medium text-gray-800">
                       {innovation}
                     </span>
@@ -431,9 +432,9 @@ export default function EditableOxagonSection({
   // ===================================================================
   const Preview = () => (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-      <div className="p-6 bg-gradient-to-r from-sky-500 to-cyan-500 text-white">
+      <div className="p-6 bg-gradient-to-r from-red-500 to-cyan-500 text-white">
         <h1 className="text-2xl font-bold">Oxagon Floating City</h1>
-        <p className="text-sky-100 mt-1">Revolutionary Industrial Platform</p>
+        <p className="text-red-100 mt-1">Revolutionary Industrial Platform</p>
       </div>
       <div className="p-6 max-h-80 overflow-y-auto">
         <div className="space-y-4">
@@ -461,7 +462,7 @@ export default function EditableOxagonSection({
             {features.slice(0, 3).map((feature, i) => (
               <span
                 key={i}
-                className="px-2 py-1 bg-sky-100 text-sky-700 rounded text-xs"
+                className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs"
               >
                 {feature}
               </span>
@@ -473,7 +474,7 @@ export default function EditableOxagonSection({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-cyan-50 to-blue-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-cyan-50 to-blue-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -490,7 +491,7 @@ export default function EditableOxagonSection({
           <div className="sticky top-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <div className="w-3 h-3 bg-sky-500 rounded-full mr-3 animate-pulse"></div>
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
                 Live Preview
               </h2>
             </div>
@@ -502,7 +503,7 @@ export default function EditableOxagonSection({
             {/* Basic Info */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-sky-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Project Information
               </h2>
               <div className="space-y-5">
@@ -586,7 +587,7 @@ export default function EditableOxagonSection({
             {/* Stats */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-sky-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Key Statistics
               </h2>
               <div className="space-y-4">
@@ -620,7 +621,7 @@ export default function EditableOxagonSection({
                 {highlights.map((highlight, index) => (
                   <div
                     key={index}
-                    className="p-6 bg-sky-50 rounded-2xl border border-sky-100"
+                    className="p-6 bg-red-50 rounded-2xl border border-red-100"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <EditableText
@@ -677,7 +678,7 @@ export default function EditableOxagonSection({
             {/* Innovations */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-sky-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Technological Innovations
               </h2>
               <div className="space-y-3">

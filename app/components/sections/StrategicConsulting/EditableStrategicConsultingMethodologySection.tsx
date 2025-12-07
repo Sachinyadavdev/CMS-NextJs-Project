@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { StrategicConsultingMethodologySection } from "@/lib/db";
 import { EditableText, EditableTextarea, EditableColorPicker, EditableCheckbox } from "@/app/components/EditableInputs";
+import { strategicTheme, strategicSectionWrapper, strategicContainer, strategicPanel } from "./StrategicConsultingTheme";
 
 interface EditableStrategicConsultingMethodologyProps {
   section: StrategicConsultingMethodologySection;
@@ -27,7 +28,7 @@ export default function EditableStrategicConsultingMethodologySection({
         id: "1",
         title: "Discovery & Assessment",
         description:
-          "Comprehensive analysis of current state, challenges, and opportunities through stakeholder interviews, data analysis, and benchmarking.",
+          "Comprehensive analysis of current state, challenges and opportunities through stakeholder interviews, data analysis and benchmarking.",
         icon: "🔍",
         color: "#EF4130",
         duration: "2-4 weeks",
@@ -43,7 +44,7 @@ export default function EditableStrategicConsultingMethodologySection({
         id: "2",
         title: "Strategy Development",
         description:
-          "Collaborative development of strategic initiatives, roadmaps, and implementation plans aligned with organizational goals.",
+          "Collaborative development of strategic initiatives, roadmaps and implementation plans aligned with organizational goals.",
         icon: "🎯",
         color: "#d63324",
         duration: "4-8 weeks",
@@ -64,7 +65,7 @@ export default function EditableStrategicConsultingMethodologySection({
         id: "3",
         title: "Implementation Support",
         description:
-          "Hands-on support during execution phase, including change management, training, and ongoing optimization.",
+          "Hands-on support during execution phase, including change management, training and ongoing optimization.",
         icon: "⚡",
         color: "#b52a1f",
         duration: "8-16 weeks",
@@ -85,7 +86,7 @@ export default function EditableStrategicConsultingMethodologySection({
         id: "4",
         title: "Measurement & Optimization",
         description:
-          "Continuous monitoring of results, performance optimization, and scaling successful initiatives across the organization.",
+          "Continuous monitoring of results, performance optimization and scaling successful initiatives across the organization.",
         icon: "📊",
         color: "#EF4130",
         duration: "Ongoing",
@@ -103,23 +104,23 @@ export default function EditableStrategicConsultingMethodologySection({
         ],
       },
     ],
-    backgroundColor = "#ffffff",
-    textColor = "#000000",
-    titleColor = "#000000",
-    subtitleColor = "#EF4130",
+    backgroundColor = strategicTheme.pageBackground,
+    textColor = strategicTheme.textSecondary,
+    titleColor = strategicTheme.textPrimary,
+    subtitleColor = strategicTheme.accent,
     showConnectors = true,
-    connectorColor = "#EF4130",
+    connectorColor = strategicTheme.accent,
     showDetails = true,
     // CTA fields
     ctaTitle = "Ready to Transform Your Business?",
     ctaDescription = "Let's discuss how our proven methodology can help you achieve your strategic objectives and drive sustainable growth.",
     ctaButtonText = "Start Your Journey",
     ctaButtonLink = "#",
-    ctaTitleColor = "#000000",
-    ctaDescriptionColor = "#6b7280",
-    ctaButtonColor = "#EF4130",
-    ctaBgGradientStart = "#fef2f2",
-    ctaBgGradientEnd = "#fee2e2",
+    ctaTitleColor = strategicTheme.textPrimary,
+    ctaDescriptionColor = strategicTheme.textSecondary,
+    ctaButtonColor = strategicTheme.accent,
+    ctaBgGradientStart = "rgba(239,65,48,0.18)",
+    ctaBgGradientEnd = "rgba(239,65,48,0.08)",
   } = content;
 
   const [activeStep, setActiveStep] = useState<string | null>(null);
@@ -130,8 +131,8 @@ export default function EditableStrategicConsultingMethodologySection({
 
   if (!isEditing) {
     return (
-      <section className="py-20" style={{ backgroundColor }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={strategicSectionWrapper} style={{ backgroundColor }}>
+        <div className={`${strategicContainer} px-4 sm:px-6 lg:px-8`}>
           {/* Header */}
           <div className="text-center mb-16">
             <h2
@@ -165,7 +166,7 @@ export default function EditableStrategicConsultingMethodologySection({
               <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 z-0">
                 <div
                   className="w-full h-full"
-                  style={{ backgroundColor: connectorColor }}
+                  style={{ background: `linear-gradient(90deg, transparent, ${connectorColor}, transparent)` }}
                 />
               </div>
             )}
@@ -220,7 +221,7 @@ export default function EditableStrategicConsultingMethodologySection({
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="mb-6 leading-relaxed" style={{ color: textColor }}>
                       {step.description}
                     </p>
 
@@ -233,13 +234,15 @@ export default function EditableStrategicConsultingMethodologySection({
                             : "max-h-0 opacity-0"
                         }`}
                       >
-                        <div className="bg-gray-50 rounded-lg p-4 mt-4">
+                        <div className={`${strategicPanel} p-4 mt-4`}
+                          style={{ backgroundColor: strategicTheme.glass }}
+                        >
                           {/* Deliverables */}
                           <div className="mb-4">
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">
+                            <h4 className="font-semibold text-sm mb-2" style={{ color: titleColor }}>
                               Key Deliverables:
                             </h4>
-                            <ul className="text-sm text-gray-600 space-y-1">
+                            <ul className="text-sm space-y-1" style={{ color: textColor }}>
                               {step.deliverables?.map((deliverable: any, idx: number) => (
                                 <li key={idx} className="flex items-start">
                                   <span
@@ -254,18 +257,15 @@ export default function EditableStrategicConsultingMethodologySection({
 
                           {/* Tools */}
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">
+                            <h4 className="font-semibold text-sm mb-2" style={{ color: titleColor }}>
                               Tools & Methods:
                             </h4>
                             <div className="flex flex-wrap gap-1">
                               {step.tools?.map((tool: any, idx: number) => (
                                 <span
                                   key={idx}
-                                  className="px-2 py-1 bg-white text-xs rounded-full border"
-                                  style={{
-                                    borderColor: step.color,
-                                    color: step.color,
-                                  }}
+                                  className="px-2 py-1 text-xs rounded-full border border-white/10 bg-white/5"
+                                  style={{ borderColor: `${step.color}80`, color: step.color }}
                                 >
                                   {tool}
                                 </span>

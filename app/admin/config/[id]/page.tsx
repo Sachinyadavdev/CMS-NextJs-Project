@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/app/providers';
+import { useAuthModal } from '@/app/contexts/AuthModalContext';
 import { Layout, PageMetadata } from '@/lib/db';
 import Loader from '@/app/components/Loader';
 import { useComponentLoading } from '@/app/contexts/LoadingContext';
@@ -12,6 +13,7 @@ export default function AdminConfigPage() {
   const params = useParams();
   const router = useRouter();
   const { user, isLoading } = useAuth();
+  const { apiFetch } = useAuthModal();
   const id = params.id as string;
 
   const [layout, setLayout] = useState<Layout | null>(null);
@@ -36,9 +38,7 @@ export default function AdminConfigPage() {
   const fetchLayout = async () => {
     try {
       startConfigLoading();
-      const response = await fetch(`/api/layouts/${id}`);
-      if (!response.ok) throw new Error('Layout not found');
-      const data: Layout = await response.json();
+      const data: Layout = await apiFetch(`/api/layouts/${id}`);
       setLayout(data);
       setMetadata(data.metadata);
     } catch (error) {
@@ -51,18 +51,14 @@ export default function AdminConfigPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch(`/api/layouts/${id}/metadata`, {
+      await apiFetch(`/api/layouts/${id}/metadata`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
         body: JSON.stringify(metadata),
       });
 
-      if (!response.ok) throw new Error('Failed to save metadata');
-
-      // Invalidate layout cache for all open tabs
       window.dispatchEvent(new Event('layout-cache-invalidate'));
 
       alert('SEO Metadata saved successfully!');

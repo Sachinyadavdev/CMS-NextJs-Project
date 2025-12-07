@@ -31,7 +31,7 @@ export default function EditableGovernanceCommitmentSection({
   const {
     title = "Governance, Transparency & Compliance",
     subtitle = "Ensuring Every Approval Meets the Highest Standards",
-    description = "Our governance principles drive accountability, quality, and credibility throughout the approval lifecycle. With integrated oversight and transparent reporting, we maintain clarity from documentation to final sign-off.",
+    description = "Our governance principles drive accountability, quality and credibility throughout the approval lifecycle. With integrated oversight and transparent reporting, we maintain clarity from documentation to final sign-off.",
     pillars = [
       {
         id: "1",

@@ -161,7 +161,7 @@ export default function SectionManager({ sections, onUpdate }: SectionManagerPro
       <div className="px-6 py-5 border-b border-gray-200 bg-gradient-to-r from-primary-50 to-primary-25">
         <h2 className="text-lg font-semibold text-gray-900">Manage Sections</h2>
         <p className="text-sm text-gray-600 mt-1">
-          Organize, add, and manage sections. Drag to reorder.
+          Organize, add and manage sections. Drag to reorder.
         </p>
       </div>
 

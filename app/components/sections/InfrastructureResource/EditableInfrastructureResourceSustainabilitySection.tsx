@@ -40,7 +40,7 @@ export default function EditableInfrastructureResourceSustainabilitySection({
   const {
     title = "Environmental & Social Impact",
     subtitle = "Building Better Communities",
-    description = "Our commitment to responsible infrastructure development drives innovation in environmental protection, community well-being, and long-term value creation.",
+    description = "Our commitment to responsible infrastructure development drives innovation in environmental protection, community well-being and long-term value creation.",
     initiatives = [
       {
         id: "1",
@@ -52,7 +52,7 @@ export default function EditableInfrastructureResourceSustainabilitySection({
       {
         id: "2",
         title: "Renewable Energy Integration",
-        description: "Incorporating solar, wind, and other renewable energy sources in infrastructure projects.",
+        description: "Incorporating solar, wind and other renewable energy sources in infrastructure projects.",
         icon: "☀️",
         impact: "75% renewable energy usage in operations",
       },
@@ -73,7 +73,7 @@ export default function EditableInfrastructureResourceSustainabilitySection({
       {
         id: "5",
         title: "Circular Economy",
-        description: "Designing infrastructure with material reuse, recycling, and lifecycle management.",
+        description: "Designing infrastructure with material reuse, recycling and lifecycle management.",
         icon: "♻️",
         impact: "85% material recycling rate",
       },

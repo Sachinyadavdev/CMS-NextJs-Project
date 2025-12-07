@@ -7,11 +7,13 @@ import MediaUpload from "@/app/components/MediaUpload";
 import Loader from "@/app/components/Loader";
 import SectionManager from "@/app/components/SectionManager";
 import { useComponentLoading } from "@/app/contexts/LoadingContext";
+import { useAuthModal } from "@/app/contexts/AuthModalContext";
 import type { PageSection } from "@/lib/db";
 
 export default function CreateLayoutPage() {
   const { user, token, isLoading } = useAuth();
   const router = useRouter();
+  const { apiFetch } = useAuthModal();
   const [formData, setFormData] = useState({
     name: "",
     title: "",
@@ -59,19 +61,13 @@ export default function CreateLayoutPage() {
   const confirmSubmit = async () => {
     setShowConfirmModal(false);
 
-    if (!token) {
-      setError("Authentication required. Please log in again.");
-      return;
-    }
-
     setSaving(true);
 
     try {
-      const response = await fetch("/api/layouts", {
+      await apiFetch("/api/layouts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           name: formData.name,
@@ -86,11 +82,6 @@ export default function CreateLayoutPage() {
           },
         }),
       });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Failed to create layout");
-      }
 
       setToast({ message: "Layout created successfully!", type: "success" });
 

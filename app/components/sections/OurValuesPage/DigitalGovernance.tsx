@@ -85,7 +85,7 @@ export default function DigitalGovernance({
   if (!isEditing) {
     const {
       title = "Digital Governance Initiatives",
-      description = "Our governance ecosystem is enhanced through digital transformation, ensuring clarity, speed, and engagement.",
+      description = "Our governance ecosystem is enhanced through digital transformation, ensuring clarity, speed and engagement.",
       backgroundColor = "#0a0a0a",
       titleColor = "#ffffff",
       descriptionColor = "#a3a3a3",
@@ -99,25 +99,25 @@ export default function DigitalGovernance({
       initiatives = [
         {
           title: "Interactive Governance Dashboard",
-          description: "Real-time visibility into compliance metrics, sustainability indicators, and performance benchmarks.",
+          description: "Real-time visibility into compliance metrics, sustainability indicators and performance benchmarks.",
           icon: "monitor" as IconType,
           backgroundImage: undefined,
         },
         {
           title: "Stakeholder Engagement Forums",
-          description: "Regular virtual and in-person workshops where partners, clients, and communities share feedback and shape our growth roadmap.",
+          description: "Regular virtual and in-person workshops where partners, clients and communities share feedback and shape our growth roadmap.",
           icon: "users" as IconType,
           backgroundImage: undefined,
         },
         {
           title: "Governance Excellence Recognition",
-          description: "Annual awards celebrating teams that demonstrate exceptional transparency, responsibility, and ethical conduct.",
+          description: "Annual awards celebrating teams that demonstrate exceptional transparency, responsibility and ethical conduct.",
           icon: "award" as IconType,
           backgroundImage: undefined,
         },
         {
           title: "Digital Governance Playbook",
-          description: "A living document that defines our governance philosophy — accessible, measurable, and adaptable to evolving global standards.",
+          description: "A living document that defines our governance philosophy — accessible, measurable and adaptable to evolving global standards.",
           icon: "book" as IconType,
           backgroundImage: undefined,
         },
@@ -245,7 +245,7 @@ export default function DigitalGovernance({
                         style={{ backgroundColor: accentColor }}
                       />
                       <div 
-                        className="relative w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:rotate-6 border-2"
+                        className="relative w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 border-2"
                         style={{ backgroundColor: `${accentColor}15`, borderColor: '#FEEFEE' }}
                       >
                         <IconComponent 
@@ -304,7 +304,7 @@ export default function DigitalGovernance({
 
   const {
     title = "Digital Governance Initiatives",
-    description = "Our governance ecosystem is enhanced through digital transformation, ensuring clarity, speed, and engagement.",
+    description = "Our governance ecosystem is enhanced through digital transformation, ensuring clarity, speed and engagement.",
     backgroundColor = "#0a0a0a",
     titleColor = "#ffffff",
     descriptionColor = "#a3a3a3",

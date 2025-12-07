@@ -34,8 +34,8 @@ export default function EditableEnvironmentSustainabilityCoreSection({
 
   const {
     title = "Sustainability at the Core of Every Project",
-    description1 = "Our approach to sustainability goes beyond compliance. We focus on creating high-performance environments that balance human needs with ecological preservation. Each solution is designed to perform today while remaining adaptable for tomorrow—ensuring long-lasting value, lower impacts, and improved operational efficiency.",
-    description2 = "We align environmental, social, and economic goals across the full project lifecycle, designing infrastructure and built environments that reduce carbon footprints, minimize waste, and elevate overall well-being. Smart material choices, energy-efficient systems, and circular practices are embedded into our planning and execution methodologies, ensuring low-impact, high-value outcomes.",
+    description1 = "Our approach to sustainability goes beyond compliance. We focus on creating high-performance environments that balance human needs with ecological preservation. Each solution is designed to perform today while remaining adaptable for tomorrow—ensuring long-lasting value, lower impacts and improved operational efficiency.",
+    description2 = "We align environmental, social and economic goals across the full project lifecycle, designing infrastructure and built environments that reduce carbon footprints, minimize waste and elevate overall well-being. Smart material choices, energy-efficient systems and circular practices are embedded into our planning and execution methodologies, ensuring low-impact, high-value outcomes.",
     metrics = [
       {
         id: "1",

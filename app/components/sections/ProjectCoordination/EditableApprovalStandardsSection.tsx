@@ -38,35 +38,35 @@ export default function EditableApprovalStandardsSection({
       {
         id: "1",
         title: "Pre-Approval Strategy",
-        description: "Feasibility assessments, design compliance checks, and pre-approval consultations to ensure readiness before submission.",
+        description: "Feasibility assessments, design compliance checks and pre-approval consultations to ensure readiness before submission.",
         icon: "📘",
         color: "#EF4130"
       },
       {
         id: "2",
         title: "Documentation & Submission",
-        description: "Preparation and submission of architectural, MEP, and safety documentation, including drawings and calculations.",
+        description: "Preparation and submission of architectural, MEP and safety documentation, including drawings and calculations.",
         icon: "📝",
         color: "#d63324"
       },
       {
         id: "3",
         title: "Authority Coordination",
-        description: "Liaising with government bodies and agencies, tracking submissions, and managing communication requirements.",
+        description: "Liaising with government bodies and agencies, tracking submissions and managing communication requirements.",
         icon: "🏛️",
         color: "#b52a1f"
       },
       {
         id: "4",
         title: "Issue Resolution",
-        description: "Addressing feedback, providing design clarifications, and re-submitting modified documents as required.",
+        description: "Addressing feedback, providing design clarifications and re-submitting modified documents as required.",
         icon: "🔧",
         color: "#EF4130"
       },
       {
         id: "5",
         title: "Final Clearance",
-        description: "Securing NOCs, compliance approvals, and completion certificates to finalize project delivery.",
+        description: "Securing NOCs, compliance approvals and completion certificates to finalize project delivery.",
         icon: "✅",
         color: "#d63324"
       }

@@ -46,13 +46,13 @@ export default function EditableStrategicAdvantagesHeroSection({
   const {
     title = "Strategic Advantages",
     subtitle = "Competitive Excellence at Every Level",
-    description = "RAUS combines innovative methodologies, integrated delivery models, and client-centric collaboration to deliver unparalleled value and competitive advantages in every project.",
+    description = "RAUS combines innovative methodologies, integrated delivery models and client-centric collaboration to deliver unparalleled value and competitive advantages in every project.",
     primaryButtonText = "Learn Our Approach",
     primaryButtonLink = "#advantages-overview",
     secondaryButtonText = "Schedule a Consultation",
     secondaryButtonLink = "/contact",
     backgroundImage = "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920",
-    backgroundColor = "#0a0e27",
+    backgroundColor = "#8B0000",
     textColor = "#ffffff",
     titleColor = "#ffffff",
     subtitleColor = "#ef4444",
@@ -85,7 +85,7 @@ export default function EditableStrategicAdvantagesHeroSection({
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}
-                className="absolute w-96 h-96 rounded-full blur-3xl bg-purple-600/10"
+                className="absolute w-96 h-96 rounded-full blur-3xl bg-red-600/10"
                 style={{
                   top: `${15 + i * 25}%`,
                   left: i === 1 ? "auto" : "-10%",
@@ -136,30 +136,6 @@ export default function EditableStrategicAdvantagesHeroSection({
               {description}
             </motion.p>
           )}
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-12 flex flex-col sm:flex-row gap-6 justify-center"
-          >
-            {primaryButtonText && (
-              <a
-                href={primaryButtonLink}
-                className="px-10 py-5 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-              >
-                {primaryButtonText}
-              </a>
-            )}
-            {secondaryButtonText && (
-              <a
-                href={secondaryButtonLink}
-                className="px-10 py-5 border-2 border-white/40 text-white rounded-full font-medium hover:bg-white/10 transition-all duration-300"
-              >
-                {secondaryButtonText}
-              </a>
-            )}
-          </motion.div>
         </div>
       </section>
     );
@@ -189,7 +165,7 @@ export default function EditableStrategicAdvantagesHeroSection({
       {showFloatingElements && (
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
-            className="absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl bg-purple-600/10"
+            className="absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl bg-red-600/10"
             animate={{ y: [0, -50, 20, 0] }}
             transition={{ duration: 20, repeat: Infinity }}
           />
@@ -219,7 +195,7 @@ export default function EditableStrategicAdvantagesHeroSection({
           )}
           <div className="mt-12 flex flex-col sm:flex-row gap-5 justify-center">
             {primaryButtonText && (
-              <button className="px-8 py-4 bg-purple-600 text-white rounded-full font-semibold hover:bg-purple-700 transition">
+              <button className="px-8 py-4 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition">
                 {primaryButtonText}
               </button>
             )}

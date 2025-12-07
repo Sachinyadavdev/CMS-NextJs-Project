@@ -56,6 +56,8 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
       statsLabelFontSize = "12px",
       statsValueFontSize = "16px",
       showStats = true,
+      buttonText = "Read More",
+      buttonLink = "",
     } = content;
 
     return (
@@ -99,7 +101,7 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
         />
 
         {/* Content Container */}
-        <div className=" relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-12 lg:px-16 pb-12 scale-[0.6] sm:scale-100 origin-top">
+        <div className=" relative z-10 w-full  mx-auto px-4 sm:px-12 lg:px-16 pb-12 scale-[0.6] sm:scale-100 origin-top">
           <div
             className={`${
               alignment === "center"
@@ -138,7 +140,7 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
             {/* Stats */}
             {showStats && stats.length > 0 && (
               <div
-                className={`flex flex-wrap gap-6 sm:gap-8 lg:gap-12 ${
+                className={`flex flex-wrap gap-6 sm:gap-8 lg:gap-12 mb-8 ${
                   alignment === "center"
                     ? "justify-center"
                     : alignment === "right"
@@ -175,6 +177,19 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
                 ))}
               </div>
             )}
+
+            {/* Button */}
+            {buttonText && buttonLink && (
+              <div className={alignment === "center" ? "flex justify-center" : alignment === "right" ? "flex justify-end" : "flex justify-start"}>
+                <a
+                  href={buttonLink}
+                  className="px-6 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity duration-200"
+                  style={{ backgroundColor: "#EF4444" }}
+                >
+                  {buttonText}
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -203,6 +218,8 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
       statsLabelFontSize = "10px",
       statsValueFontSize = "14px",
       showStats = true,
+      buttonText = "Read More",
+      buttonLink = "",
     } = content;
 
     const previewStats = stats.length > 0 ? stats.slice(0, 3) : [
@@ -290,7 +307,7 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
             {/* Stats */}
             {showStats && previewStats.length > 0 && (
               <div
-                className={`flex flex-wrap gap-4 ${
+                className={`flex flex-wrap gap-4 mb-4 ${
                   alignment === "center"
                     ? "justify-center"
                     : alignment === "right"
@@ -320,6 +337,19 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
                     </span>
                   </div>
                 ))}
+              </div>
+            )}
+
+            {/* Button */}
+            {buttonText && buttonLink && (
+              <div className={alignment === "center" ? "flex justify-center" : alignment === "right" ? "flex justify-end" : "flex justify-start"}>
+                <a
+                  href={buttonLink}
+                  className="px-4 py-2 text-white font-semibold text-sm rounded hover:opacity-90 transition-opacity duration-200"
+                  style={{ backgroundColor: "#EF4444" }}
+                >
+                  {buttonText}
+                </a>
               </div>
             )}
           </div>
@@ -493,6 +523,25 @@ export default function EditableBannerWithStatsSection({ section, isEditing, onU
               value={content.statsValueFontSize || ""}
               onChange={(val) => handleContentUpdate({ statsValueFontSize: val })}
               placeholder="24px"
+            />
+          </div>
+        </div>
+
+        {/* Button Settings */}
+        <div className="border-t border-primary-100 pt-6">
+          <h4 className="text-lg font-semibold text-gray-900 mb-4">Button Settings</h4>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <EditableText
+              label="Button Text"
+              value={content.buttonText || ""}
+              onChange={(val) => handleContentUpdate({ buttonText: val })}
+              placeholder="Read More"
+            />
+            <EditableText
+              label="Button Link"
+              value={content.buttonLink || ""}
+              onChange={(val) => handleContentUpdate({ buttonLink: val })}
+              placeholder="https://example.com or /page"
             />
           </div>
         </div>

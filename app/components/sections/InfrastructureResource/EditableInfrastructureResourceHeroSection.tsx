@@ -30,7 +30,7 @@ export default function EditableInfrastructureResourceHeroSection({
   const content = {
     title: "Building Tomorrow's Infrastructure",
     subtitle: "Excellence. Innovation. Results.",
-    description: "We deliver world-class infrastructure solutions that power communities, drive economic growth, and create lasting value for generations to come.",
+    description: "We deliver world-class infrastructure solutions that power communities, drive economic growth and create lasting value for generations to come.",
     primaryButtonText: "Explore Our Projects",
     primaryButtonLink: "#projects",
     secondaryButtonText: "Learn More",

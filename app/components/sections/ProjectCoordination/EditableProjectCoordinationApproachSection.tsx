@@ -38,14 +38,14 @@ export default function EditableProjectCoordinationApproachSection({
         id: "1",
         title: "Discovery & Alignment",
         description:
-          "We start by deeply understanding your goals, challenges, and vision to ensure perfect alignment.",
+          "We start by deeply understanding your goals, challenges and vision to ensure perfect alignment.",
         icon: "🎯",
       },
       {
         id: "2",
         title: "Strategy & Planning",
         description:
-          "A detailed roadmap with milestones, timelines, and risk management built in from the start.",
+          "A detailed roadmap with milestones, timelines and risk management built in from the start.",
         icon: "🗺️",
       },
       {

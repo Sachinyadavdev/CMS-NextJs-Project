@@ -50,7 +50,7 @@ export default function EditableCorporateResponsibilitySection({
   const {
     title = "Corporate Social Responsibility in Action",
     subtitle = "Business Success with Social Impact",
-    description = "Ethical operations, responsible material choices, and socially aligned decision-making ensure that business success translates into measurable community benefit.",
+    description = "Ethical operations, responsible material choices and socially aligned decision-making ensure that business success translates into measurable community benefit.",
     pillars = [
       {
         title: "Ethical Operations",

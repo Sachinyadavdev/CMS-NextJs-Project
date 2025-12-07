@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { InnerBannerTextSection } from "@/lib/db";
 import MediaUpload from "../MediaUpload";
 
@@ -11,6 +12,7 @@ interface EditableInnerBannerTextProps {
 }
 
 export default function EditableInnerBannerTextSection({ section, isEditing, onUpdate }: EditableInnerBannerTextProps) {
+  const router = useRouter();
   const content = section.content || {};
   const overlayValue = Number(content.overlayOpacity ?? 0.6);
 
@@ -34,11 +36,19 @@ export default function EditableInnerBannerTextSection({ section, isEditing, onU
       height = "700px",
       paddingTop = "100px",
       paddingBottom = "100px",
+      link = "",
     } = content;
+
+    const handleBannerClick = () => {
+      if (link) {
+        router.push(link);
+      }
+    };
 
     return (
       <section
-        className="relative flex items-center justify-center overflow-hidden"
+        className={`relative flex items-center justify-center overflow-hidden ${link ? "cursor-pointer" : ""}`}
+        onClick={handleBannerClick}
         style={{
           height,
           paddingTop,
@@ -134,14 +144,22 @@ export default function EditableInnerBannerTextSection({ section, isEditing, onU
       bannerBackgroundVideo = "",
       overlayColor = "#000000",
       overlayOpacity = "0.5",
-      height = "400px", // Smaller height for preview
+      height = "400px",
       paddingTop = "60px",
       paddingBottom = "60px",
+      link = "",
     } = content;
+
+    const handlePreviewClick = () => {
+      if (link) {
+        router.push(link);
+      }
+    };
 
     return (
       <section
-        className="relative flex items-center justify-center overflow-hidden rounded-lg"
+        className={`relative flex items-center justify-center overflow-hidden rounded-lg ${link ? "cursor-pointer" : ""}`}
+        onClick={handlePreviewClick}
         style={{
           height,
           paddingTop,
@@ -269,6 +287,16 @@ export default function EditableInnerBannerTextSection({ section, isEditing, onU
                 rows={4}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                 placeholder="Enter banner description..."
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Link (Optional)</label>
+              <input
+                type="text"
+                value={content.link || ""}
+                onChange={(event) => handleContentUpdate({ link: event.target.value })}
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                placeholder="Enter link (e.g., /about or https://example.com)..."
               />
             </div>
           </div>

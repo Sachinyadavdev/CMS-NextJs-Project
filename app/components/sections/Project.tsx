@@ -49,7 +49,7 @@ export default function EditableProjectSection({
   const {
     title = "Our Projects",
     subtitle = "Showcasing Innovation and Excellence",
-    description = "Explore our diverse portfolio of projects that demonstrate our commitment to quality, creativity, and sustainable development.",
+    description = "Explore our diverse portfolio of projects that demonstrate our commitment to quality, creativity and sustainable development.",
     projects = [
       {
         id: "1",

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { InfrastructureResourceProjectsSection } from "@/lib/db";
+import MediaUpload from "@/app/components/MediaUpload";
 import {
   EditableText,
   EditableTextarea,
@@ -38,7 +39,7 @@ export default function EditableInfrastructureResourceProjectsSection({
   const {
     title = "Featured Infrastructure Projects",
     subtitle = "Delivering Excellence Across Sectors",
-    description = "Explore our portfolio of successful infrastructure projects that demonstrate our commitment to quality, innovation, and excellence.",
+    description = "Explore our portfolio of successful infrastructure projects that demonstrate our commitment to quality, innovation and excellence.",
     projects = [
       {
         id: "1",
@@ -235,11 +236,10 @@ export default function EditableInfrastructureResourceProjectsSection({
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    selectedCategory === category
-                      ? "bg-primary-500 text-white shadow-lg"
-                      : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
-                  }`}
+                  className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category
+                    ? "bg-primary-500 text-white shadow-lg"
+                    : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
+                    }`}
                 >
                   {category}
                 </motion.button>
@@ -552,11 +552,10 @@ export default function EditableInfrastructureResourceProjectsSection({
             {categories.slice(0, 4).map((category: string) => (
               <button
                 key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium ${
-                  category === "All"
-                    ? "bg-primary-500 text-white"
-                    : "bg-gray-100 text-gray-700"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium ${category === "All"
+                  ? "bg-primary-500 text-white"
+                  : "bg-gray-100 text-gray-700"
+                  }`}
               >
                 {category}
               </button>
@@ -739,11 +738,15 @@ export default function EditableInfrastructureResourceProjectsSection({
                         value={project.status}
                         onChange={(v) => handleProjectUpdate(i, { status: v })}
                       />
-                      <EditableText
-                        label="Image URL"
-                        value={project.image}
-                        onChange={(v) => handleProjectUpdate(i, { image: v })}
-                      />
+                      <div className="md:col-span-2">
+                        <MediaUpload
+                          label="Project Image"
+                          type="image"
+                          currentUrl={project.image}
+                          onUpload={(url) => handleProjectUpdate(i, { image: url })}
+                          onRemove={() => handleProjectUpdate(i, { image: "" })}
+                        />
+                      </div>
                       <EditableTextarea
                         label="Description"
                         value={project.description}

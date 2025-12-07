@@ -50,7 +50,7 @@ export default function EditableClientCollaborationSection({
   const {
     title = "Client-Centric Collaboration",
     subtitle = "Partnership-Led Execution",
-    description = "Transparent communication, strategic alignment, and partnership-led execution ensure every solution reflects client goals, budget requirements, and business performance expectations.",
+    description = "Transparent communication, strategic alignment and partnership-led execution ensure every solution reflects client goals, budget requirements and business performance expectations.",
     principles = [
       {
         title: "Transparent Communication",
@@ -102,9 +102,9 @@ export default function EditableClientCollaborationSection({
       { value: "98%", label: "Budget Adherence" },
       { value: "24/7", label: "Support Availability" },
     ],
-    backgroundColor = "from-green-50 to-emerald-100",
+    backgroundColor = "from-red-50 to-rose-100",
     textColor = "text-gray-800",
-    accentColor = "green",
+    accentColor = "red",
   } = content;
 
   const [localContent, setLocalContent] = useState(content);
@@ -207,256 +207,256 @@ export default function EditableClientCollaborationSection({
                 duration: 2,
                 repeat: Infinity,
                 repeatType: "reverse",
-              delay: 1.5,
-            }}
-          />
-        </svg>
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          {isEditing ? (
-            <div className="space-y-4">
-              <input
-                type="text"
-                value={localContent.title || title}
-                onChange={(e: any) => handleUpdate("title", e.target.value)}
-                className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-green-300 focus:border-green-500 outline-none"
-                placeholder="Section Title"
-              />
-              <input
-                type="text"
-                value={localContent.subtitle || subtitle}
-                onChange={(e: any) => handleUpdate("subtitle", e.target.value)}
-                className="text-xl text-center w-full bg-transparent border-b-2 border-green-300 focus:border-green-500 outline-none"
-                placeholder="Section Subtitle"
-              />
-              <textarea
-                value={localContent.description || description}
-                onChange={(e: any) => handleUpdate("description", e.target.value)}
-                className="text-lg text-center w-full bg-transparent border-2 border-green-300 focus:border-green-500 outline-none rounded p-2 min-h-[100px]"
-                placeholder="Section Description"
-              />
-            </div>
-          ) : (
-            <>
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
-              >
-                {title}
-              </motion.h2>
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
-              >
-                {subtitle}
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
-              >
-                {description}
-              </motion.p>
-            </>
-          )}
+                delay: 1.5,
+              }}
+            />
+          </svg>
         </div>
 
-        {/* Core Principles */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {(localContent.principles || principles).map((principle, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              {isEditing ? (
-                <div className="space-y-3">
-                  <input
-                    type="text"
-                    value={principle.icon}
-                    onChange={(e: any) =>
-                      handlePrincipleUpdate(index, "icon", e.target.value)
-                    }
-                    className="text-4xl text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
-                  />
-                  <input
-                    type="text"
-                    value={principle.title}
-                    onChange={(e: any) =>
-                      handlePrincipleUpdate(index, "title", e.target.value)
-                    }
-                    className="text-xl font-semibold text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
-                  />
-                  <textarea
-                    value={principle.description}
-                    onChange={(e: any) =>
-                      handlePrincipleUpdate(
-                        index,
-                        "description",
-                        e.target.value
-                      )
-                    }
-                    className="text-sm text-center w-full bg-transparent border border-green-300 focus:border-green-500 outline-none rounded p-2 min-h-[60px]"
-                  />
-                </div>
-              ) : (
-                <>
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: index * 0.5,
-                    }}
-                    className="text-5xl mb-4"
-                  >
-                    {principle.icon}
-                  </motion.div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                    {principle.title}
-                  </h4>
-                  <p className="text-gray-600">{principle.description}</p>
-                </>
-              )}
-            </motion.div>
-          ))}
-        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            {isEditing ? (
+              <div className="space-y-4">
+                <input
+                  type="text"
+                  value={localContent.title || title}
+                  onChange={(e: any) => handleUpdate("title", e.target.value)}
+                  className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
+                  placeholder="Section Title"
+                />
+                <input
+                  type="text"
+                  value={localContent.subtitle || subtitle}
+                  onChange={(e: any) => handleUpdate("subtitle", e.target.value)}
+                  className="text-xl text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
+                  placeholder="Section Subtitle"
+                />
+                <textarea
+                  value={localContent.description || description}
+                  onChange={(e: any) => handleUpdate("description", e.target.value)}
+                  className="text-lg text-center w-full bg-transparent border-2 border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[100px]"
+                  placeholder="Section Description"
+                />
+              </div>
+            ) : (
+              <>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className={`text-4xl md:text-5xl font-bold ${textColor} mb-4`}
+                >
+                  {title}
+                </motion.h2>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className={`text-xl md:text-2xl font-semibold text-${accentColor}-600 mb-6`}
+                >
+                  {subtitle}
+                </motion.h3>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`text-lg ${textColor} max-w-3xl mx-auto leading-relaxed`}
+                >
+                  {description}
+                </motion.p>
+              </>
+            )}
+          </div>
 
-        {/* Team Collaboration Circle */}
-        <div className="mb-16">
-          <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
-            Our Dedicated Team
-          </h4>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {(localContent.teamMembers || teamMembers).map((member, index) => (
+          {/* Core Principles */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {(localContent.principles || principles).map((principle, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 {isEditing ? (
-                  <div className="bg-white rounded-xl shadow-lg p-6 space-y-3 min-w-[200px]">
+                  <div className="space-y-3">
                     <input
                       type="text"
-                      value={member.avatar}
+                      value={principle.icon}
                       onChange={(e: any) =>
-                        handleMemberUpdate(index, "avatar", e.target.value)
+                        handlePrincipleUpdate(index, "icon", e.target.value)
                       }
-                      className="text-4xl text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
+                      className="text-4xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
                     />
                     <input
                       type="text"
-                      value={member.name}
+                      value={principle.title}
                       onChange={(e: any) =>
-                        handleMemberUpdate(index, "name", e.target.value)
+                        handlePrincipleUpdate(index, "title", e.target.value)
                       }
-                      className="text-lg font-semibold text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
+                      className="text-xl font-semibold text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
                     />
-                    <input
-                      type="text"
-                      value={member.role}
+                    <textarea
+                      value={principle.description}
                       onChange={(e: any) =>
-                        handleMemberUpdate(index, "role", e.target.value)
+                        handlePrincipleUpdate(
+                          index,
+                          "description",
+                          e.target.value
+                        )
                       }
-                      className="text-sm text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
-                    />
-                    <input
-                      type="text"
-                      value={member.expertise}
-                      onChange={(e: any) =>
-                        handleMemberUpdate(index, "expertise", e.target.value)
-                      }
-                      className="text-xs text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
+                      className="text-sm text-center w-full bg-transparent border border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[60px]"
                     />
                   </div>
                 ) : (
-                  <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <>
                     <motion.div
-                      animate={{ rotate: [0, 5, -5, 0] }}
+                      animate={{ scale: [1, 1.1, 1] }}
                       transition={{
-                        duration: 4,
+                        duration: 3,
                         repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.3,
+                        delay: index * 0.5,
                       }}
-                      className="text-6xl mb-3"
+                      className="text-5xl mb-4"
                     >
-                      {member.avatar}
+                      {principle.icon}
                     </motion.div>
-                    <h5 className="text-lg font-semibold text-gray-800 mb-1">
-                      {member.name}
-                    </h5>
-                    <p className="text-sm text-green-600 font-medium mb-1">
-                      {member.role}
-                    </p>
-                    <p className="text-xs text-gray-600">{member.expertise}</p>
-                  </div>
+                    <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                      {principle.title}
+                    </h4>
+                    <p className="text-gray-600">{principle.description}</p>
+                  </>
                 )}
               </motion.div>
             ))}
           </div>
-        </div>
 
-        {/* Collaboration Stats */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
-            Collaboration Excellence
-          </h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {(localContent.collaborationStats || collaborationStats).map(
-              (stat, index) => (
+          {/* Team Collaboration Circle */}
+          <div className="mb-16">
+            <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
+              Our Dedicated Team
+            </h4>
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              {(localContent.teamMembers || teamMembers).map((member, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                   className="text-center"
                 >
                   {isEditing ? (
-                    <div className="space-y-2">
+                    <div className="bg-white rounded-xl shadow-lg p-6 space-y-3 min-w-[200px]">
                       <input
                         type="text"
-                        value={stat.value}
+                        value={member.avatar}
                         onChange={(e: any) =>
-                          handleStatUpdate(index, "value", e.target.value)
+                          handleMemberUpdate(index, "avatar", e.target.value)
                         }
-                        className="text-3xl font-bold text-green-600 text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
+                        className="text-4xl text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
                       />
                       <input
                         type="text"
-                        value={stat.label}
+                        value={member.name}
                         onChange={(e: any) =>
-                          handleStatUpdate(index, "label", e.target.value)
+                          handleMemberUpdate(index, "name", e.target.value)
                         }
-                        className="text-sm text-center w-full bg-transparent border-b border-green-300 focus:border-green-500 outline-none"
+                        className="text-lg font-semibold text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                      />
+                      <input
+                        type="text"
+                        value={member.role}
+                        onChange={(e: any) =>
+                          handleMemberUpdate(index, "role", e.target.value)
+                        }
+                        className="text-sm text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                      />
+                      <input
+                        type="text"
+                        value={member.expertise}
+                        onChange={(e: any) =>
+                          handleMemberUpdate(index, "expertise", e.target.value)
+                        }
+                        className="text-xs text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
                       />
                     </div>
                   ) : (
-                    <>
-                      <div className="text-3xl font-bold text-green-600 mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm text-gray-600">{stat.label}</div>
-                    </>
+                    <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <motion.div
+                        animate={{ rotate: [0, 5, -5, 0] }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.3,
+                        }}
+                        className="text-6xl mb-3"
+                      >
+                        {member.avatar}
+                      </motion.div>
+                      <h5 className="text-lg font-semibold text-gray-800 mb-1">
+                        {member.name}
+                      </h5>
+                      <p className="text-sm text-red-600 font-medium mb-1">
+                        {member.role}
+                      </p>
+                      <p className="text-xs text-gray-600">{member.expertise}</p>
+                    </div>
                   )}
                 </motion.div>
-              )
-            )}
+              ))}
+            </div>
+          </div>
+
+          {/* Collaboration Stats */}
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            <h4 className={`text-2xl font-bold ${textColor} text-center mb-8`}>
+              Collaboration Excellence
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {(localContent.collaborationStats || collaborationStats).map(
+                (stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                    className="text-center"
+                  >
+                    {isEditing ? (
+                      <div className="space-y-2">
+                        <input
+                          type="text"
+                          value={stat.value}
+                          onChange={(e: any) =>
+                            handleStatUpdate(index, "value", e.target.value)
+                          }
+                          className="text-3xl font-bold text-red-600 text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                        />
+                        <input
+                          type="text"
+                          value={stat.label}
+                          onChange={(e: any) =>
+                            handleStatUpdate(index, "label", e.target.value)
+                          }
+                          className="text-sm text-center w-full bg-transparent border-b border-red-300 focus:border-red-500 outline-none"
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        <div className="text-3xl font-bold text-red-600 mb-1">
+                          {stat.value}
+                        </div>
+                        <div className="text-sm text-gray-600">{stat.label}</div>
+                      </>
+                    )}
+                  </motion.div>
+                )
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     );
   }
 
@@ -464,12 +464,12 @@ export default function EditableClientCollaborationSection({
   // EDITING MODE
   // ===================================================================
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-emerald-50 to-teal-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Client Collaboration Editor</h1>
-          <p className="text-gray-600">Customize your client collaboration showcase with dynamic green-emerald styling</p>
+          <p className="text-gray-600">Customize your client collaboration showcase with dynamic red-emerald styling</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -477,14 +477,14 @@ export default function EditableClientCollaborationSection({
           <div className="sticky top-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-3 animate-pulse"></div>
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
                 Live Preview
               </h2>
             </div>
             <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-              <div className="p-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+              <div className="p-6 bg-gradient-to-r from-red-500 to-emerald-500 text-white">
                 <h1 className="text-2xl font-bold">Client Collaboration</h1>
-                <p className="text-green-100 mt-1">Partnership-led execution</p>
+                <p className="text-red-100 mt-1">Partnership-led execution</p>
               </div>
               <div className="p-6 max-h-96 overflow-y-auto">
                 <div className="space-y-4">
@@ -514,7 +514,7 @@ export default function EditableClientCollaborationSection({
             {/* Header Settings */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Header Settings
               </h2>
               <div className="space-y-5">
@@ -553,7 +553,7 @@ export default function EditableClientCollaborationSection({
                     };
                     handleUpdate("principles", [...(localContent.principles || principles), newPrinciple]);
                   }}
-                  className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all font-medium shadow-lg"
+                  className="px-6 py-3 bg-gradient-to-r from-red-500 to-emerald-500 text-white rounded-xl hover:from-red-600 hover:to-emerald-600 transition-all font-medium shadow-lg"
                 >
                   + Add Principle
                 </button>
@@ -567,11 +567,11 @@ export default function EditableClientCollaborationSection({
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="mb-6 p-6 bg-gradient-to-r from-gray-50 to-green-50 rounded-2xl border border-gray-200"
+                    className="mb-6 p-6 bg-gradient-to-r from-gray-50 to-red-50 rounded-2xl border border-gray-200"
                   >
                     <div className="flex justify-between items-center mb-4">
                       <h4 className="font-semibold text-gray-800 flex items-center">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                        <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
                         Principle {i + 1}: {principle.title}
                       </h4>
                       <button
@@ -626,7 +626,7 @@ export default function EditableClientCollaborationSection({
                     };
                     handleUpdate("teamMembers", [...(localContent.teamMembers || teamMembers), newMember]);
                   }}
-                  className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all font-medium shadow-lg"
+                  className="px-6 py-3 bg-gradient-to-r from-red-500 to-emerald-500 text-white rounded-xl hover:from-red-600 hover:to-emerald-600 transition-all font-medium shadow-lg"
                 >
                   + Add Member
                 </button>
@@ -692,7 +692,7 @@ export default function EditableClientCollaborationSection({
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(localContent.collaborationStats || collaborationStats).map((stat: any, index: number) => (
-                  <div key={index} className="p-4 bg-gradient-to-r from-gray-50 to-green-50 rounded-xl border border-gray-200">
+                  <div key={index} className="p-4 bg-gradient-to-r from-gray-50 to-red-50 rounded-xl border border-gray-200">
                     <div className="space-y-3">
                       <EditableText
                         label="Value"

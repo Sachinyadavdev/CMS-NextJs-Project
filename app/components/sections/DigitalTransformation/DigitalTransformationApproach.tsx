@@ -37,12 +37,12 @@ interface DigitalTransformationApproachProps {
 const defaultContent: ApproachContent = {
   icon: "🌐",
   mainTitle: "Our Digital Transformation Approach",
-  subtitle: "We combine deep industry insight with advanced technology to ensure every project is smarter, greener, and more connected. Our approach focuses on:",
+  subtitle: "We combine deep industry insight with advanced technology to ensure every project is smarter, greener and more connected. Our approach focuses on:",
   approaches: [
     {
       number: "1",
       title: "Technology-Enabled Design & Planning",
-      description: "By integrating technology early, we ensure clarity, reduce rework, and accelerate project timelines.",
+      description: "By integrating technology early, we ensure clarity, reduce rework and accelerate project timelines.",
       features: [
         "Intelligent BIM modeling for accuracy and coordination",
         "Predictive simulations using digital twins",

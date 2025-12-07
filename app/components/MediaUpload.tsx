@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { uploadFile, deleteFile } from "@/utils/api";
+import { useAuthModal } from "@/app/contexts/AuthModalContext";
+import { validateFile, IMAGE_VALIDATION, VIDEO_VALIDATION } from "@/utils/api";
 
 interface MediaUploadProps {
   label: string;
@@ -30,6 +31,7 @@ export default function MediaUpload({
   supportedFormats = type === 'image' ? 'JPEG, PNG, WebP' : 'MP4, WebM, OGG',
   className = ""
 }: MediaUploadProps) {
+  const { apiFetch } = useAuthModal();
   const [uploading, setUploading] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -39,8 +41,19 @@ export default function MediaUpload({
     setUploading(true);
     setUploadError(null);
     try {
-      const fileUrl = await uploadFile(file, type);
-      onUpload(fileUrl);
+      const validation = type === "image" ? IMAGE_VALIDATION : VIDEO_VALIDATION;
+      await validateFile(file, validation);
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("type", type);
+
+      const data = await apiFetch<{ url: string }>("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      
+      onUpload(data.url);
       setTempUrl("");
     } catch (error) {
       console.error('Upload failed:', error);
@@ -56,7 +69,13 @@ export default function MediaUpload({
     setDeleting(true);
     setUploadError(null);
     try {
-      await deleteFile(currentUrl);
+      await apiFetch("/api/upload", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url: currentUrl }),
+      });
       onRemove();
     } catch (error) {
       console.error('Delete failed:', error);

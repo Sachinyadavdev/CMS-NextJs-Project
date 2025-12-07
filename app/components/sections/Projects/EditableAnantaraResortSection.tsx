@@ -52,7 +52,7 @@ export default function EditableAnantaraResortSection({
   const {
     title = "Anantara Resort – High-End Hospitality Development",
     subtitle = "Luxury Resort & Spa Experience",
-    description = "RAUS delivers custom furniture systems, interior fit-out management, and strategic spatial planning to enhance guest experience and operational flow while preserving environmental harmony and design identity.",
+    description = "RAUS delivers custom furniture systems, interior fit-out management and strategic spatial planning to enhance guest experience and operational flow while preserving environmental harmony and design identity.",
     location = "Dubai, UAE",
     year = "2024",
     status = "In Development",
@@ -106,9 +106,9 @@ export default function EditableAnantaraResortSection({
       { value: "24/7", label: "Concierge" },
       { value: "100%", label: "Sustainable" },
     ],
-    backgroundColor = "#f8fafc",
+    backgroundColor = "#fef2f2",
     textColor = "#1f2937",
-    accentColor = "#d97706",
+    accentColor = "#dc2626",
   } = content;
 
   const handleUpdate = (patch: Record<string, unknown>) => {
@@ -175,7 +175,7 @@ export default function EditableAnantaraResortSection({
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.01 }}
-                className="bg-amber-400 rounded-full"
+                className="bg-red-400 rounded-full"
               />
             ))}
           </div>
@@ -237,8 +237,8 @@ export default function EditableAnantaraResortSection({
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-sm font-medium mb-6">
-              <span className="w-2 h-2 bg-amber-500 rounded-full mr-2 animate-pulse"></span>
+            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
               {status} • {year}
             </div>
             <h2
@@ -298,7 +298,7 @@ export default function EditableAnantaraResortSection({
                 whileHover={{ scale: 1.05 }}
                 className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100"
               >
-                <div className="text-3xl md:text-4xl font-bold text-amber-600 mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-red-600 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">
@@ -385,9 +385,9 @@ export default function EditableAnantaraResortSection({
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center p-4 bg-amber-50 rounded-xl border border-amber-100"
+                    className="flex items-center p-4 bg-red-50 rounded-xl border border-red-100"
                   >
-                    <div className="w-3 h-3 bg-amber-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                     <span className="font-medium text-gray-800">{feature}</span>
                   </motion.div>
                 ))}
@@ -410,9 +410,9 @@ export default function EditableAnantaraResortSection({
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center p-4 bg-yellow-50 rounded-xl border border-yellow-100"
+                    className="flex items-center p-4 bg-red-50 rounded-xl border border-red-100"
                   >
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
                     <span className="font-medium text-gray-800">{amenity}</span>
                   </motion.div>
                 ))}
@@ -429,9 +429,9 @@ export default function EditableAnantaraResortSection({
   // ===================================================================
   const Preview = () => (
     <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-      <div className="p-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+      <div className="p-6 bg-gradient-to-r from-red-500 to-red-600 text-white">
         <h1 className="text-2xl font-bold">Anantara Resort</h1>
-        <p className="text-amber-100 mt-1">Luxury Hospitality Development</p>
+        <p className="text-red-100 mt-1">Luxury Hospitality Development</p>
       </div>
       <div className="p-6 max-h-80 overflow-y-auto">
         <div className="space-y-4">
@@ -459,7 +459,7 @@ export default function EditableAnantaraResortSection({
             {features.slice(0, 3).map((feature, i) => (
               <span
                 key={i}
-                className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs"
+                className="px-2 py-1 bg-red-100 text-red-700 rounded text-xs"
               >
                 {feature}
               </span>
@@ -471,7 +471,7 @@ export default function EditableAnantaraResortSection({
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-red-100 to-red-200 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -488,7 +488,7 @@ export default function EditableAnantaraResortSection({
           <div className="sticky top-8">
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <div className="w-3 h-3 bg-amber-500 rounded-full mr-3 animate-pulse"></div>
+                <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
                 Live Preview
               </h2>
             </div>
@@ -500,20 +500,20 @@ export default function EditableAnantaraResortSection({
             {/* Basic Info */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-amber-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Project Information
               </h2>
               <div className="space-y-5">
-                  <EditableText
-                    label="Project Title"
-                    value={title}
-                    onChange={(v) => handleUpdate({ title: v })}
-                  />
-                  <EditableText
-                    label="Subtitle"
-                    value={subtitle}
-                    onChange={(v) => handleUpdate({ subtitle: v })}
-                  />
+                <EditableText
+                  label="Project Title"
+                  value={title}
+                  onChange={(v) => handleUpdate({ title: v })}
+                />
+                <EditableText
+                  label="Subtitle"
+                  value={subtitle}
+                  onChange={(v) => handleUpdate({ subtitle: v })}
+                />
                 <EditableText
                   label="Location"
                   value={location}
@@ -543,7 +543,7 @@ export default function EditableAnantaraResortSection({
             {/* Hero Image */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-orange-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Hero Image
               </h2>
               <MediaUpload
@@ -559,7 +559,7 @@ export default function EditableAnantaraResortSection({
             {/* Interior Images */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-600 rounded-full mr-3"></span>
                 Interior Images
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -584,7 +584,7 @@ export default function EditableAnantaraResortSection({
             {/* Stats */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-amber-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Key Statistics
               </h2>
               <div className="space-y-4">
@@ -611,14 +611,14 @@ export default function EditableAnantaraResortSection({
             {/* Highlights */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-orange-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-600 rounded-full mr-3"></span>
                 Project Highlights
               </h2>
               <div className="space-y-6">
                 {highlights.map((highlight, index) => (
                   <div
                     key={index}
-                    className="p-6 bg-amber-50 rounded-2xl border border-amber-100"
+                    className="p-6 bg-red-50 rounded-2xl border border-red-100"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                       <EditableText
@@ -655,7 +655,7 @@ export default function EditableAnantaraResortSection({
             {/* Features */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-600 rounded-full mr-3"></span>
                 Key Features
               </h2>
               <div className="space-y-3">
@@ -675,7 +675,7 @@ export default function EditableAnantaraResortSection({
             {/* Amenities */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900 flex items-center">
-                <span className="w-3 h-3 bg-amber-500 rounded-full mr-3"></span>
+                <span className="w-3 h-3 bg-red-500 rounded-full mr-3"></span>
                 Premium Amenities
               </h2>
               <div className="space-y-3">

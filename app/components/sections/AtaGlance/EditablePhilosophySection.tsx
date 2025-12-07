@@ -29,7 +29,7 @@ export default function EditablePhilosophySection({
     onUpdate({ content: { ...content, ...patch } });
   };
 
-  const defaultText = "We believe that the true measure of progress is how it uplifts the people and communities it touches. From bustling corporate campuses to vibrant public spaces, our work is guided by a simple yet powerful principle: build places where people feel a sense of belonging, inspiration, and pride";
+  const defaultText = "We believe that the true measure of progress is how it uplifts the people and communities it touches. From bustling corporate campuses to vibrant public spaces, our work is guided by a simple yet powerful principle: build places where people feel a sense of belonging, inspiration and pride";
 
   // Preview Component
   const renderPreview = () => {

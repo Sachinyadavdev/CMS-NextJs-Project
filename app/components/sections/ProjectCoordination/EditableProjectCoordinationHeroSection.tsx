@@ -26,8 +26,8 @@ export default function EditableProjectCoordinationHeroSection({
 
   const {
     title = "Project Oversight & Coordination",
-    subtitle = "Ensuring Alignment, Efficiency, and Accountability",
-    description = "Our coordination framework integrates strategy, communication, and execution into a unified system that keeps complex initiatives aligned from planning to delivery.",
+    subtitle = "Ensuring Alignment, Efficiency and Accountability",
+    description = "Our coordination framework integrates strategy, communication and execution into a unified system that keeps complex initiatives aligned from planning to delivery.",
     primaryButtonText = "Connect With Us",
     primaryButtonLink = "/contact",
     secondaryButtonText = "Approval Process",

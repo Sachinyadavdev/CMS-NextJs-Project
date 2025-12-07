@@ -32,7 +32,7 @@ export default function CollaboratingWithPurpose({
     subtitle: content.subtitle || "",
     description:
       content.description ||
-      "At RAUS, partnerships are more than collaborations — they are a shared commitment to shaping future-ready environments built on innovation, sustainability, and excellence. Our alliances enable us to bring together diverse expertise, global perspectives, and advanced technologies to deliver integrated solutions that exceed expectations.\n\nWe believe that when the right minds come together, extraordinary outcomes are possible.",
+      "At RAUS, partnerships are more than collaborations — they are a shared commitment to shaping future-ready environments built on innovation, sustainability and excellence. Our alliances enable us to bring together diverse expertise, global perspectives and advanced technologies to deliver integrated solutions that exceed expectations.\n\nWe believe that when the right minds come together, extraordinary outcomes are possible.",
     backgroundImage: content.backgroundImage || "",
     backgroundVideo: content.backgroundVideo || "",
     backgroundColor: content.backgroundColor || "#0b1220",

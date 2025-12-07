@@ -31,7 +31,7 @@ export default function OurPartnerEcosystem({ section, isEditing, onUpdate }: Ou
   const content = section.content || {};
   const [localContent, setLocalContent] = useState<any>({
     title: content.title || 'Our Partner Ecosystem',
-    subtitle: content.subtitle || 'RAUS collaborates with a powerful network of global and regional partners who bring specialized knowledge, cutting-edge tools, and execution excellence.',
+    subtitle: content.subtitle || 'RAUS collaborates with a powerful network of global and regional partners who bring specialized knowledge, cutting-edge tools and execution excellence.',
     backgroundColor: content.backgroundColor || '#0A1220',
     titleColor: content.titleColor || '#FFFFFF',
     textColor: content.textColor || '#DCEAFE',
@@ -40,31 +40,31 @@ export default function OurPartnerEcosystem({ section, isEditing, onUpdate }: Ou
       {
         title: 'Global Technology Providers',
         icon: 'Globe',
-        description: 'We align with leading innovators in BIM, IoT, AI analytics, digital twins, and automation to enhance project precision and digital transformation.',
+        description: 'We align with leading innovators in BIM, IoT, AI analytics, digital twins and automation to enhance project precision and digital transformation.',
         bullets: ['Intelligent modeling and visualization', 'Real-time project analytics', 'Predictive risk and performance modeling', 'Smart infrastructure integration'],
       },
       {
         title: 'Specialist Consultants',
         icon: 'Users',
-        description: 'For every project, RAUS brings in domain experts who elevate quality, comfort, and functionality.',
+        description: 'For every project, RAUS brings in domain experts who elevate quality, comfort and functionality.',
         bullets: ['Acoustics & sound engineering', 'Ergonomics & human-centered design', 'Biophilic & wellness design', 'Glare management & lighting', 'Sustainable materials & circular design'],
       },
       {
         title: 'Sustainability & Green Building Partners',
         icon: 'Leaf',
-        description: 'Sustainability is a core pillar at RAUS, and we collaborate with organizations leading advancements in green building and circular economy.',
+        description: 'Sustainability is a core pillar at RAUS and we collaborate with organizations leading advancements in green building and circular economy.',
         bullets: ['LEED & green certification', 'Circular economy systems', 'Low-carbon material development', 'Water and energy conservation', 'Climate risk & ESG advisory'],
       },
       {
         title: 'Construction & Fit-Out Contractors',
         icon: 'Wrench',
-        description: 'RAUS works with trusted construction experts who share our commitment to quality, safety, and timely delivery.',
+        description: 'RAUS works with trusted construction experts who share our commitment to quality, safety and timely delivery.',
         bullets: ['Precise execution of design intent', 'Efficient coordination across trades', 'Superior craftsmanship', 'On-time milestones & oversight'],
       },
       {
         title: 'Public Sector & Regulatory Authorities',
         icon: 'FileText',
-        description: 'RAUS maintains strong relationships with key government bodies and approval authorities—critical for navigating compliance, permitting, and technical approvals.',
+        description: 'RAUS maintains strong relationships with key government bodies and approval authorities—critical for navigating compliance, permitting and technical approvals.',
         bullets: ['Faster authority coordination', 'Efficient documentation & NOC processes', 'Regulatory alignment from concept to completion'],
       },
     ],

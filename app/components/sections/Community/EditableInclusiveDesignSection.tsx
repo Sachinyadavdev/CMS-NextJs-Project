@@ -46,7 +46,7 @@ export default function EditableInclusiveDesignSection({
   const {
     title = "Inclusive and Accessible Design",
     subtitle = "Design for Everyone",
-    description = "RAUS champions environments that welcome diverse users, respect cultural identity, and provide equitable access so communities can thrive together.",
+    description = "RAUS champions environments that welcome diverse users, respect cultural identity and provide equitable access so communities can thrive together.",
     accessibilityFeatures = [
       {
         category: "Physical Accessibility",

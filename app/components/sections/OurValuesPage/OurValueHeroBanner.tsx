@@ -35,7 +35,7 @@ export default function OurValueHeroBanner({
     const {
       title = "Our Values",
       subtitle = "Building Excellence Through Integrity",
-      description = "We are committed to delivering exceptional quality, fostering innovation, and maintaining the highest standards of integrity in everything we do.",
+      description = "We are committed to delivering exceptional quality, fostering innovation and maintaining the highest standards of integrity in everything we do.",
       buttonText,
       buttonLink,
       buttonVariant = 'primary',
@@ -357,7 +357,7 @@ export default function OurValueHeroBanner({
     const {
       title = "Our Values",
       subtitle = "Building Excellence Through Integrity",
-      description = "We are committed to delivering exceptional quality, fostering innovation, and maintaining the highest standards of integrity in everything we do.",
+      description = "We are committed to delivering exceptional quality, fostering innovation and maintaining the highest standards of integrity in everything we do.",
       buttonText,
       buttonLink,
       buttonVariant = 'primary',

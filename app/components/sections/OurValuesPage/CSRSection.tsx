@@ -28,7 +28,7 @@ interface CSRSectionProps {
 const DEFAULT_CONTENT: CSRSectionContent = {
   title: "CSR & Governance Integration",
   description:
-    "For RAUS, governance and social responsibility are inseparable. Every project integrates community welfare, local partnerships, and sustainable development. From ethical sourcing to inclusive urban design, we ensure that corporate success aligns with societal progress.",
+    "For RAUS, governance and social responsibility are inseparable. Every project integrates community welfare, local partnerships and sustainable development. From ethical sourcing to inclusive urban design, we ensure that corporate success aligns with societal progress.",
   accentColor: "#EF4130",
   textColor: "#ffffff",
   overlayColor: "rgba(10,10,10,0.20)",

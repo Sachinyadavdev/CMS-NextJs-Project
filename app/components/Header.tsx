@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X, LogOut, User } from "lucide-react";
 import { useAuth } from "@/app/providers";
+import { useAuthModal } from "@/app/contexts/AuthModalContext";
 import Image from "next/image";
 import RAUSLogo from "../assets/raus-logo.png";
 
@@ -46,6 +47,7 @@ const Header = ({
   const router = useRouter();
   const pathname = usePathname();
   const { user, logout } = useAuth();
+  const { apiFetch } = useAuthModal();
   const [pages, setPages] = useState<NavigationPage[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
@@ -59,11 +61,7 @@ const Header = ({
   useEffect(() => {
     const fetchPages = async () => {
       try {
-        const response = await fetch("/api/navigation");
-        if (!response.ok) {
-          throw new Error("Failed to load navigation");
-        }
-        const data = await response.json();
+        const data = await apiFetch("/api/navigation");
         const normalized = Array.isArray(data)
           ? data
               .map((item: any) => ({
@@ -86,7 +84,7 @@ const Header = ({
     };
 
     fetchPages();
-  }, []);
+  }, [apiFetch]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

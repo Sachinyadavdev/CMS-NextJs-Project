@@ -45,7 +45,7 @@ export default function EditableIntegratedDeliverySection({
   const {
     title = "Integrated Delivery Model",
     subtitle = "Unified Framework for Excellence",
-    description = "Architecture, engineering, construction, digital systems, and delivery oversight are unified under one framework, eliminating fragmentation and enabling cohesive project outcomes.",
+    description = "Architecture, engineering, construction, digital systems and delivery oversight are unified under one framework, eliminating fragmentation and enabling cohesive project outcomes.",
     features = [
       {
         title: "Unified Framework",
@@ -85,9 +85,9 @@ export default function EditableIntegratedDeliverySection({
         description: "Complete project delivery management"
       }
     ],
-    backgroundColor = "from-blue-50 to-indigo-100",
+    backgroundColor = "from-red-50 to-rose-100",
     textColor = "text-gray-800",
-    accentColor = "blue"
+    accentColor = "red"
   } = content;
 
   const [localContent, setLocalContent] = useState(content);
@@ -128,7 +128,7 @@ export default function EditableIntegratedDeliverySection({
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-10 right-10 w-32 h-32 bg-blue-200 rounded-full opacity-20"
+          className="absolute top-10 right-10 w-32 h-32 bg-red-200 rounded-full opacity-20"
         />
         <motion.div
           animate={{
@@ -140,7 +140,7 @@ export default function EditableIntegratedDeliverySection({
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute bottom-10 left-10 w-24 h-24 bg-indigo-300 rounded-full opacity-30"
+          className="absolute bottom-10 left-10 w-24 h-24 bg-red-300 rounded-full opacity-30"
         />
       </div>
 
@@ -152,20 +152,20 @@ export default function EditableIntegratedDeliverySection({
                 type="text"
                 value={localContent.title || title}
                 onChange={(e: any) => handleUpdate('title', e.target.value)}
-                className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-blue-300 focus:border-blue-500 outline-none"
+                className="text-4xl font-bold text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
                 placeholder="Section Title"
               />
               <input
                 type="text"
                 value={localContent.subtitle || subtitle}
                 onChange={(e: any) => handleUpdate('subtitle', e.target.value)}
-                className="text-xl text-center w-full bg-transparent border-b-2 border-blue-300 focus:border-blue-500 outline-none"
+                className="text-xl text-center w-full bg-transparent border-b-2 border-red-300 focus:border-red-500 outline-none"
                 placeholder="Section Subtitle"
               />
               <textarea
                 value={localContent.description || description}
                 onChange={(e: any) => handleUpdate('description', e.target.value)}
-                className="text-lg text-center w-full bg-transparent border-2 border-blue-300 focus:border-blue-500 outline-none rounded p-2 min-h-[100px]"
+                className="text-lg text-center w-full bg-transparent border-2 border-red-300 focus:border-red-500 outline-none rounded p-2 min-h-[100px]"
                 placeholder="Section Description"
               />
             </div>
@@ -213,7 +213,7 @@ export default function EditableIntegratedDeliverySection({
               >
                 {/* Connection line */}
                 {index < (localContent.processSteps || processSteps).length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-blue-300 transform -translate-x-1/2 z-0" />
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-red-300 transform -translate-x-1/2 z-0" />
                 )}
 
                 <div className="relative bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300">
@@ -223,7 +223,7 @@ export default function EditableIntegratedDeliverySection({
                         type="text"
                         value={step.step}
                         onChange={(e: any) => handleStepUpdate(index, 'step', e.target.value)}
-                        className="text-2xl font-bold text-blue-600 bg-transparent border-b border-blue-300 focus:border-blue-500 outline-none text-center w-full"
+                        className="text-2xl font-bold text-red-600 bg-transparent border-b border-red-300 focus:border-red-500 outline-none text-center w-full"
                       />
                       <input
                         type="text"
@@ -239,7 +239,7 @@ export default function EditableIntegratedDeliverySection({
                     </div>
                   ) : (
                     <>
-                      <div className="text-3xl font-bold text-blue-600 mb-2">{step.step}</div>
+                      <div className="text-3xl font-bold text-red-600 mb-2">{step.step}</div>
                       <h5 className="text-lg font-semibold text-gray-800 mb-2">{step.title}</h5>
                       <p className="text-sm text-gray-600">{step.description}</p>
                     </>

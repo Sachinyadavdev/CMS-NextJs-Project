@@ -36,7 +36,7 @@ export default function EditableInfrastructureResourceCapabilitiesSection({
   const {
     title = "Our Core Capabilities",
     subtitle = "Excellence in Infrastructure Development",
-    description = "We combine technical expertise, innovative solutions, and proven methodologies to deliver infrastructure projects that exceed expectations and create lasting value.",
+    description = "We combine technical expertise, innovative solutions and proven methodologies to deliver infrastructure projects that exceed expectations and create lasting value.",
     capabilities = [
       {
         id: "1",
@@ -65,7 +65,7 @@ export default function EditableInfrastructureResourceCapabilitiesSection({
       {
         id: "4",
         title: "Digital Innovation",
-        description: "Integration of digital technologies, IoT, and smart infrastructure solutions.",
+        description: "Integration of digital technologies, IoT and smart infrastructure solutions.",
         icon: "💡",
         level: 85,
         category: "Technology",

@@ -51,7 +51,9 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
     backgroundColor = '#0a0e27',
     textColor = '#e5e7eb',
     titleColor = '#ffffff',
-    subtitleColor = '#EF4130'
+    subtitleColor = '#EF4130',
+    overlay = true,
+    overlayOpacity = 0.85
   } = content;
 
   const handleContentUpdate = (patch: Record<string, unknown>) => {
@@ -62,6 +64,9 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
     const updatedSections = sections.map((section, idx) => (idx === index ? { ...section, ...patch } : section));
     handleContentUpdate({ sections: updatedSections });
   };
+
+  const normalizedOverlayOpacity = Math.min(Math.max(overlayOpacity ?? 0, 0), 1);
+  const overlayGradient = `linear-gradient(135deg, rgba(15,23,42,${normalizedOverlayOpacity}) 0%, rgba(15,23,42,${Math.min(1, normalizedOverlayOpacity + 0.1)}) 45%, rgba(15,23,42,${normalizedOverlayOpacity}) 100%)`;
 
   if (!isEditing) {
     return (
@@ -87,6 +92,13 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
             src={backgroundImage}
             alt={title}
             className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+
+        {overlay && (
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: overlayGradient }}
           />
         )}
 
@@ -240,7 +252,7 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
   const renderPreview = () => {
     return (
       <section
-        className="py-12 rounded-lg overflow-hidden"
+        className="relative py-12 rounded-lg overflow-hidden"
         style={{ backgroundColor }}
       >
         {/* Background Media */}
@@ -263,7 +275,13 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        <div className="max-w-6xl mx-auto px-4">
+        {overlay && (
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: overlayGradient }}
+          />
+        )}
+        <div className="relative z-10 max-w-6xl mx-auto px-4">
           {/* Header */}
           <div className="text-center mb-10">
             <div
@@ -358,6 +376,15 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
                 onChange={(e: any) => handleContentUpdate({ subtitle: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                 placeholder="Industry"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Text Color</label>
+              <input
+                type="color"
+                value={textColor}
+                onChange={(e: any) => handleContentUpdate({ textColor: e.target.value })}
+                className="w-full h-12 rounded-xl border border-gray-300 cursor-pointer shadow-sm"
               />
             </div>
           </div>
@@ -499,15 +526,6 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Text Color</label>
-              <input
-                type="color"
-                value={textColor}
-                onChange={(e: any) => handleContentUpdate({ textColor: e.target.value })}
-                className="w-full h-12 rounded-xl border border-gray-300 cursor-pointer shadow-sm"
-              />
-            </div>
-            <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Title Color</label>
               <input
                 type="color"
@@ -524,6 +542,47 @@ export default function EditableRealEstateInnovationSection({ section, isEditing
                 onChange={(e: any) => handleContentUpdate({ subtitleColor: e.target.value })}
                 className="w-full h-12 rounded-xl border border-gray-300 cursor-pointer shadow-sm"
               />
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <h4 className="text-lg font-semibold text-gray-800 mb-4">Overlay Settings</h4>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id="innovation-overlay-toggle"
+                  checked={overlay}
+                  onChange={(e) => handleContentUpdate({ overlay: e.target.checked })}
+                  className="w-4 h-4 rounded border-gray-300 cursor-pointer"
+                />
+                <label
+                  htmlFor="innovation-overlay-toggle"
+                  className="text-sm font-semibold text-gray-700 cursor-pointer"
+                >
+                  Enable Overlay
+                </label>
+              </div>
+
+              {overlay && (
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-3">
+                    Overlay Opacity: {Math.round(normalizedOverlayOpacity * 100)}%
+                  </label>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={Math.round(normalizedOverlayOpacity * 100)}
+                    onChange={(e) =>
+                      handleContentUpdate({
+                        overlayOpacity: parseInt(e.target.value) / 100
+                      })
+                    }
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

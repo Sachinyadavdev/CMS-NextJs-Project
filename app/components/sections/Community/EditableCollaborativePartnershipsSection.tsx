@@ -47,7 +47,7 @@ export default function EditableCollaborativePartnershipsSection({
   const {
     title = "Collaborative Community Partnerships",
     subtitle = "Working Together for Lasting Impact",
-    description = "By working closely with local authorities, NGOs, civic organizations, and stakeholders, RAUS ensures every project responds to real needs and delivers lasting social impact.",
+    description = "By working closely with local authorities, NGOs, civic organizations and stakeholders, RAUS ensures every project responds to real needs and delivers lasting social impact.",
     stakeholderGroups = [
       {
         group: "Local Authorities",

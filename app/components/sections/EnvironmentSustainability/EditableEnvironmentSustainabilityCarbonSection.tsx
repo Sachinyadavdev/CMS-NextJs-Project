@@ -42,8 +42,8 @@ export default function EditableEnvironmentSustainabilityCarbonSection({
 
   const {
     title = "Carbon, Climate & ESG Integration",
-    description1 = "Our environmental services include in-depth carbon and climate risk assessments that help future-proof infrastructure against emerging environmental challenges. We evaluate emissions, climate vulnerabilities, and adaptation measures to create solutions that are resilient and forward-looking.",
-    description2 = "We also develop ESG frameworks tailored to project and organizational goals, helping clients meet global expectations for environmental stewardship, social impact, and strong governance. Through these integrated strategies, RAUS ensures that sustainability objectives are measurable, actionable, and aligned with long-term development visions.",
+    description1 = "Our environmental services include in-depth carbon and climate risk assessments that help future-proof infrastructure against emerging environmental challenges. We evaluate emissions, climate vulnerabilities and adaptation measures to create solutions that are resilient and forward-looking.",
+    description2 = "We also develop ESG frameworks tailored to project and organizational goals, helping clients meet global expectations for environmental stewardship, social impact and strong governance. Through these integrated strategies, RAUS ensures that sustainability objectives are measurable, actionable and aligned with long-term development visions.",
     carbonMetrics = [
       {
         id: "1",
